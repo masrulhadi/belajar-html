@@ -4,82 +4,81 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Belajar HTML - Login</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
-<body bgcolor="#F1F5FF" text="#10204A">
+<body class="login-page">
 
     <!-- ==================== HEADER ==================== -->
-    <header>
-    <table width="100%" bgcolor="#FFFFFF" cellpadding="14" cellspacing="0" border="0">
-        <tr>
-            <td width="50%" align="left">
-                <div>
-                    <a href="index.html"><font size="5" color="#1F43E6"><b>Belajar HTML</b></font></a>
-                </div>
-            </td>
-            <td align="right">
-                <nav>
-                    <a href="index.html">Home</a>&nbsp;&nbsp;&nbsp;
-                    <a href="index.html">Event</a>&nbsp;&nbsp;&nbsp;
-                    <a href="index.html">Course</a>&nbsp;&nbsp;&nbsp;
-                    <a href="index.html">Mentoring</a>&nbsp;&nbsp;&nbsp;
-                    <a href="tentang.html">Blog</a>
-                </nav>
-            </td>
-            <td align="right" nowrap>
-                <font size="3">
-                    <a href="login.html"><font color="#10204A"><b>Masuk</b></font></a>
-                </font>
-            </td>
-        </tr>
-    </table>
+    <header class="site-header">
+        <table class="header-table">
+            <tr>
+                <td class="header-logo-cell">
+                    <div>
+                        <a href="index.html" class="header-logo">Belajar HTML</a>
+                    </div>
+                </td>
+                <td class="header-nav-cell">
+                    <nav class="header-nav">
+                        <a href="index.html" class="nav-link">Home</a>
+                        <a href="index.html" class="nav-link">Event</a>
+                        <a href="index.html" class="nav-link">Course</a>
+                        <a href="index.html" class="nav-link">Mentoring</a>
+                        <a href="tentang.html" class="nav-link">Blog</a>
+                    </nav>
+                </td>
+                <td class="header-cta-cell">
+                    <a href="login.html" class="header-cta">Masuk</a>
+                </td>
+            </tr>
+        </table>
     </header>
 
     <!-- ==================== FORM LOGIN ==================== -->
-    <table width="100%" cellpadding="60" cellspacing="0" border="0">
+    <table class="login-main-table">
         <tr>
-            <td align="center">
-                <table width="420" border="0" cellpadding="0" bgcolor="#FFFFFF">
+            <td>
+                <table class="login-card">
                     <tr>
-                        <td align="center" bgcolor="#0A1535" cellpadding="24">
-                            <font size="5" color="#FFFFFF"><b></b></font>
-                        </td>
+                        <td class="login-header"></td>
                     </tr>
                     <tr>
-                        <td cellpadding="30" align="center">
-                            <table width="85%" border="0" cellpadding="8">
+                        <td class="login-body">
+                            <table class="login-inner">
                                 <tr>
-                                    <td align="center">
-                                        <font size="5" color="#10204A"><b>Masuk</b></font>
-                                        <p><font color="#475569" size="3">Selamat datang kembali! Silakan masuk ke akunmu.</font></p>
+                                    <td>
+                                        <h2 class="login-title">Masuk</h2>
+                                        <p class="login-subtitle">Selamat datang kembali! Silakan masuk ke akunmu.</p>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <p><b><font size="3" color="#10204A">Email</font></b></p>
-                                        <p><font size="3">&nbsp;<input type="email" name="email" placeholder="nama@email.com" size="36"></font></p>
+                                        <div class="form-group">
+                                            <label class="form-label" for="email">Email</label>
+                                            <input type="email" id="email" name="email" class="form-input" placeholder="nama@email.com">
+                                        </div>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <p><b><font size="3" color="#10204A">Password</font></b></p>
-                                        <p><font size="3">&nbsp;<input type="password" name="password" placeholder="Masukkan password" size="36"></font></p>
+                                        <div class="form-group">
+                                            <label class="form-label" for="password">Password</label>
+                                            <input type="password" id="password" name="password" class="form-input" placeholder="Masukkan password">
+                                        </div>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td align="right">
-                                        <a href="login.html"><font size="2" color="#1F43E6"><b>Lupa password?</b></font></a>
+                                    <td class="form-forgot">
+                                        <a href="login.html">Lupa password?</a>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td align="center">
-                                        <p>&nbsp;</p>
-                                        <a href="index.html"><font color="#00000" size="4"><b>Masuk Sekarang</b></font></a>
+                                    <td>
+                                        <a href="index.html" class="form-submit">Masuk Sekarang</a>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td align="center">
-                                        <p><font color="#475569" size="3">Belum punya akun? <a href="login.html"><b>Daftar di sini</b></a></font></p>
+                                    <td class="form-register">
+                                        Belum punya akun? <a href="login.html">Daftar di sini</a>
                                     </td>
                                 </tr>
                             </table>
@@ -91,52 +90,56 @@
     </table>
 
     <!-- ==================== FOOTER ==================== -->
-    <footer>
-    <table width="100%" bgcolor="#0A1535" cellpadding="40" cellspacing="0" border="0">
-        <tr valign="top">
-            <td width="35%">
-                <a href="index.html"><font size="5" color="#FFFFFF"><b>Belajar HTML</b></font></a>
-                <p><font color="#C9D8FF" size="3">
-                    Ekosistem belajar teknologi berbasis komunitas - tempat bertemunya mentor, dan peluang nyata di industri IT Indonesia.
-                </font></p>
-                <p><font color="#9DC3FF" size="3">Jl. AMD, Batoh, Banda Aceh</font></p>
-                <p>
-                    <a href="index.html" target="_blank"><font color="#9DC3FF" size="3">Instagram</font></a>
-                    &nbsp;&nbsp;
-                    <a href="index.html" target="_blank"><font color="#9DC3FF" size="3">LinkedIn</font></a>
-                    &nbsp;&nbsp;
-                    <a href="index.html" target="_blank"><font color="#9DC3FF" size="3">YouTube</font></a>
-                </p>
-            </td>
-            <td width="20%">
-                <font size="4" color="#FFFFFF"><b>Cara Belajar</b></font>
-                <p><font color="#C9D8FF" size="3">Event Webinar</font><br>
-                <font color="#C9D8FF" size="3">Workshop</font><br>
-                <font color="#C9D8FF" size="3">Mini Class</font><br>
-                <font color="#C9D8FF" size="3">Private Mentoring</font><br>
-                <font color="#C9D8FF" size="3">Course Video</font></p>
-            </td>
-            <td width="20%">
-                <font size="4" color="#FFFFFF"><b>Komunitas</b></font>
-                <p><a href="index.html"><font color="#C9D8FF" size="3">Jadi Mentor</font></a><br>
-                <a href="index.html"><font color="#C9D8FF" size="3">Daftar Mentor</font></a><br>
-                <a href="tentang.html"><font color="#C9D8FF" size="3">Blog &amp; Artikel</font></a><br>
-                <a href="index.html" target="_blank"><font color="#C9D8FF" size="3">Discord Community</font></a></p>
-            </td>
-            <td width="25%">
-                <font size="4" color="#FFFFFF"><b>Perusahaan</b></font>
-                <p><font color="#C9D8FF" size="3">Tentang Kami</font><br>
-                <font color="#C9D8FF" size="3">Karir</font><br>
-                <font color="#C9D8FF" size="3">Kontak</font></p>
-            </td>
-        </tr>
-    </table>
+    <footer class="site-footer">
+        <table class="footer-table">
+            <tr>
+                <td class="footer-brand">
+                    <a href="index.html" class="footer-brand-link">Belajar HTML</a>
+                    <p class="footer-desc">
+                        Ekosistem belajar teknologi berbasis komunitas - tempat bertemunya mentor, dan peluang nyata di industri IT Indonesia.
+                    </p>
+                    <p class="footer-address">Jl. AMD, Batoh, Banda Aceh</p>
+                    <p class="footer-social">
+                        <a href="index.html" target="_blank">Instagram</a>
+                        <a href="index.html" target="_blank">LinkedIn</a>
+                        <a href="index.html" target="_blank">YouTube</a>
+                    </p>
+                </td>
+                <td class="footer-col">
+                    <h4 class="footer-heading">Cara Belajar</h4>
+                    <p class="footer-links">
+                        Event Webinar<br>
+                        Workshop<br>
+                        Mini Class<br>
+                        Private Mentoring<br>
+                        Course Video
+                    </p>
+                </td>
+                <td class="footer-col">
+                    <h4 class="footer-heading">Komunitas</h4>
+                    <p class="footer-links">
+                        <a href="index.html">Jadi Mentor</a><br>
+                        <a href="index.html">Daftar Mentor</a><br>
+                        <a href="tentang.html">Blog &amp; Artikel</a><br>
+                        <a href="index.html" target="_blank">Discord Community</a>
+                    </p>
+                </td>
+                <td class="footer-col-last">
+                    <h4 class="footer-heading">Perusahaan</h4>
+                    <p class="footer-links">
+                        Tentang Kami<br>
+                        Karir<br>
+                        Kontak
+                    </p>
+                </td>
+            </tr>
+        </table>
 
-    <hr color="#1F4393">
-    <p align="center">
-        <font color="#000000" size="3">Dibuat oleh: <b>Masrul Hadi</b> (NIM 240705068)</font><br>
-        <font color="#000000" size="2">&copy; 2026 Belajar HTML. All rights reserved.</font>
-    </p>
+        <hr class="footer-divider">
+        <p class="footer-bottom">
+            <span class="footer-credit">Dibuat oleh: <b>Masrul Hadi</b> (NIM 240705068)</span><br>
+            <span class="footer-copy">&copy; 2026 Belajar HTML. All rights reserved.</span>
+        </p>
     </footer>
 
 </body>

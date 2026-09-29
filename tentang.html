@@ -4,144 +4,162 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog & Tentang - Belajar HTML</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
-<body bgcolor="#FFFFFF" text="#10204A">
+<body>
 
     <!-- ==================== HEADER ==================== -->
-    <header>
-    <table width="100%" bgcolor="#FFFFFF" cellpadding="14" cellspacing="0" border="0">
-        <tr>
-            <td width="50%" align="left">
-                <div>
-                    <a href="index.html"><font size="5" color="#1F43E6"><b>Belajar HTML</b></font></a>
-                </div>
-            </td>
-            <td align="right">
-                <nav>
-                    <a href="index.html">Home</a>&nbsp;&nbsp;&nbsp;
-                    <a href="index.html">Event</a>&nbsp;&nbsp;&nbsp;
-                    <a href="index.html">Course</a>&nbsp;&nbsp;&nbsp;
-                    <a href="index.html">Mentoring</a>&nbsp;&nbsp;&nbsp;
-                    <a href="tentang.html"><b>Blog</b></a>
-                </nav>
-            </td>
-            <td align="right" nowrap>
-                <font size="3">
-                    <a href="login.html"><font color="#10204A">Masuk</font></a>
-                </font>
-            </td>
-        </tr>
-    </table>
+    <header class="site-header">
+        <table class="header-table">
+            <tr>
+                <td class="header-logo-cell">
+                    <div>
+                        <a href="index.html" class="header-logo">Belajar HTML</a>
+                    </div>
+                </td>
+                <td class="header-nav-cell">
+                    <nav class="header-nav">
+                        <a href="index.html" class="nav-link">Home</a>
+                        <a href="index.html" class="nav-link">Event</a>
+                        <a href="index.html" class="nav-link">Course</a>
+                        <a href="index.html" class="nav-link">Mentoring</a>
+                        <a href="tentang.html" class="nav-link">Blog</a>
+                    </nav>
+                </td>
+                <td class="header-cta-cell">
+                    <a href="login.html" class="header-cta">Masuk</a>
+                </td>
+            </tr>
+        </table>
     </header>
 
     <!-- ==================== JUDUL HALAMAN ==================== -->
-    <table width="100%" bgcolor="#0A1535" cellpadding="40" cellspacing="0" border="0">
-        <tr>
-            <td align="center">
-                <font color="#9DC3FF" size="3"><b>BLOG & TENTANG</b></font>
-                <h1><font color="#FFFFFF" size="6">Artikel & Tentang Kami</font></h1>
-            </td>
-        </tr>
-    </table>
+    <section class="page-banner">
+        <table class="page-banner-table">
+            <tr>
+                <td>
+                    <p class="page-banner-badge">BLOG & TENTANG</p>
+                    <h1 class="page-banner-title">Artikel & Tentang Kami</h1>
+                </td>
+            </tr>
+        </table>
+    </section>
 
     <!-- ==================== DAFTAR ARTIKEL ==================== -->
-    <table width="100%" bgcolor="#FFFFFF" cellpadding="50" cellspacing="0" border="0">
-        <tr>
-            <td>
-                <h2><font color="#10204A" size="5">Artikel Terbaru</font></h2>
-                <p>&nbsp;</p>
-                <table width="100%" border="0" cellspacing="15" cellpadding="0">
-                    <tr valign="top" align="left">
-                        <td width="33%" bgcolor="#F8FAFF">
-                            <table width="100%" border="0" cellpadding="14">
-                                <tr>
-                                    <td>
-                                        <img src="assets/gambar1.jpg" alt="Tips produktif" width="100%" height="160">
-                                        <p><font size="2" color="#475569">20 Juni 2026 &middot; Gaya Hidup</font></p>
-                                        <p><a href="tentang.html"><font size="4" color="#10204A"><b>Tips Memulai Hari dengan Produktif</b></font></a></p>
-                                        <p><font color="#475569" size="3">Pagi yang baik menentukan seluruh hari. Berikut tipsnya...</font></p>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                        <td width="33%" bgcolor="#F8FAFF">
-                            <table width="100%" border="0" cellpadding="14">
-                                <tr>
-                                    <td>
-                                        <img src="assets/gambar2.jpg" alt="Liburan pantai" width="100%" height="160">
-                                        <p><font size="2" color="#475569">15 Juni 2026 &middot; Traveling</font></p>
-                                        <p><a href="tentang.html"><font size="4" color="#10204A"><b>Pengalaman Perjalanan ke Pantai</b></font></a></p>
-                                        <p><font color="#475569" size="3">Melepas penat dan menikmati matahari terbenam...</font></p>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                        <td width="33%" bgcolor="#F8FAFF">
-                            <table width="100%" border="0" cellpadding="14">
-                                <tr>
-                                    <td>
-                                        <img src="assets/gambar3.jpg" alt="Belajar memasak" width="100%" height="160">
-                                        <p><font size="2" color="#475569">10 Juni 2026 &middot; Kuliner</font></p>
-                                        <p><a href="tentang.html"><font size="4" color="#10204A"><b>Belajar Memasak untuk Pemula</b></font></a></p>
-                                        <p><font color="#475569" size="3">Memasak tidak sesulit yang dibayangkan...</font></p>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-    </table>
+    <section class="articles-section">
+        <table class="articles-table">
+            <tr>
+                <td>
+                    <h2 class="section-title">Artikel Terbaru</h2>
+
+                    <table class="articles-grid">
+                        <tr>
+                            <td class="article-card">
+                                <table class="article-card-inner">
+                                    <tr>
+                                        <td>
+                                            <img src="assets/gambar1.jpg" alt="Tips produktif" class="article-img">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p class="article-meta">20 Juni 2026 &middot; Gaya Hidup</p>
+                                            <h3 class="article-title"><a href="tentang.html">Tips Memulai Hari dengan Produktif</a></h3>
+                                            <p class="article-excerpt">Pagi yang baik menentukan seluruh hari. Berikut tipsnya...</p>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td class="article-card">
+                                <table class="article-card-inner">
+                                    <tr>
+                                        <td>
+                                            <img src="assets/gambar2.jpg" alt="Liburan pantai" class="article-img">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p class="article-meta">15 Juni 2026 &middot; Traveling</p>
+                                            <h3 class="article-title"><a href="tentang.html">Pengalaman Perjalanan ke Pantai</a></h3>
+                                            <p class="article-excerpt">Melepas penat dan menikmati matahari terbenam...</p>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td class="article-card">
+                                <table class="article-card-inner">
+                                    <tr>
+                                        <td>
+                                            <img src="assets/gambar3.jpg" alt="Belajar memasak" class="article-img">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p class="article-meta">10 Juni 2026 &middot; Kuliner</p>
+                                            <h3 class="article-title"><a href="tentang.html">Belajar Memasak untuk Pemula</a></h3>
+                                            <p class="article-excerpt">Memasak tidak sesulit yang dibayangkan...</p>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </section>
 
     <!-- ==================== FOOTER ==================== -->
-    <footer>
-    <table width="100%" bgcolor="#0A1535" cellpadding="40" cellspacing="0" border="0">
-        <tr valign="top">
-            <td width="35%">
-                <a href="index.html"><font size="5" color="#FFFFFF"><b>Belajar HTML</b></font></a>
-                <p><font color="#C9D8FF" size="3">
-                    Ekosistem belajar teknologi berbasis komunitas - tempat bertemunya mentor, dan peluang nyata di industri IT Indonesia.
-                </font></p>
-                <p><font color="#9DC3FF" size="3">Jl. AMD, Batoh, Banda Aceh</font></p>
-                <p>
-                    <a href="index.html" target="_blank"><font color="#9DC3FF" size="3">Instagram</font></a>
-                    &nbsp;&nbsp;
-                    <a href="index.html" target="_blank"><font color="#9DC3FF" size="3">LinkedIn</font></a>
-                    &nbsp;&nbsp;
-                    <a href="index.html" target="_blank"><font color="#9DC3FF" size="3">YouTube</font></a>
-                </p>
-            </td>
-            <td width="20%">
-                <font size="4" color="#FFFFFF"><b>Cara Belajar</b></font>
-                <p><font color="#C9D8FF" size="3">Event Webinar</font><br>
-                <font color="#C9D8FF" size="3">Workshop</font><br>
-                <font color="#C9D8FF" size="3">Mini Class</font><br>
-                <font color="#C9D8FF" size="3">Private Mentoring</font><br>
-                <font color="#C9D8FF" size="3">Course Video</font></p>
-            </td>
-            <td width="20%">
-                <font size="4" color="#FFFFFF"><b>Komunitas</b></font>
-                <p><a href="index.html"><font color="#C9D8FF" size="3">Jadi Mentor</font></a><br>
-                <a href="index.html"><font color="#C9D8FF" size="3">Daftar Mentor</font></a><br>
-                <a href="tentang.html"><font color="#C9D8FF" size="3">Blog &amp; Artikel</font></a><br>
-                <a href="index.html" target="_blank"><font color="#C9D8FF" size="3">Discord Community</font></a></p>
-            </td>
-            <td width="25%">
-                <font size="4" color="#FFFFFF"><b>Perusahaan</b></font>
-                <p><font color="#C9D8FF" size="3">Tentang Kami</font><br>
-                <font color="#C9D8FF" size="3">Karir</font><br>
-                <font color="#C9D8FF" size="3">Kontak</font></p>
-            </td>
-        </tr>
-    </table>
+    <footer class="site-footer">
+        <table class="footer-table">
+            <tr>
+                <td class="footer-brand">
+                    <a href="index.html" class="footer-brand-link">Belajar HTML</a>
+                    <p class="footer-desc">
+                        Ekosistem belajar teknologi berbasis komunitas - tempat bertemunya mentor, dan peluang nyata di industri IT Indonesia.
+                    </p>
+                    <p class="footer-address">Jl. AMD, Batoh, Banda Aceh</p>
+                    <p class="footer-social">
+                        <a href="index.html" target="_blank">Instagram</a>
+                        <a href="index.html" target="_blank">LinkedIn</a>
+                        <a href="index.html" target="_blank">YouTube</a>
+                    </p>
+                </td>
+                <td class="footer-col">
+                    <h4 class="footer-heading">Cara Belajar</h4>
+                    <p class="footer-links">
+                        Event Webinar<br>
+                        Workshop<br>
+                        Mini Class<br>
+                        Private Mentoring<br>
+                        Course Video
+                    </p>
+                </td>
+                <td class="footer-col">
+                    <h4 class="footer-heading">Komunitas</h4>
+                    <p class="footer-links">
+                        <a href="index.html">Jadi Mentor</a><br>
+                        <a href="index.html">Daftar Mentor</a><br>
+                        <a href="tentang.html">Blog &amp; Artikel</a><br>
+                        <a href="index.html" target="_blank">Discord Community</a>
+                    </p>
+                </td>
+                <td class="footer-col-last">
+                    <h4 class="footer-heading">Perusahaan</h4>
+                    <p class="footer-links">
+                        Tentang Kami<br>
+                        Karir<br>
+                        Kontak
+                    </p>
+                </td>
+            </tr>
+        </table>
 
-    <hr color="#1F4393">
-    <p align="center">
-        <font color="#000000" size="3">Dibuat oleh: <b>Masrul Hadi</b> (NIM 240705068)</font><br>
-        <font color="#000000" size="2">&copy; 2026 Belajar HTML. All rights reserved.</font>
-    </p>
+        <hr class="footer-divider">
+        <p class="footer-bottom">
+            <span class="footer-credit">Dibuat oleh: <b>Masrul Hadi</b> (NIM 240705068)</span><br>
+            <span class="footer-copy">&copy; 2026 Belajar HTML. All rights reserved.</span>
+        </p>
     </footer>
 
 </body>

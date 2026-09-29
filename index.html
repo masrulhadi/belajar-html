@@ -4,321 +4,327 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Belajar HTML</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
-<body bgcolor="#FFFFFF" text="#10204A">
+<body>
 
     <!-- ==================== HEADER ==================== -->
-    <header>
-    <table width="100%" bgcolor="#FFFFFF" cellpadding="14" cellspacing="0" border="0">
-        <tr>
-            <td width="50%" align="left">
-                <div>
-                    <a href="index.html"><font size="5" color="#1F43E6"><b>Belajar HTML</b></font></a>
-                </div>
-            </td>
-            <td align="right">
-                <nav>
-                    <a href="index.html">Home</a>&nbsp;&nbsp;&nbsp;
-                    <a href="index.html">Event</a>&nbsp;&nbsp;&nbsp;
-                    <a href="index.html">Course</a>&nbsp;&nbsp;&nbsp;
-                    <a href="index.html">Mentoring</a>&nbsp;&nbsp;&nbsp;
-                    <a href="tentang.html">Blog</a>
-                </nav>
-            </td>
-            <td align="right" nowrap>
-                <font size="3">
-                    <a href="login.html"><font color="#10204A">Masuk</font></a>
-                </font>
-            </td>
-        </tr>
-    </table>
+    <header class="site-header">
+        <table class="header-table">
+            <tr>
+                <td class="header-logo-cell">
+                    <div>
+                        <a href="index.html" class="header-logo">Belajar HTML</a>
+                    </div>
+                </td>
+                <td class="header-nav-cell">
+                    <nav class="header-nav">
+                        <a href="index.html" class="nav-link">Home</a>
+                        <a href="index.html" class="nav-link">Event</a>
+                        <a href="index.html" class="nav-link">Course</a>
+                        <a href="index.html" class="nav-link">Mentoring</a>
+                        <a href="tentang.html" class="nav-link">Blog</a>
+                    </nav>
+                </td>
+                <td class="header-cta-cell">
+                    <a href="login.html" class="header-cta">Masuk</a>
+                </td>
+            </tr>
+        </table>
 
-    <!-- ==================== HERO ==================== -->
-    <table width="100%" bgcolor="#0A1535" cellpadding="50" cellspacing="0" border="0">
-        <tr>
-            <td width="55%" valign="center">
-                <font color="#9DC3FF" size="3"><b>EKOSISTEM BELAJAR TEKNOLOGI #1 INDONESIA</b></font>
-                <h1><font color="#FFFFFF" size="7">Tempat Kamu<br>Belajar, <font color="#FFD60A">Bertumbuh</font><br>
-                <font color="#6FA6FF">&amp; Berkontribusi</font></font></h1>
-                <p><font color="#C9D8FF" size="4">
-                    Event, mentoring, dan course teknologi - dikelola bersama komunitas mentor berpengalaman.
-                    Satu ekosistem untuk semua perjalananmu di dunia IT.
-                </font></p>
-                <p>
-                    <a href="index.html"><font color="#FFFFFF" size="4"><b>Mulai Belajar Gratis</b></font></a>
-                </p>
-            </td>
-            <td width="45%" align="center" valign="center">
-                <table bgcolor="#FFFFFF" cellpadding="24" cellspacing="0" border="0" width="90%">
-                    <tr>
-                        <td align="left">
-                            <h2><font color="#10204A" size="5">Satu ekosistem untuk semua jalur belajarmu</font></h2>
-                            <p><font color="#475569" size="3">
-                                - Webinar mingguan dengan topik baru tiap pekan<br>
-                                - Mentoring privat 1-on-1 sesuai kebutuhan<br>
-                                - Course video yang bisa diakses selamanya<br>
-                                - Komunitas Discord yang aktif setiap hari
-                            </font></p>
-                            <p align="center">
-                                <img src="assets/gambar_orang_belajar.jpeg" alt="Belajar coding" width="400" height="220">
-                            </p>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-    </table>
+        <!-- ==================== HERO ==================== -->
+        <section class="hero">
+            <table class="hero-table">
+                <tr>
+                    <td class="hero-content-cell">
+                        <p class="hero-badge">EKOSISTEM BELAJAR TEKNOLOGI #1 INDONESIA</p>
+                        <h1 class="hero-title">Tempat Kamu<br>Belajar, <span class="highlight-yellow">Bertumbuh</span><br>
+                        <span class="highlight-blue">&amp; Berkontribusi</span></h1>
+                        <p class="hero-desc">
+                            Event, mentoring, dan course teknologi - dikelola bersama komunitas mentor berpengalaman.
+                            Satu ekosistem untuk semua perjalananmu di dunia IT.
+                        </p>
+                        <p>
+                            <a href="index.html" class="hero-cta">Mulai Belajar Gratis</a>
+                        </p>
+                    </td>
+                    <td class="hero-card-cell">
+                        <table class="hero-card">
+                            <tr>
+                                <td>
+                                    <h2 class="hero-card-title">Satu ekosistem untuk semua jalur belajarmu</h2>
+                                    <ul class="hero-card-list">
+                                        <li>Webinar mingguan dengan topik baru tiap pekan</li>
+                                        <li>Mentoring privat 1-on-1 sesuai kebutuhan</li>
+                                        <li>Course video yang bisa diakses selamanya</li>
+                                        <li>Komunitas Discord yang aktif setiap hari</li>
+                                    </ul>
+                                    <p class="hero-card-img-wrap">
+                                        <img src="assets/gambar_orang_belajar.jpeg" alt="Belajar coding" class="hero-card-img">
+                                    </p>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </section>
     </header>
 
     <!-- ==================== MAIN CONTENT ==================== -->
     <main>
 
     <!-- ==================== SECTION 1: EVENT MENDATANG ==================== -->
-    <section>
-    <table width="100%" bgcolor="#FFFFFF" cellpadding="50" cellspacing="0" border="0">
-        <tr>
-            <td>
-                <table width="100%" border="0" cellpadding="0">
-                    <tr>
-                        <td align="left">
-                            <h2><font size="5" color="#10204A">Event Mendatang</font></h2>
-                        </td>
-                    </tr>
-                </table>
+    <section class="section-white">
+        <table class="section-table">
+            <tr>
+                <td>
+                    <h2 class="section-title">Event Mendatang</h2>
 
-                <table width="100%" border="0" cellspacing="15" cellpadding="0">
-                    <tr valign="top" align="left">
-                        <td width="25%" bgcolor="#F8FAFF">
-                            <table width="100%" border="0" cellpadding="14">
-                                <tr><td bgcolor="#DDE7FF"><font color="#1F43E6" size="2"><b>ONLINE EVENT</b></font></td></tr>
-                                <tr><td><font size="4" color="#10204A"><b>Menang Hackathon, Bawa Pulang Ribuan Dollar!</b></font>
-                                    <p><font color="#475569" size="3">22 Sep 2026, 19:30 WIB</font></p>
-                                    <p><b><font size="2" color="#10204A">PEMBICARA</font></b><br>
-                                    <font size="3" color="#10204A"><b>Febi Mettasari</b></font><br>
-                                    <font size="2" color="#475569">Web Programming</font></p>
-                                    <p><font size="3" color="#10204A"><b>0 peserta terdaftar</b></font></p>
-                                    <hr>
-                                    <table width="100%"><tr>
-                                        <td><font size="4" color="#10204A"><b>Gratis</b></font></td>
-                                        <td align="right"><a href="login.html"><font size="3" color="#1F43E6"><b>Gabung</b></font></a></td>
-                                    </tr></table>
-                                </td></tr>
-                            </table>
-                        </td>
+                    <table class="event-grid">
+                        <tr>
+                            <td class="event-card">
+                                <table class="event-card-inner">
+                                    <tr><td class="event-badge event-badge-blue">ONLINE EVENT</td></tr>
+                                    <tr><td>
+                                        <h3 class="event-title">Menang Hackathon, Bawa Pulang Ribuan Dollar!</h3>
+                                        <p class="event-date">22 Sep 2026, 19:30 WIB</p>
+                                        <p class="event-speaker-label">PEMBICARA</p>
+                                        <p class="event-speaker">Febi Mettasari</p>
+                                        <p class="event-speaker-role">Web Programming</p>
+                                        <p class="event-count">0 peserta terdaftar</p>
+                                        <hr class="event-divider">
+                                        <table class="event-footer">
+                                            <tr>
+                                                <td><span class="event-price">Gratis</span></td>
+                                                <td><a href="login.html" class="event-join">Gabung</a></td>
+                                            </tr>
+                                        </table>
+                                    </td></tr>
+                                </table>
+                            </td>
 
-                        <td width="25%" bgcolor="#F8FAFF">
-                            <table width="100%" border="0" cellpadding="14">
-                                <tr><td bgcolor="#D9F2D6"><font color="#1F9415" size="2"><b> ONLINE EVENT</b></font></td></tr>
-                                <tr><td><font size="4" color="#10204A"><b>Jadi Business Analyst di Era Gembpuran AI Agent</b></font>
-                                    <p><font color="#475569" size="3"> 17 Sep 2026, 19:30 WIB</font></p>
-                                    <p><b><font size="2" color="#10204A">PEMBICARA</font></b><br>
-                                    <font size="3" color="#10204A"><b>Siti Yaumil Muqsithoh</b></font><br>
-                                    <font size="2" color="#475569">Academic Mentoring</font></p>
-                                    <p><font size="3" color="#10204A"><b>86 peserta terdaftar</b></font></p>
-                                    <hr>
-                                    <table width="100%"><tr>
-                                        <td><font size="4" color="#10204A"><b>Bayar Sesukamu</b></font></td>
-                                        <td align="right"><a href="login.html"><font size="3" color="#1F43E6"><b>Gabung</b></font></a></td>
-                                    </tr></table>
-                                </td></tr>
-                            </table>
-                        </td>
+                            <td class="event-card">
+                                <table class="event-card-inner">
+                                    <tr><td class="event-badge event-badge-green">ONLINE EVENT</td></tr>
+                                    <tr><td>
+                                        <h3 class="event-title">Jadi Business Analyst di Era Gembpuran AI Agent</h3>
+                                        <p class="event-date">17 Sep 2026, 19:30 WIB</p>
+                                        <p class="event-speaker-label">PEMBICARA</p>
+                                        <p class="event-speaker">Siti Yaumil Muqsithoh</p>
+                                        <p class="event-speaker-role">Academic Mentoring</p>
+                                        <p class="event-count">86 peserta terdaftar</p>
+                                        <hr class="event-divider">
+                                        <table class="event-footer">
+                                            <tr>
+                                                <td><span class="event-price">Bayar Sesukamu</span></td>
+                                                <td><a href="login.html" class="event-join">Gabung</a></td>
+                                            </tr>
+                                        </table>
+                                    </td></tr>
+                                </table>
+                            </td>
 
-                        <td width="25%" bgcolor="#F8FAFF">
-                            <table width="100%" border="0" cellpadding="14">
-                                <tr><td bgcolor="#DDE7FF"><font color="#1F43E6" size="2"><b> ONLINE EVENT</b></font></td></tr>
-                                <tr><td><font size="4" color="#10204A"><b>Sukses Jadi Frontend Developer Profesional</b></font>
-                                    <p><font color="#475569" size="3"> 10 Sep 2026, 19:30 WIB</font></p>
-                                    <p><b><font size="2" color="#10204A">PEMBICARA</font></b><br>
-                                    <font size="3" color="#10204A"><b>Alfian Luthfi</b></font><br>
-                                    <font size="2" color="#475569">Web Programming</font></p>
-                                    <p><font size="3" color="#10204A"><b>124 peserta terdaftar</b></font></p>
-                                    <hr>
-                                    <table width="100%"><tr>
-                                        <td><font size="4" color="#10204A"><b>Rp 79.000</b></font></td>
-                                        <td align="right"><a href="login.html"><font size="3" color="#1F43E6"><b>Gabung</b></font></a></td>
-                                    </tr></table>
-                                </td></tr>
-                            </table>
-                        </td>
+                            <td class="event-card">
+                                <table class="event-card-inner">
+                                    <tr><td class="event-badge event-badge-blue">ONLINE EVENT</td></tr>
+                                    <tr><td>
+                                        <h3 class="event-title">Sukses Jadi Frontend Developer Profesional</h3>
+                                        <p class="event-date">10 Sep 2026, 19:30 WIB</p>
+                                        <p class="event-speaker-label">PEMBICARA</p>
+                                        <p class="event-speaker">Alfian Luthfi</p>
+                                        <p class="event-speaker-role">Web Programming</p>
+                                        <p class="event-count">124 peserta terdaftar</p>
+                                        <hr class="event-divider">
+                                        <table class="event-footer">
+                                            <tr>
+                                                <td><span class="event-price">Rp 79.000</span></td>
+                                                <td><a href="login.html" class="event-join">Gabung</a></td>
+                                            </tr>
+                                        </table>
+                                    </td></tr>
+                                </table>
+                            </td>
 
-                        <td width="25%" bgcolor="#F8FAFF">
-                            <table width="100%" border="0" cellpadding="14">
-                                <tr><td bgcolor="#D9F2D6"><font color="#1F9415" size="2"><b> ONLINE EVENT</b></font></td></tr>
-                                <tr><td><font size="4" color="#10204A"><b>Memulai Karir Data Scientist dengan Python</b></font>
-                                    <p><font color="#475569" size="3"> 24 Sep 2026, 19:30 WIB</font></p>
-                                    <p><b><font size="2" color="#10204A">PEMBICARA</font></b><br>
-                                    <font size="3" color="#10204A"><b>Yusep Maulana</b></font><br>
-                                    <font size="2" color="#475569">Data</font></p>
-                                    <p><font size="3" color="#10204A"><b>58 peserta terdaftar</b></font></p>
-                                    <hr>
-                                    <table width="100%"><tr>
-                                        <td><font size="4" color="#10204A"><b>Rp 30.000</b></font></td>
-                                        <td align="right"><a href="login.html"><font size="3" color="#1F43E6"><b>Gabung</b></font></a></td>
-                                    </tr></table>
-                                </td></tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-    </table>
+                            <td class="event-card">
+                                <table class="event-card-inner">
+                                    <tr><td class="event-badge event-badge-green">ONLINE EVENT</td></tr>
+                                    <tr><td>
+                                        <h3 class="event-title">Memulai Karir Data Scientist dengan Python</h3>
+                                        <p class="event-date">24 Sep 2026, 19:30 WIB</p>
+                                        <p class="event-speaker-label">PEMBICARA</p>
+                                        <p class="event-speaker">Yusep Maulana</p>
+                                        <p class="event-speaker-role">Data</p>
+                                        <p class="event-count">58 peserta terdaftar</p>
+                                        <hr class="event-divider">
+                                        <table class="event-footer">
+                                            <tr>
+                                                <td><span class="event-price">Rp 30.000</span></td>
+                                                <td><a href="login.html" class="event-join">Gabung</a></td>
+                                            </tr>
+                                        </table>
+                                    </td></tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
     </section>
 
     <!-- ==================== SECTION 2: CARA BELAJAR ==================== -->
-    <section>
-    <table width="100%" bgcolor="#F1F5FF" cellpadding="50" cellspacing="0" border="0">
-        <tr>
-            <td>
-                <h2 align="center"><font color="#10204A" size="6">Cara Belajar di Belajar HTML</font></h2>
-                <p align="center"><font color="#475569" size="4">
-                    Dari pemula sampai profesional, semua bisa mulai. Pilih jalur yang paling cocok untukmu.
-                </font></p>
-                <p>&nbsp;</p>
+    <section class="section-light">
+        <table class="section-table">
+            <tr>
+                <td>
+                    <h2 class="section-title section-title-center">Cara Belajar di Belajar HTML</h2>
+                    <p class="section-subtitle">
+                        Dari pemula sampai profesional, semua bisa mulai. Pilih jalur yang paling cocok untukmu.
+                    </p>
 
-                <table width="100%" border="0" cellspacing="20" cellpadding="0">
-                    <tr valign="top" align="left">
-                        <td width="50%" bgcolor="#FFFFFF">
-                            <table width="100%" border="0" cellpadding="16">
-                                <tr>
-                                    <td>
-                                        <h3><font color="#1F43E6" size="5">Kenapa Belajar di sini?</font></h3>
-                                        <ul>
-                                            <li><font color="#475569" size="3">Mentor aktif dari industri teknologi</font></li>
-                                            <li><font color="#475569" size="3">Event gratis mingguan untuk pemula</font></li>
-                                            <li><font color="#475569" size="3">Materi bisa diakses ulang selamanya</font></li>
-                                            <li><font color="#475569" size="3">Komunitas Discord yang aktif</font></li>
-                                        </ul>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                        <td width="50%" bgcolor="#FFFFFF">
-                            <table width="100%" border="0" cellpadding="16">
-                                <tr>
-                                    <td>
-                                        <h3><font color="#1F43E6" size="5">Langkah Mulai Belajar</font></h3>
-                                        <ol>
-                                            <li><font color="#475569" size="3">Buat akun lewat halaman <a href="login.html">Login</a></font></li>
-                                            <li><font color="#475569" size="3">Ikuti event gratis atau course pemula</font></li>
-                                            <li><font color="#475569" size="3">Bagikan hasil belajarmu di komunitas</font></li>
-                                        </ol>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
+                    <table class="how-grid">
+                        <tr>
+                            <td class="how-card">
+                                <table class="how-card-inner">
+                                    <tr>
+                                        <td>
+                                            <h3 class="how-card-title">Kenapa Belajar di sini?</h3>
+                                            <ul class="how-list">
+                                                <li>Mentor aktif dari industri teknologi</li>
+                                                <li>Event gratis mingguan untuk pemula</li>
+                                                <li>Materi bisa diakses ulang selamanya</li>
+                                                <li>Komunitas Discord yang aktif</li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td class="how-card">
+                                <table class="how-card-inner">
+                                    <tr>
+                                        <td>
+                                            <h3 class="how-card-title">Langkah Mulai Belajar</h3>
+                                            <ol class="how-list how-list-ordered">
+                                                <li>Buat akun lewat halaman <a href="login.html">Login</a></li>
+                                                <li>Ikuti event gratis atau course pemula</li>
+                                                <li>Bagikan hasil belajarmu di komunitas</li>
+                                            </ol>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
 
-                <p>&nbsp;</p>
-                <h3 align="center"><font color="#10204A" size="5">Rekomendasi Jalur untuk Pemula</font></h3>
-                <p>&nbsp;</p>
-                <table width="80%" align="center" border="1" cellpadding="12" cellspacing="0">
-                    <tr bgcolor="#0A1535">
-                        <th><font color="#FFFFFF">Jalur Belajar</font></th>
-                        <th><font color="#FFFFFF">Kategori</font></th>
-                        <th><font color="#FFFFFF">Durasi</font></th>
-                    </tr>
-                    <tr>
-                        <td><font color="#10204A">Web Development</font></td>
-                        <td><font color="#475569">Fundamental</font></td>
-                        <td><font color="#475569">3+ Jam</font></td>
-                    </tr>
-                    <tr>
-                        <td><font color="#10204A">Mobile Development Flutter</font></td>
-                        <td><font color="#475569">Menengah</font></td>
-                        <td><font color="#475569">5+ Jam</font></td>
-                    </tr>
-                    <tr>
-                        <td><font color="#10204A">Data Science dengan Python</font></td>
-                        <td><font color="#475569">Menengah</font></td>
-                        <td><font color="#475569">8+ Jam</font></td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-    </table>
+                    <h3 class="section-subtitle-title">Rekomendasi Jalur untuk Pemula</h3>
+                    <table class="path-table">
+                        <tr>
+                            <th>Jalur Belajar</th>
+                            <th>Kategori</th>
+                            <th>Durasi</th>
+                        </tr>
+                        <tr>
+                            <td>Web Development</td>
+                            <td>Fundamental</td>
+                            <td>3+ Jam</td>
+                        </tr>
+                        <tr>
+                            <td>Mobile Development Flutter</td>
+                            <td>Menengah</td>
+                            <td>5+ Jam</td>
+                        </tr>
+                        <tr>
+                            <td>Data Science dengan Python</td>
+                            <td>Menengah</td>
+                            <td>8+ Jam</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
     </section>
 
     <!-- ==================== SECTION 3: FAQ ==================== -->
-    <section>
-    <table width="100%" bgcolor="#FFFFFF" cellpadding="50" cellspacing="0" border="0">
-        <tr>
-            <td>
-                <h2 align="center"><font color="#10204A" size="6">Pertanyaan yang Sering Banget Ditanyain</font></h2>
-                <p>&nbsp;</p>
-                <table width="80%" align="center" border="0" cellpadding="14">
-                    <tr><td bgcolor="#F8FAFF"><font size="4" color="#10204A"><b>Platform <u>Belajar HTML</u> itu apa sih?</b></font></td></tr>
-                    <tr><td bgcolor="#FFFFFF"><font color="#475569" size="3">
-                        Belajar HTML adalah ekosistem belajar teknologi berbasis komunitas - tempat bertemunya, mentor, dan peluang nyata di industri IT Indonesia.
-                    </font></td></tr>
-                    <tr><td>&nbsp;</td></tr>
-                    <tr><td bgcolor="#F8FAFF"><font size="4" color="#10204A"><b>Siapa saja yang bisa belajar di platform <u>Belajar HTML</u>?</b></font></td></tr>
-                    <tr><td bgcolor="#FFFFFF"><font color="#475569" size="3">
-                        Semua orang - dari pemula total sampai profesional yang ingin meng-upgrade skill.
-                    </font></td></tr>
-                    <tr><td>&nbsp;</td></tr>
-                    <tr><td bgcolor="#F8FAFF"><font size="4" color="#10204A"><b>Bagaimana cara bergabung?</b></font></td></tr>
-                    <tr><td bgcolor="#FFFFFF"><font color="#475569" size="3">
-                        Klik <a href="login.html">"Masuk"</a>, tulis email &amp; password.
-                    </font></td></tr>
-                </table>
-            </td>
-        </tr>
-    </table>
+    <section class="section-white">
+        <table class="section-table">
+            <tr>
+                <td>
+                    <h2 class="section-title section-title-center">Pertanyaan yang Sering Banget Ditanyain</h2>
+                    <table class="faq-list">
+                        <tr><td class="faq-question">Platform <u>Belajar HTML</u> itu apa sih?</td></tr>
+                        <tr><td class="faq-answer">
+                            Belajar HTML adalah ekosistem belajar teknologi berbasis komunitas - tempat bertemunya, mentor, dan peluang nyata di industri IT Indonesia.
+                        </td></tr>
+                        <tr><td class="faq-spacer"></td></tr>
+                        <tr><td class="faq-question">Siapa saja yang bisa belajar di platform <u>Belajar HTML</u>?</td></tr>
+                        <tr><td class="faq-answer">
+                            Semua orang - dari pemula total sampai profesional yang ingin meng-upgrade skill.
+                        </td></tr>
+                        <tr><td class="faq-spacer"></td></tr>
+                        <tr><td class="faq-question">Bagaimana cara bergabung?</td></tr>
+                        <tr><td class="faq-answer">
+                            Klik <a href="login.html">"Masuk"</a>, tulis email &amp; password.
+                        </td></tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
     </section>
 
     </main>
 
     <!-- ==================== FOOTER ==================== -->
-    <footer>
-    <table width="100%" bgcolor="#0A1535" cellpadding="40" cellspacing="0" border="0">
-        <tr valign="top">
-            <td width="35%">
-                <a href="index.html"><font size="5" color="#FFFFFF"><b>Belajar HTML</b></font></a>
-                <p><font color="#C9D8FF" size="3">
-                    Ekosistem belajar teknologi berbasis komunitas - tempat bertemunya mentor, dan peluang nyata di industri IT Indonesia.
-                </font></p>
-                <p><font color="#9DC3FF" size="3">Jl. AMD, Batoh, Banda Aceh</font></p>
-                <p>
-                    <a href="index.html" target="_blank"><font color="#9DC3FF" size="3">Instagram</font></a>
-                    &nbsp;&nbsp;
-                    <a href="index.html" target="_blank"><font color="#9DC3FF" size="3">LinkedIn</font></a>
-                    &nbsp;&nbsp;
-                    <a href="index.html" target="_blank"><font color="#9DC3FF" size="3">YouTube</font></a>
-                </p>
-            </td>
-            <td width="20%">
-                <font size="4" color="#FFFFFF"><b>Cara Belajar</b></font>
-                <p><font color="#C9D8FF" size="3">Event Webinar</font><br>
-                <font color="#C9D8FF" size="3">Workshop</font><br>
-                <font color="#C9D8FF" size="3">Mini Class</font><br>
-                <font color="#C9D8FF" size="3">Private Mentoring</font><br>
-                <font color="#C9D8FF" size="3">Course Video</font></p>
-            </td>
-            <td width="20%">
-                <font size="4" color="#FFFFFF"><b>Komunitas</b></font>
-                <p><a href="index.html"><font color="#C9D8FF" size="3">Jadi Mentor</font></a><br>
-                <a href="index.html"><font color="#C9D8FF" size="3">Daftar Mentor</font></a><br>
-                <a href="tentang.html"><font color="#C9D8FF" size="3">Blog &amp; Artikel</font></a><br>
-                <a href="index.html" target="_blank"><font color="#C9D8FF" size="3">Discord Community</font></a></p>
-            </td>
-            <td width="25%">
-                <font size="4" color="#FFFFFF"><b>Perusahaan</b></font>
-                <p><font color="#C9D8FF" size="3">Tentang Kami</font><br>
-                <font color="#C9D8FF" size="3">Karir</font><br>
-                <font color="#C9D8FF" size="3">Kontak</font></p>
-            </td>
-        </tr>
-    </table>
+    <footer class="site-footer">
+        <table class="footer-table">
+            <tr>
+                <td class="footer-brand">
+                    <a href="index.html" class="footer-brand-link">Belajar HTML</a>
+                    <p class="footer-desc">
+                        Ekosistem belajar teknologi berbasis komunitas - tempat bertemunya mentor, dan peluang nyata di industri IT Indonesia.
+                    </p>
+                    <p class="footer-address">Jl. AMD, Batoh, Banda Aceh</p>
+                    <p class="footer-social">
+                        <a href="index.html" target="_blank">Instagram</a>
+                        <a href="index.html" target="_blank">LinkedIn</a>
+                        <a href="index.html" target="_blank">YouTube</a>
+                    </p>
+                </td>
+                <td class="footer-col">
+                    <h4 class="footer-heading">Cara Belajar</h4>
+                    <p class="footer-links">
+                        Event Webinar<br>
+                        Workshop<br>
+                        Mini Class<br>
+                        Private Mentoring<br>
+                        Course Video
+                    </p>
+                </td>
+                <td class="footer-col">
+                    <h4 class="footer-heading">Komunitas</h4>
+                    <p class="footer-links">
+                        <a href="index.html">Jadi Mentor</a><br>
+                        <a href="index.html">Daftar Mentor</a><br>
+                        <a href="tentang.html">Blog &amp; Artikel</a><br>
+                        <a href="index.html" target="_blank">Discord Community</a>
+                    </p>
+                </td>
+                <td class="footer-col-last">
+                    <h4 class="footer-heading">Perusahaan</h4>
+                    <p class="footer-links">
+                        Tentang Kami<br>
+                        Karir<br>
+                        Kontak
+                    </p>
+                </td>
+            </tr>
+        </table>
 
-    <hr color="#1F4393">
-    <p align="center">
-        <font color="#000000" size="3">Dibuat oleh: <b>Masrul Hadi</b> (NIM 240705068)</font><br>
-        <font color="#000000" size="2">&copy; 2026 Belajar HTML. All rights reserved.</font>
-    </p>
+        <hr class="footer-divider">
+        <p class="footer-bottom">
+            <span class="footer-credit">Dibuat oleh: <b>Masrul Hadi</b> (NIM 240705068)</span><br>
+            <span class="footer-copy">&copy; 2026 Belajar HTML. All rights reserved.</span>
+        </p>
     </footer>
 
 </body>
