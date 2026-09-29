@@ -1098,7 +1098,7 @@ a:focus-visible,
     linear-gradient(160deg, #0A1535 0%, #10245F 100%);
 }
 
-.hero-table td {
+.hero-table>tbody>tr>td {
   vertical-align: middle;
   padding: 70px 24px;
 }
@@ -1168,13 +1168,16 @@ a:focus-visible,
 }
 
 .hero-card-img {
+  max-height: 260px;
+  object-fit: cover;
+  object-position: center 65%;
   border-radius: 12px;
   min-height: 120px;
   background: linear-gradient(135deg, #DDE7FF, #F1F5FF);
 }
 
 /* ---------- SECTION ---------- */
-.section-table td {
+.section-table>tbody>tr>td {
   padding: 72px 24px;
 }
 
@@ -1279,8 +1282,9 @@ a:focus-visible,
 }
 
 .event-price {
-  font-size: 16px;
+  font-size: 15px;
   color: var(--navy);
+  white-space: nowrap;
 }
 
 .event-join {
@@ -1413,7 +1417,7 @@ a:focus-visible,
     #F1F5FF;
 }
 
-.login-main-table td {
+.login-main-table>tbody>tr>td {
   padding: 72px 20px;
 }
 
@@ -1478,7 +1482,7 @@ a:focus-visible,
     linear-gradient(160deg, #0A1535, #10245F);
 }
 
-.page-banner-table td {
+.page-banner-table>tbody>tr>td {
   padding: 64px 24px;
 }
 
@@ -1496,7 +1500,7 @@ a:focus-visible,
   letter-spacing: -1px;
 }
 
-.articles-table td {
+.articles-table>tbody>tr>td {
   padding: 72px 24px;
 }
 
@@ -1553,7 +1557,7 @@ a:focus-visible,
   border-top: 4px solid var(--blue);
 }
 
-.footer-table td {
+.footer-table>tbody>tr>td {
   padding: 56px 24px 40px;
 }
 
@@ -1596,12 +1600,12 @@ a:focus-visible,
     letter-spacing: -1px;
   }
 
-  .hero-table td {
+  .hero-table>tbody>tr>td {
     padding: 36px 20px;
   }
 
   .section-table td,
-  .articles-table td {
+  .articles-table>tbody>tr>td {
     padding: 48px 20px;
   }
 
@@ -1636,4 +1640,46 @@ a:focus-visible,
     transition: none !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* Kunci lebar grid supaya tidak melebar melewati kolom */
+.event-grid,
+.articles-grid,
+.how-grid {
+  table-layout: fixed;
+}
+
+.event-title {
+  overflow-wrap: anywhere;
+}
+
+/* Sel kartu tidak boleh mewarisi padding section */
+.event-grid>tbody>tr>td.event-card,
+.how-grid>tbody>tr>td.how-card,
+.articles-grid>tbody>tr>td.article-card {
+  padding: 0;
+}
+
+.event-card-inner .event-footer td {
+  padding: 0;
+}
+
+.event-card-inner .event-footer td:last-child {
+  text-align: right;
+}
+
+.event-card-inner .event-footer tr:first-child td {
+  padding: 0;
+}
+
+.login-card td.login-body {
+  padding: 36px 32px 44px;
+}
+
+.login-inner td.form-forgot {
+  text-align: right;
+}
+
+.login-inner td.form-register {
+  padding-top: 20px;
 }
