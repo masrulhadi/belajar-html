@@ -3,143 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Belajar HTML - Login</title>
+    <title>Masuk - Belajar HTML</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="login-page">
-
-    <!-- ==================== HEADER ==================== -->
     <header class="site-header">
-        <div class="header-container">
-            <div class="header-left">
-                <a href="index.html" class="header-logo">Belajar HTML</a>
-            </div>
-            <nav class="header-nav">
-                <ul class="nav-menu" id="navMenu">
-                    <li><a href="index.html" class="nav-link">Home</a></li>
-                    <li><a href="index.html#event" class="nav-link">Event</a></li>
-                    <li><a href="index.html#cara-belajar" class="nav-link">Course</a></li>
-                    <li><a href="index.html#cara-belajar" class="nav-link">Mentoring</a></li>
-                    <li><a href="tentang.html" class="nav-link">Blog</a></li>
-                </ul>
-                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
-                    <span class="hamburger"></span>
-                </button>
+        <div class="container header-container">
+            <a href="index.html" class="logo"><span>&lt;/&gt;</span> Belajar HTML</a>
+            <nav class="navigation">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="index.html#event" class="nav-link">Event</a>
+                <a href="index.html#cara-belajar" class="nav-link">Course</a>
+                <a href="index.html#cara-belajar" class="nav-link">Mentoring</a>
+                <a href="tentang.html" class="nav-link">Blog</a>
             </nav>
-            <div class="header-cta-cell">
-                <a href="login.html" class="header-cta">Masuk</a>
-            </div>
+            <a href="login.html" class="button button-small">Masuk</a>
         </div>
     </header>
 
-    <!-- ==================== FORM LOGIN ==================== -->
-    <table class="login-main-table">
-        <tr>
-            <td>
-                <table class="login-card">
-                    <tr>
-                        <td class="login-header"></td>
-                    </tr>
-                    <tr>
-                        <td class="login-body">
-                            <table class="login-inner">
-                                <tr>
-                                    <td>
-                                        <h2 class="login-title">Masuk</h2>
-                                        <p class="login-subtitle">Selamat datang kembali! Silakan masuk ke akunmu.</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="form-group">
-                                            <label class="form-label" for="email">Email</label>
-                                            <input type="email" id="email" name="email" class="form-input" placeholder="nama@email.com">
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="form-group">
-                                            <label class="form-label" for="password">Password</label>
-                                            <input type="password" id="password" name="password" class="form-input" placeholder="Masukkan password">
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="form-forgot">
-                                        <a href="login.html">Lupa password?</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <a href="index.html" class="form-submit">Masuk Sekarang</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="form-register">
-                                        Belum punya akun? <a href="login.html">Daftar di sini</a>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-    </table>
+    <main class="login-wrap">
+        <section class="login-card">
+            <h1>Masuk</h1>
+            <p>Selamat datang kembali! Silakan masuk ke akunmu.</p>
+            <form action="index.html">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" class="form-input" placeholder="nama@email.com">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" class="form-input" placeholder="Masukkan password">
+                </div>
+                <p class="form-forgot"><a href="login.html">Lupa password?</a></p>
+                <button type="submit" class="button button-block">Masuk Sekarang</button>
+            </form>
+            <p class="form-note">Belum punya akun? <a href="login.html">Daftar di sini</a></p>
+        </section>
+    </main>
 
-    <!-- ==================== FOOTER ==================== -->
     <footer class="site-footer">
-        <table class="footer-table">
-            <tr>
-                <td class="footer-brand">
-                    <a href="index.html" class="footer-brand-link">Belajar HTML</a>
-                    <p class="footer-desc">
-                        Ekosistem belajar teknologi berbasis komunitas - tempat bertemunya mentor, dan peluang nyata di industri IT Indonesia.
-                    </p>
-                    <p class="footer-address">Jl. AMD, Batoh, Banda Aceh</p>
-                    <p class="footer-social">
-                        <a href="index.html" target="_blank">Instagram</a>
-                        <a href="index.html" target="_blank">LinkedIn</a>
-                        <a href="index.html" target="_blank">YouTube</a>
-                    </p>
-                </td>
-                <td class="footer-col">
-                    <h4 class="footer-heading">Cara Belajar</h4>
-                    <p class="footer-links">
-                        Event Webinar<br>
-                        Workshop<br>
-                        Mini Class<br>
-                        Private Mentoring<br>
-                        Course Video
-                    </p>
-                </td>
-                <td class="footer-col">
-                    <h4 class="footer-heading">Komunitas</h4>
-                    <p class="footer-links">
-                        <a href="index.html">Jadi Mentor</a><br>
-                        <a href="index.html">Daftar Mentor</a><br>
-                        <a href="tentang.html">Blog &amp; Artikel</a><br>
-                        <a href="index.html" target="_blank">Discord Community</a>
-                    </p>
-                </td>
-                <td class="footer-col-last">
-                    <h4 class="footer-heading">Perusahaan</h4>
-                    <p class="footer-links">
-                        Tentang Kami<br>
-                        Karir<br>
-                        Kontak
-                    </p>
-                </td>
-            </tr>
-        </table>
-
-        <hr class="footer-divider">
-        <p class="footer-bottom">
-            <span class="footer-credit">Dibuat oleh: <b>Masrul Hadi</b> (NIM 240705068)</span><br>
-            <span class="footer-copy">&copy; 2026 Belajar HTML. All rights reserved.</span>
-        </p>
+        <div class="container footer-grid">
+            <div>
+                <a href="index.html" class="logo footer-logo"><span>&lt;/&gt;</span> Belajar HTML</a>
+                <p>Platform belajar HTML dan CSS dari dasar untuk pemula.</p>
+                <p>Jl. AMD, Batoh, Banda Aceh</p>
+            </div>
+            <div>
+                <h3>Cara Belajar</h3>
+                <a href="index.html#cara-belajar">HTML Dasar</a>
+                <a href="index.html#cara-belajar">CSS Dasar</a>
+                <a href="index.html#cara-belajar">Mini Project</a>
+            </div>
+            <div>
+                <h3>Komunitas</h3>
+                <a href="index.html#event">Event</a>
+                <a href="tentang.html">Blog &amp; Artikel</a>
+                <a href="login.html">Masuk</a>
+            </div>
+            <div>
+                <h3>Tentang</h3>
+                <a href="tentang.html">Tentang Kami</a>
+                <a href="index.html#faq">FAQ</a>
+                <a href="tentang.html">Kontak</a>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>Dibuat oleh: <strong>Masrul Hadi</strong> (NIM 240705068)</p>
+            <p>&copy; 2026 Belajar HTML</p>
+        </div>
     </footer>
-
 </body>
 </html>
