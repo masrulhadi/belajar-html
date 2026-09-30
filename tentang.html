@@ -3,102 +3,163 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog &amp; Tentang - Belajar HTML</title>
+    <title>Blog & Tentang - Belajar HTML</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <!-- ==================== HEADER ==================== -->
     <header class="site-header">
-        <div class="container header-container">
-            <a href="index.html" class="logo"><span>&lt;/&gt;</span> Belajar HTML</a>
-            <nav class="navigation">
-                <a href="index.html" class="nav-link">Home</a>
-                <a href="index.html#event" class="nav-link">Event</a>
-                <a href="index.html#cara-belajar" class="nav-link">Course</a>
-                <a href="index.html#cara-belajar" class="nav-link">Mentoring</a>
-                <a href="tentang.html" class="nav-link active">Blog</a>
+        <div class="header-container">
+            <div class="header-left">
+                <a href="index.html" class="header-logo">Belajar HTML</a>
+            </div>
+            <nav class="header-nav">
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="index.html#event" class="nav-link">Event</a></li>
+                    <li><a href="index.html#cara-belajar" class="nav-link">Course</a></li>
+                    <li><a href="index.html#cara-belajar" class="nav-link">Mentoring</a></li>
+                    <li><a href="tentang.html" class="nav-link">Blog</a></li>
+                </ul>
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                    <span class="hamburger"></span>
+                </button>
             </nav>
-            <a href="login.html" class="button button-small">Masuk</a>
+            <div class="header-cta-cell">
+                <a href="login.html" class="header-cta">Masuk</a>
+            </div>
         </div>
     </header>
 
+    <!-- ==================== JUDUL HALAMAN ==================== -->
     <section class="page-banner">
-        <div class="container">
-            <p class="eyebrow">BLOG &amp; TENTANG</p>
-            <h1>Artikel &amp; Tentang Kami</h1>
-        </div>
+        <table class="page-banner-table">
+            <tr>
+                <td>
+                    <p class="page-banner-badge">BLOG & TENTANG</p>
+                    <h1 class="page-banner-title">Artikel & Tentang Kami</h1>
+                </td>
+            </tr>
+        </table>
     </section>
 
-    <main class="section">
-        <div class="container">
-            <div class="about-box">
-                <h2>Tentang Belajar HTML</h2>
-                <p>Belajar HTML adalah platform belajar web dari dasar. Kami menyajikan materi HTML dan CSS yang sederhana, terstruktur, dan mudah dipraktikkan oleh pemula.</p>
-            </div>
+    <!-- ==================== DAFTAR ARTIKEL ==================== -->
+    <section class="articles-section">
+        <table class="articles-table">
+            <tr>
+                <td>
+                    <h2 class="section-title">Artikel Terbaru</h2>
 
-            <div class="section-heading">
-                <p class="eyebrow">ARTIKEL TERBARU</p>
-                <h2>Bacaan singkat seputar web development.</h2>
-            </div>
+                    <table class="articles-grid">
+                        <tr>
+                            <td class="article-card">
+                                <table class="article-card-inner">
+                                    <tr>
+                                        <td>
+                                            <img src="assets/gambar1.jpg" alt="Tips produktif" class="article-img">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p class="article-meta">20 Juni 2026 &middot; Gaya Hidup</p>
+                                            <h3 class="article-title"><a href="tentang.html">Tips Memulai Hari dengan Produktif</a></h3>
+                                            <p class="article-excerpt">Pagi yang baik menentukan seluruh hari. Berikut tipsnya...</p>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td class="article-card">
+                                <table class="article-card-inner">
+                                    <tr>
+                                        <td>
+                                            <img src="assets/gambar2.jpg" alt="Liburan pantai" class="article-img">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p class="article-meta">15 Juni 2026 &middot; Traveling</p>
+                                            <h3 class="article-title"><a href="tentang.html">Pengalaman Perjalanan ke Pantai</a></h3>
+                                            <p class="article-excerpt">Melepas penat dan menikmati matahari terbenam...</p>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td class="article-card">
+                                <table class="article-card-inner">
+                                    <tr>
+                                        <td>
+                                            <img src="assets/gambar3.jpg" alt="Belajar memasak" class="article-img">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p class="article-meta">10 Juni 2026 &middot; Kuliner</p>
+                                            <h3 class="article-title"><a href="tentang.html">Belajar Memasak untuk Pemula</a></h3>
+                                            <p class="article-excerpt">Memasak tidak sesulit yang dibayangkan...</p>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </section>
 
-            <div class="article-grid">
-                <article class="article-card">
-                    <img src="assets/gambar1.jpg" alt="Belajar HTML">
-                    <div class="article-content">
-                        <p class="article-meta">20 Juni 2026 · HTML</p>
-                        <h3><a href="tentang.html">Apa Itu HTML dan Mengapa Penting Dipelajari?</a></h3>
-                        <p>Mengenal HTML sebagai dasar untuk membangun struktur sebuah halaman website.</p>
-                    </div>
-                </article>
-                <article class="article-card">
-                    <img src="assets/gambar2.jpg" alt="Belajar CSS">
-                    <div class="article-content">
-                        <p class="article-meta">15 Juni 2026 · CSS</p>
-                        <h3><a href="tentang.html">Belajar CSS dari Nol untuk Pemula</a></h3>
-                        <p>Kenali peran CSS dalam mengatur warna, ukuran, jarak, dan tampilan website.</p>
-                    </div>
-                </article>
-                <article class="article-card">
-                    <img src="assets/gambar3.jpg" alt="Mini project website">
-                    <div class="article-content">
-                        <p class="article-meta">10 Juni 2026 · Project</p>
-                        <h3><a href="tentang.html">5 Ide Project HTML untuk Pemula</a></h3>
-                        <p>Gunakan project sederhana untuk melatih kemampuan HTML dan CSS yang sudah dipelajari.</p>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </main>
-
+    <!-- ==================== FOOTER ==================== -->
     <footer class="site-footer">
-        <div class="container footer-grid">
-            <div>
-                <a href="index.html" class="logo footer-logo"><span>&lt;/&gt;</span> Belajar HTML</a>
-                <p>Platform belajar HTML dan CSS dari dasar untuk pemula.</p>
-                <p>Jl. AMD, Batoh, Banda Aceh</p>
-            </div>
-            <div>
-                <h3>Cara Belajar</h3>
-                <a href="index.html#cara-belajar">HTML Dasar</a>
-                <a href="index.html#cara-belajar">CSS Dasar</a>
-                <a href="index.html#cara-belajar">Mini Project</a>
-            </div>
-            <div>
-                <h3>Komunitas</h3>
-                <a href="index.html#event">Event</a>
-                <a href="tentang.html">Blog &amp; Artikel</a>
-                <a href="login.html">Masuk</a>
-            </div>
-            <div>
-                <h3>Tentang</h3>
-                <a href="tentang.html">Tentang Kami</a>
-                <a href="index.html#faq">FAQ</a>
-                <a href="tentang.html">Kontak</a>
-            </div>
-        </div>
-        <div class="container footer-bottom">
-            <p>Dibuat oleh: <strong>Masrul Hadi</strong> (NIM 240705068)</p>
-            <p>&copy; 2026 Belajar HTML</p>
-        </div>
+        <table class="footer-table">
+            <tr>
+                <td class="footer-brand">
+                    <a href="index.html" class="footer-brand-link">Belajar HTML</a>
+                    <p class="footer-desc">
+                        Ekosistem belajar teknologi berbasis komunitas - tempat bertemunya mentor, dan peluang nyata di industri IT Indonesia.
+                    </p>
+                    <p class="footer-address">Jl. AMD, Batoh, Banda Aceh</p>
+                    <p class="footer-social">
+                        <a href="index.html" target="_blank">Instagram</a>
+                        <a href="index.html" target="_blank">LinkedIn</a>
+                        <a href="index.html" target="_blank">YouTube</a>
+                    </p>
+                </td>
+                <td class="footer-col">
+                    <h4 class="footer-heading">Cara Belajar</h4>
+                    <p class="footer-links">
+                        Event Webinar<br>
+                        Workshop<br>
+                        Mini Class<br>
+                        Private Mentoring<br>
+                        Course Video
+                    </p>
+                </td>
+                <td class="footer-col">
+                    <h4 class="footer-heading">Komunitas</h4>
+                    <p class="footer-links">
+                        <a href="index.html">Jadi Mentor</a><br>
+                        <a href="index.html">Daftar Mentor</a><br>
+                        <a href="tentang.html">Blog &amp; Artikel</a><br>
+                        <a href="index.html" target="_blank">Discord Community</a>
+                    </p>
+                </td>
+                <td class="footer-col-last">
+                    <h4 class="footer-heading">Perusahaan</h4>
+                    <p class="footer-links">
+                        Tentang Kami<br>
+                        Karir<br>
+                        Kontak
+                    </p>
+                </td>
+            </tr>
+        </table>
+
+        <hr class="footer-divider">
+        <p class="footer-bottom">
+            <span class="footer-credit">Dibuat oleh: <b>Masrul Hadi</b> (NIM 240705068)</span><br>
+            <span class="footer-copy">&copy; 2026 Belajar HTML. All rights reserved.</span>
+        </p>
     </footer>
+
 </body>
 </html>
