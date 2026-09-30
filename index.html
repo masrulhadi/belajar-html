@@ -1,326 +1,269 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Belajar HTML</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <!-- ==================== HEADER ==================== -->
     <header class="site-header">
-        <div class="header-container">
-            <div class="header-left">
-                <a href="index.html" class="header-logo">Belajar HTML</a>
-            </div>
-            <nav class="header-nav">
-                <ul class="nav-menu" id="navMenu">
-                    <li><a href="index.html" class="nav-link">Home</a></li>
-                    <li><a href="#event" class="nav-link">Event</a></li>
-                    <li><a href="#cara-belajar" class="nav-link">Course</a></li>
-                    <li><a href="#cara-belajar" class="nav-link">Mentoring</a></li>
-                    <li><a href="tentang.html" class="nav-link">Blog</a></li>
-                </ul>
-                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
-                    <span class="hamburger"></span>
-                </button>
+        <div class="container header-container">
+            <a href="index.html" class="logo"><span>&lt;/&gt;</span> Belajar HTML</a>
+
+            <nav class="navigation">
+                <a href="index.html" class="nav-link active">Home</a>
+                <a href="#event" class="nav-link">Event</a>
+                <a href="#cara-belajar" class="nav-link">Course</a>
+                <a href="#cara-belajar" class="nav-link">Mentoring</a>
+                <a href="tentang.html" class="nav-link">Blog</a>
             </nav>
-            <div class="header-cta-cell">
-                <a href="login.html" class="header-cta">Masuk</a>
-            </div>
+
+            <a href="login.html" class="button button-small">Masuk</a>
         </div>
     </header>
 
-    <!-- ==================== HERO ==================== -->
-    <section class="hero">
-        <div class="hero-container">
-            <div class="hero-content-cell">
-                <p class="hero-badge">EKOSISTEM BELAJAR TEKNOLOGI #1 INDONESIA</p>
-                <h1 class="hero-title">Tempat Kamu<br>Belajar, <span class="highlight-yellow">Bertumbuh</span><br>
-                <span class="highlight-blue">&amp; Berkontribusi</span></h1>
-                <p class="hero-desc">
-                    Event, mentoring, dan course teknologi - dikelola bersama komunitas mentor berpengalaman.
-                    Satu ekosistem untuk semua perjalananmu di dunia IT.
-                </p>
-                <p>
-                    <a href="index.html" class="hero-cta">Mulai Belajar Gratis</a>
-                </p>
-            </div>
-            <div class="hero-card-cell">
+    <main>
+        <section class="hero">
+            <div class="container hero-content">
+                <div class="hero-text">
+                    <p class="eyebrow">BELAJAR WEB DARI DASAR</p>
+                    <h1>Mulai Belajar HTML dan Bangun Website Pertamamu.</h1>
+                    <p class="hero-description">
+                        Pelajari HTML dan CSS dari dasar melalui materi yang sederhana,
+                        terstruktur, dan mudah dipraktikkan.
+                    </p>
+                    <a href="#cara-belajar" class="button">Mulai Belajar</a>
+                </div>
+
                 <div class="hero-card">
-                    <div class="hero-card-body">
-                        <h2 class="hero-card-title">Satu ekosistem untuk semua jalur belajarmu</h2>
-                        <ul class="hero-card-list">
-                            <li>Webinar mingguan dengan topik baru tiap pekan</li>
-                            <li>Mentoring privat 1-on-1 sesuai kebutuhan</li>
-                            <li>Course video yang bisa diakses selamanya</li>
-                            <li>Komunitas Discord yang aktif setiap hari</li>
+                    <img src="assets/gambar-belajar.jpg" alt="Belajar coding">
+                    <div class="hero-card-content">
+                        <p class="card-label">JALUR BELAJAR</p>
+                        <h2>Bangun kemampuanmu selangkah demi selangkah.</h2>
+                        <ul>
+                            <li>Pelajari dasar HTML</li>
+                            <li>Kenali dasar CSS</li>
+                            <li>Buat mini project website</li>
                         </ul>
-                        <p class="hero-card-img-wrap">
-                            <img src="assets/gambar-belajar.jpg" alt="Belajar coding" class="hero-card-img">
-                        </p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ==================== MAIN CONTENT ==================== -->
-    <main>
+        <section class="section" id="cara-belajar">
+            <div class="container">
+                <div class="section-heading center">
+                    <p class="eyebrow light-eyebrow">CARA BELAJAR</p>
+                    <h2>Belajar dengan jalur yang jelas.</h2>
+                    <p>Pilih materi sesuai tahap belajarmu dan praktikkan langsung melalui project sederhana.</p>
+                </div>
 
-    <!-- ==================== SECTION 1: EVENT MENDATANG ==================== -->
-    <section class="section-white" id="event">
-        <table class="section-table">
-            <tr>
-                <td>
-                    <h2 class="section-title">Event Mendatang</h2>
+                <div class="learning-grid">
+                    <article class="learning-card">
+                        <span class="number">01</span>
+                        <h3>HTML Dasar</h3>
+                        <p>Kenali struktur halaman, heading, paragraf, link, gambar, list, dan elemen HTML lainnya.</p>
+                    </article>
 
-                    <table class="event-grid">
-                        <tr>
-                            <td class="event-card">
-                                <table class="event-card-inner">
-                                    <tr><td class="event-badge event-badge-blue">ONLINE EVENT</td></tr>
-                                    <tr><td>
-                                        <h3 class="event-title">Menang Hackathon, Bawa Pulang Ribuan Dollar!</h3>
-                                        <p class="event-date">22 Sep 2026, 19:30 WIB</p>
-                                        <p class="event-speaker-label">PEMBICARA</p>
-                                        <p class="event-speaker">Febi Mettasari</p>
-                                        <p class="event-speaker-role">Web Programming</p>
-                                        <p class="event-count">0 peserta terdaftar</p>
-                                        <hr class="event-divider">
-                                        <table class="event-footer">
-                                            <tr>
-                                                <td><span class="event-price">Gratis</span></td>
-                                                <td><a href="login.html" class="event-join">Gabung</a></td>
-                                            </tr>
-                                        </table>
-                                    </td></tr>
-                                </table>
-                            </td>
+                    <article class="learning-card">
+                        <span class="number">02</span>
+                        <h3>CSS Dasar</h3>
+                        <p>Pelajari warna, font, spacing, border, layout, dan cara membuat halaman lebih menarik.</p>
+                    </article>
 
-                            <td class="event-card">
-                                <table class="event-card-inner">
-                                    <tr><td class="event-badge event-badge-green">ONLINE EVENT</td></tr>
-                                    <tr><td>
-                                        <h3 class="event-title">Jadi Business Analyst di Era Gembpuran AI Agent</h3>
-                                        <p class="event-date">17 Sep 2026, 19:30 WIB</p>
-                                        <p class="event-speaker-label">PEMBICARA</p>
-                                        <p class="event-speaker">Siti Yaumil Muqsithoh</p>
-                                        <p class="event-speaker-role">Academic Mentoring</p>
-                                        <p class="event-count">86 peserta terdaftar</p>
-                                        <hr class="event-divider">
-                                        <table class="event-footer">
-                                            <tr>
-                                                <td><span class="event-price">Bayar Sesukamu</span></td>
-                                                <td><a href="login.html" class="event-join">Gabung</a></td>
-                                            </tr>
-                                        </table>
-                                    </td></tr>
-                                </table>
-                            </td>
+                    <article class="learning-card">
+                        <span class="number">03</span>
+                        <h3>Mini Project</h3>
+                        <p>Gabungkan HTML dan CSS untuk membuat website sederhana sebagai latihan kemampuanmu.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
 
-                            <td class="event-card">
-                                <table class="event-card-inner">
-                                    <tr><td class="event-badge event-badge-blue">ONLINE EVENT</td></tr>
-                                    <tr><td>
-                                        <h3 class="event-title">Sukses Jadi Frontend Developer Profesional</h3>
-                                        <p class="event-date">10 Sep 2026, 19:30 WIB</p>
-                                        <p class="event-speaker-label">PEMBICARA</p>
-                                        <p class="event-speaker">Alfian Luthfi</p>
-                                        <p class="event-speaker-role">Web Programming</p>
-                                        <p class="event-count">124 peserta terdaftar</p>
-                                        <hr class="event-divider">
-                                        <table class="event-footer">
-                                            <tr>
-                                                <td><span class="event-price">Rp 79.000</span></td>
-                                                <td><a href="login.html" class="event-join">Gabung</a></td>
-                                            </tr>
-                                        </table>
-                                    </td></tr>
-                                </table>
-                            </td>
+        <section class="section section-white" id="event">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="eyebrow">EVENT TERBARU</p>
+                    <h2>Belajar bersama melalui event.</h2>
+                    <p>Ikuti kegiatan belajar dan diskusi untuk menambah pengalaman di dunia teknologi.</p>
+                </div>
 
-                            <td class="event-card">
-                                <table class="event-card-inner">
-                                    <tr><td class="event-badge event-badge-green">ONLINE EVENT</td></tr>
-                                    <tr><td>
-                                        <h3 class="event-title">Memulai Karir Data Scientist dengan Python</h3>
-                                        <p class="event-date">24 Sep 2026, 19:30 WIB</p>
-                                        <p class="event-speaker-label">PEMBICARA</p>
-                                        <p class="event-speaker">Yusep Maulana</p>
-                                        <p class="event-speaker-role">Data</p>
-                                        <p class="event-count">58 peserta terdaftar</p>
-                                        <hr class="event-divider">
-                                        <table class="event-footer">
-                                            <tr>
-                                                <td><span class="event-price">Rp 30.000</span></td>
-                                                <td><a href="login.html" class="event-join">Gabung</a></td>
-                                            </tr>
-                                        </table>
-                                    </td></tr>
-                                </table>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-        </table>
-    </section>
+                <div class="event-grid">
+                    <article class="event-card">
+                        <span class="event-label blue">ONLINE EVENT</span>
+                        <h3>Menang Hackathon, Bawa Pulang Ribuan Dollar!</h3>
+                        <p class="event-date">22 Sep 2026, 19:30 WIB</p>
+                        <p class="event-meta">Febi Mettasari · Web Programming</p>
+                        <p class="event-count">0 peserta terdaftar</p>
+                        <div class="event-footer">
+                            <strong>Gratis</strong>
+                            <a href="login.html" class="button button-small">Gabung</a>
+                        </div>
+                    </article>
 
-    <!-- ==================== SECTION 2: CARA BELAJAR ==================== -->
-    <section class="section-light" id="cara-belajar">
-        <table class="section-table">
-            <tr>
-                <td>
-                    <h2 class="section-title section-title-center">Cara Belajar di Belajar HTML</h2>
-                    <p class="section-subtitle">
-                        Dari pemula sampai profesional, semua bisa mulai. Pilih jalur yang paling cocok untukmu.
-                    </p>
+                    <article class="event-card">
+                        <span class="event-label green">ONLINE EVENT</span>
+                        <h3>Jadi Business Analyst di Era Gembpuran AI Agent</h3>
+                        <p class="event-date">17 Sep 2026, 19:30 WIB</p>
+                        <p class="event-meta">Siti Yaumil Muqsithoh · Academic Mentoring</p>
+                        <p class="event-count">86 peserta terdaftar</p>
+                        <div class="event-footer">
+                            <strong>Bayar Sesukamu</strong>
+                            <a href="login.html" class="button button-small">Gabung</a>
+                        </div>
+                    </article>
 
-                    <table class="how-grid">
-                        <tr>
-                            <td class="how-card">
-                                <table class="how-card-inner">
-                                    <tr>
-                                        <td>
-                                            <h3 class="how-card-title">Kenapa Belajar di sini?</h3>
-                                            <ul class="how-list">
-                                                <li>Mentor aktif dari industri teknologi</li>
-                                                <li>Event gratis mingguan untuk pemula</li>
-                                                <li>Materi bisa diakses ulang selamanya</li>
-                                                <li>Komunitas Discord yang aktif</li>
-                                            </ul>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                            <td class="how-card">
-                                <table class="how-card-inner">
-                                    <tr>
-                                        <td>
-                                            <h3 class="how-card-title">Langkah Mulai Belajar</h3>
-                                            <ol class="how-list how-list-ordered">
-                                                <li>Buat akun lewat halaman <a href="login.html">Login</a></li>
-                                                <li>Ikuti event gratis atau course pemula</li>
-                                                <li>Bagikan hasil belajarmu di komunitas</li>
-                                            </ol>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-                    </table>
+                    <article class="event-card">
+                        <span class="event-label blue">ONLINE EVENT</span>
+                        <h3>Sukses Jadi Frontend Developer Profesional</h3>
+                        <p class="event-date">10 Sep 2026, 19:30 WIB</p>
+                        <p class="event-meta">Alfian Luthfi · Web Programming</p>
+                        <p class="event-count">124 peserta terdaftar</p>
+                        <div class="event-footer">
+                            <strong>Rp 79.000</strong>
+                            <a href="login.html" class="button button-small">Gabung</a>
+                        </div>
+                    </article>
 
-                    <h3 class="section-subtitle-title">Rekomendasi Jalur untuk Pemula</h3>
-                    <table class="path-table">
-                        <tr>
-                            <th>Jalur Belajar</th>
-                            <th>Kategori</th>
-                            <th>Durasi</th>
-                        </tr>
-                        <tr>
-                            <td>Web Development</td>
-                            <td>Fundamental</td>
-                            <td>3+ Jam</td>
-                        </tr>
-                        <tr>
-                            <td>Mobile Development Flutter</td>
-                            <td>Menengah</td>
-                            <td>5+ Jam</td>
-                        </tr>
-                        <tr>
-                            <td>Data Science dengan Python</td>
-                            <td>Menengah</td>
-                            <td>8+ Jam</td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-        </table>
-    </section>
+                    <article class="event-card">
+                        <span class="event-label green">ONLINE EVENT</span>
+                        <h3>Memulai Karir Data Scientist dengan Python</h3>
+                        <p class="event-date">24 Sep 2026, 19:30 WIB</p>
+                        <p class="event-meta">Yusep Maulana · Data</p>
+                        <p class="event-count">58 peserta terdaftar</p>
+                        <div class="event-footer">
+                            <strong>Rp 30.000</strong>
+                            <a href="login.html" class="button button-small">Gabung</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
 
-    <!-- ==================== SECTION 3: FAQ ==================== -->
-    <section class="section-white" id="faq">
-        <table class="section-table">
-            <tr>
-                <td>
-                    <h2 class="section-title section-title-center">Pertanyaan yang Sering Banget Ditanyain</h2>
-                    <table class="faq-list">
-                        <tr><td class="faq-question">Platform <u>Belajar HTML</u> itu apa sih?</td></tr>
-                        <tr><td class="faq-answer">
-                            Belajar HTML adalah ekosistem belajar teknologi berbasis komunitas - tempat bertemunya, mentor, dan peluang nyata di industri IT Indonesia.
-                        </td></tr>
-                        <tr><td class="faq-spacer"></td></tr>
-                        <tr><td class="faq-question">Siapa saja yang bisa belajar di platform <u>Belajar HTML</u>?</td></tr>
-                        <tr><td class="faq-answer">
-                            Semua orang - dari pemula total sampai profesional yang ingin meng-upgrade skill.
-                        </td></tr>
-                        <tr><td class="faq-spacer"></td></tr>
-                        <tr><td class="faq-question">Bagaimana cara bergabung?</td></tr>
-                        <tr><td class="faq-answer">
-                            Klik <a href="login.html">"Masuk"</a>, tulis email &amp; password.
-                        </td></tr>
-                    </table>
-                </td>
-            </tr>
-        </table>
-    </section>
+        <section class="section roadmap-section">
+            <div class="container">
+                <div class="section-heading center">
+                    <p class="eyebrow">ROADMAP PEMULA</p>
+                    <h2>Mulai dari dasar, lalu terus berkembang.</h2>
+                    <p>Urutan belajar sederhana untuk membantu kamu memahami dasar pembuatan website.</p>
+                </div>
 
+                <div class="roadmap">
+                    <div class="roadmap-step"><span>1</span><strong>HTML</strong><small>Struktur</small></div>
+                    <div class="roadmap-line"></div>
+                    <div class="roadmap-step"><span>2</span><strong>CSS</strong><small>Tampilan</small></div>
+                    <div class="roadmap-line"></div>
+                    <div class="roadmap-step"><span>3</span><strong>Layout</strong><small>Flex & Grid</small></div>
+                    <div class="roadmap-line"></div>
+                    <div class="roadmap-step"><span>4</span><strong>Project</strong><small>Praktik</small></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-white">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="eyebrow">ARTIKEL TERBARU</p>
+                    <h2>Temukan hal baru tentang web development.</h2>
+                    <p>Baca artikel singkat untuk membantu memahami konsep dasar dalam membuat website.</p>
+                </div>
+
+                <div class="article-grid">
+                    <article class="article-card">
+                        <img src="assets/gambar1.jpg" alt="Belajar HTML">
+                        <div class="article-content">
+                            <p class="article-meta">HTML · Pemula</p>
+                            <h3><a href="tentang.html">Apa Itu HTML dan Mengapa Penting Dipelajari?</a></h3>
+                            <p>Mengenal HTML sebagai dasar untuk membangun struktur sebuah halaman website.</p>
+                        </div>
+                    </article>
+
+                    <article class="article-card">
+                        <img src="assets/gambar2.jpg" alt="Belajar CSS">
+                        <div class="article-content">
+                            <p class="article-meta">CSS · Pemula</p>
+                            <h3><a href="tentang.html">Belajar CSS dari Nol untuk Pemula</a></h3>
+                            <p>Kenali peran CSS dalam mengatur warna, ukuran, jarak, dan tampilan website.</p>
+                        </div>
+                    </article>
+
+                    <article class="article-card">
+                        <img src="assets/gambar3.jpg" alt="Mini project website">
+                        <div class="article-content">
+                            <p class="article-meta">Project · Praktik</p>
+                            <h3><a href="tentang.html">5 Ide Project HTML untuk Pemula</a></h3>
+                            <p>Gunakan project sederhana untuk melatih kemampuan HTML dan CSS yang sudah dipelajari.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section faq-section" id="faq">
+            <div class="container narrow">
+                <div class="section-heading center">
+                    <p class="eyebrow">FAQ</p>
+                    <h2>Pertanyaan yang sering ditanyakan.</h2>
+                </div>
+
+                <div class="faq-list">
+                    <article class="faq-item">
+                        <h3>Apakah website ini cocok untuk pemula?</h3>
+                        <p>Ya. Materi dirancang mulai dari dasar HTML dan CSS sehingga dapat diikuti oleh pemula.</p>
+                    </article>
+                    <article class="faq-item">
+                        <h3>Apakah harus sudah bisa coding?</h3>
+                        <p>Tidak. Kamu dapat mulai dari HTML dasar dan belajar secara bertahap.</p>
+                    </article>
+                    <article class="faq-item">
+                        <h3>Bagaimana cara mulai belajar?</h3>
+                        <p>Pilih jalur belajar yang tersedia atau mulai dengan materi HTML Dasar.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <!-- ==================== FOOTER ==================== -->
     <footer class="site-footer">
-        <table class="footer-table">
-            <tr>
-                <td class="footer-brand">
-                    <a href="index.html" class="footer-brand-link">Belajar HTML</a>
-                    <p class="footer-desc">
-                        Ekosistem belajar teknologi berbasis komunitas - tempat bertemunya mentor, dan peluang nyata di industri IT Indonesia.
-                    </p>
-                    <p class="footer-address">Jl. AMD, Batoh, Banda Aceh</p>
-                    <p class="footer-social">
-                        <a href="index.html" target="_blank">Instagram</a>
-                        <a href="index.html" target="_blank">LinkedIn</a>
-                        <a href="index.html" target="_blank">YouTube</a>
-                    </p>
-                </td>
-                <td class="footer-col">
-                    <h4 class="footer-heading">Cara Belajar</h4>
-                    <p class="footer-links">
-                        Event Webinar<br>
-                        Workshop<br>
-                        Mini Class<br>
-                        Private Mentoring<br>
-                        Course Video
-                    </p>
-                </td>
-                <td class="footer-col">
-                    <h4 class="footer-heading">Komunitas</h4>
-                    <p class="footer-links">
-                        <a href="index.html">Jadi Mentor</a><br>
-                        <a href="index.html">Daftar Mentor</a><br>
-                        <a href="tentang.html">Blog &amp; Artikel</a><br>
-                        <a href="index.html" target="_blank">Discord Community</a>
-                    </p>
-                </td>
-                <td class="footer-col-last">
-                    <h4 class="footer-heading">Perusahaan</h4>
-                    <p class="footer-links">
-                        Tentang Kami<br>
-                        Karir<br>
-                        Kontak
-                    </p>
-                </td>
-            </tr>
-        </table>
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" class="logo footer-logo"><span>&lt;/&gt;</span> Belajar HTML</a>
+                <p>Platform belajar HTML dan CSS dari dasar untuk pemula.</p>
+                <p>Jl. AMD, Batoh, Banda Aceh</p>
+            </div>
 
-        <hr class="footer-divider">
-        <p class="footer-bottom">
-            <span class="footer-credit">Dibuat oleh: <b>Masrul Hadi</b> (NIM 240705068)</span><br>
-            <span class="footer-copy">&copy; 2026 Belajar HTML. All rights reserved.</span>
-        </p>
+            <div>
+                <h3>Cara Belajar</h3>
+                <a href="#cara-belajar">HTML Dasar</a>
+                <a href="#cara-belajar">CSS Dasar</a>
+                <a href="#cara-belajar">Mini Project</a>
+            </div>
+
+            <div>
+                <h3>Komunitas</h3>
+                <a href="#event">Event</a>
+                <a href="tentang.html">Blog & Artikel</a>
+                <a href="login.html">Masuk</a>
+            </div>
+
+            <div>
+                <h3>Tentang</h3>
+                <a href="tentang.html">Tentang Kami</a>
+                <a href="#faq">FAQ</a>
+                <a href="tentang.html">Kontak</a>
+            </div>
+        </div>
+
+        <div class="container footer-bottom">
+            <p>Dibuat oleh: <strong>Masrul Hadi</strong> (NIM 240705068)</p>
+            <p>&copy; 2026 Belajar HTML</p>
+        </div>
     </footer>
 
 </body>
+
 </html>
