@@ -1,24 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+/* ============================================================
+   TUGAS 2: STYLING HALAMAN WEB DENGAN CSS
+   Mata Kuliah : Pemrograman Web
+   Dosen       : Masrura Mailany, MTI
+   Mahasiswa   : Masrul Hadi (NIM: 240705068)
+   Tema        : Platform Belajar HTML (Ekosistem Edukasi IT)
+   Palet Warna : Navy (#0A1535), Biru (#1F43E6), Netral (#F8FAFC, #FFFFFF, #10204A)
+   ============================================================ */
 
 /* ------------------------------------------------------------
-   1. VARIABEL WARNA & RESET
+   1. RESET & CSS BOX MODEL (Dasar Box-Sizing, Margin, Padding)
    ------------------------------------------------------------ */
-:root {
-  --navy: #0A1535;
-  --navy-2: #12276E;
-  --blue: #1F43E6;
-  --blue-dark: #1533B8;
-  --blue-soft: #E6ECFF;
-  --yellow: #FFC93C;
-  --ink: #10204A;
-  --muted: #5B6A8C;
-  --bg-light: #F3F6FF;
-  --line: #E3EAFB;
-  --shadow-sm: 0 2px 10px rgba(16, 32, 74, .06);
-  --shadow-md: 0 16px 40px rgba(16, 32, 74, .12);
-  --wrap: 1200px;
-}
-
 *,
 *::before,
 *::after {
@@ -29,1278 +20,1009 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 84px;
 }
 
 body {
-  font-family: 'Plus Jakarta Sans', 'Segoe UI', Tahoma, sans-serif;
-  color: var(--ink);
-  background: #fff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 15px;
   line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
+  color: #10204A;
+  background-color: #F8FAFC;
 }
 
 a {
-  color: var(--blue);
+  color: #1F43E6;
   text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 a:hover {
   text-decoration: underline;
 }
 
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
+/* ------------------------------------------------------------
+   2. HEADING DAN PARAGRAPH (Spesifikasi 5.4)
+   Properti: font-family, font-size, color, text-align, margin, line-height
+   ------------------------------------------------------------ */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #10204A;
+  line-height: 1.3;
+  margin-bottom: 12px;
 }
 
-ul,
-ol {
-  list-style: none;
-}
-
-table {
-  border-collapse: collapse;
-  width: 100%;
-}
-
-td,
-th {
-  padding: 0;
-  vertical-align: top;
+h1 {
+  font-size: 38px;
+  font-weight: 700;
   text-align: left;
+  margin-bottom: 18px;
 }
 
-::selection {
-  background: var(--blue);
-  color: #fff;
+h2 {
+  font-size: 26px;
+  font-weight: 700;
+  text-align: left;
+  margin-bottom: 16px;
 }
 
-a:focus-visible,
-.form-input:focus-visible {
-  outline: 3px solid var(--yellow);
-  outline-offset: 3px;
+h3 {
+  font-size: 18px;
+  font-weight: 600;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 15px;
+  color: #475569;
+  line-height: 1.65;
+  text-align: left;
+  margin-bottom: 14px;
 }
 
 /* ------------------------------------------------------------
-   2. HEADER (menempel di atas saat scroll)
+   3. HEADER (Spesifikasi 5.1)
+   Minimal: background, warna teks, ukuran teks, perataan, padding
    ------------------------------------------------------------ */
+header,
 .site-header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: rgba(255, 255, 255, .92);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--line);
+  background-color: #FFFFFF;
+  color: #10204A;
+  font-size: 15px;
+  text-align: left;
+  padding: 16px 24px;
+  border-bottom: 1px solid #E2E8F0;
+  position: relative;
 }
 
 .header-container {
-  max-width: var(--wrap);
-  margin: 0 auto;
-  padding: 12px 24px;
   display: flex;
   align-items: center;
-  gap: 24px;
+  justify-content: space-between;
+  gap: 20px;
+  max-width: 1140px;
+  margin: 0 auto;
 }
 
 .header-logo {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
   font-size: 20px;
-  font-weight: 800;
-  letter-spacing: -.4px;
-  color: var(--navy);
-}
-
-.header-logo::before {
-  content: "</>";
-  background: linear-gradient(135deg, #1F43E6, #5B7BFF);
-  color: #fff;
-  font-size: 12px;
-  font-weight: 800;
-  padding: 7px 8px;
-  border-radius: 9px;
-  box-shadow: 0 4px 12px rgba(31, 67, 230, .35);
+  font-weight: 700;
+  color: #1F43E6;
+  text-decoration: none;
 }
 
 .header-logo:hover {
   text-decoration: none;
 }
 
-.header-nav {
-  margin-left: auto;
+.header-cta {
+  display: inline-block;
+  background-color: #1F43E6;
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 8px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
 }
 
-.nav-menu {
-  display: flex;
-  gap: 4px;
+.header-cta:hover {
+  background-color: #1533B8;
+  color: #FFFFFF;
+  text-decoration: none;
 }
 
 .nav-toggle {
   display: none;
 }
 
-/* tombol hamburger disembunyikan (tanpa JS) */
+/* ------------------------------------------------------------
+   4. NAVIGATION (Spesifikasi 5.2)
+   Minimal: background menu, tampilan link, atur underline, jarak, :hover
+   Selector wajib: nav, nav a, nav a:hover
+   ------------------------------------------------------------ */
+nav,
+.header-nav {
+  display: flex;
+  align-items: center;
+}
 
+nav ul,
+.nav-menu {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 4px 8px;
+  background-color: #F1F5FF;
+  border-radius: 8px;
+}
+
+nav a,
 .nav-link {
-  display: block;
-  padding: 8px 14px;
-  border-radius: 999px;
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--ink);
-  transition: background .2s, color .2s;
-}
-
-.nav-link:hover {
-  background: var(--blue-soft);
-  color: var(--blue);
-  text-decoration: none;
-}
-
-.header-cta {
   display: inline-block;
-  padding: 9px 26px;
-  border-radius: 999px;
-  background: var(--blue);
-  color: #fff;
+  color: #10204A;
   font-size: 14px;
-  font-weight: 700;
-  box-shadow: 0 6px 16px rgba(31, 67, 230, .3);
-  transition: transform .2s, box-shadow .2s, background .2s;
+  font-weight: 500;
+  padding: 6px 14px;
+  margin: 0 4px;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-.header-cta:hover {
-  background: var(--blue-dark);
+nav a:hover,
+.nav-link:hover {
+  color: #1F43E6;
+  background-color: #FFFFFF;
   text-decoration: none;
-  transform: translateY(-2px);
-  box-shadow: 0 10px 22px rgba(31, 67, 230, .4);
 }
 
 /* ------------------------------------------------------------
-   3. HERO
+   5. MAIN CONTENT DAN SECTIONS (Spesifikasi 5.3)
+   Minimal 3 section: lebar content, jarak antar section, padding,
+   background, border, border radius, ukuran & warna teks (mudah dibedakan)
    ------------------------------------------------------------ */
+main {
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+/* Base styling untuk semua section */
+section {
+  width: 100%;
+  padding: 40px 32px;
+  margin-bottom: 32px;
+  border-radius: 12px;
+  box-sizing: border-box;
+  scroll-margin-top: 20px;
+}
+
+/* Hero Section (Aksen Navy Kontras) */
 .hero {
-  background:
-    radial-gradient(700px 380px at 82% 20%, rgba(76, 111, 255, .45), transparent 70%),
-    radial-gradient(500px 300px at 0% 100%, rgba(111, 166, 255, .2), transparent 70%),
-    radial-gradient(rgba(255, 255, 255, .07) 1px, transparent 1px) 0 0 / 28px 28px,
-    linear-gradient(160deg, var(--navy) 0%, var(--navy-2) 100%);
-  overflow: hidden;
+  background-color: #0A1535;
+  color: #FFFFFF;
+  padding: 56px 36px;
+  margin-bottom: 36px;
+  border-radius: 12px;
+  border: 1px solid #1E293B;
 }
 
 .hero-container {
-  max-width: var(--wrap);
-  margin: 0 auto;
-  padding: 88px 24px;
   display: flex;
   align-items: center;
-  gap: 56px;
+  justify-content: space-between;
+  gap: 36px;
+  max-width: 1140px;
+  margin: 0 auto;
 }
 
 .hero-content-cell {
   flex: 1 1 55%;
-  min-width: 0;
-}
-
-.hero-card-cell {
-  flex: 1 1 45%;
-  min-width: 0;
-  position: relative;
 }
 
 .hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 7px 16px;
-  margin-bottom: 22px;
-  border-radius: 999px;
-  background: rgba(157, 195, 255, .12);
-  border: 1px solid rgba(157, 195, 255, .35);
-  color: #B9D3FF;
-  font-size: 12px;
+  color: #9DC3FF;
+  font-size: 13px;
   font-weight: 700;
-  letter-spacing: .8px;
-}
-
-.hero-badge::before {
-  content: "";
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: #4ADE80;
-  box-shadow: 0 0 0 4px rgba(74, 222, 128, .2);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
 }
 
 .hero-title {
-  color: #fff;
-  font-size: 58px;
+  color: #FFFFFF;
+  font-size: 40px;
   font-weight: 800;
-  line-height: 1.08;
-  letter-spacing: -2px;
-  margin-bottom: 22px;
+  line-height: 1.25;
+  margin-bottom: 18px;
 }
 
 .highlight-yellow {
-  color: var(--yellow);
+  color: #FFD60A;
 }
 
 .highlight-blue {
-  color: #9DC3FF;
+  color: #6FA6FF;
 }
 
 .hero-desc {
   color: #C9D8FF;
-  font-size: 17px;
-  line-height: 1.75;
-  max-width: 500px;
-  margin-bottom: 32px;
+  font-size: 16px;
+  line-height: 1.7;
+  margin-bottom: 24px;
 }
 
 .hero-cta {
   display: inline-block;
-  padding: 16px 34px;
-  border-radius: 999px;
-  background: var(--yellow);
-  color: var(--navy);
-  font-size: 16px;
-  font-weight: 800;
-  box-shadow: 0 12px 30px rgba(255, 201, 60, .4);
-  transition: transform .2s, box-shadow .2s;
+  background-color: #1F43E6;
+  color: #FFFFFF;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 12px 28px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
 }
 
 .hero-cta:hover {
+  background-color: #1533B8;
+  color: #FFFFFF;
   text-decoration: none;
-  transform: translateY(-3px);
-  box-shadow: 0 18px 38px rgba(255, 201, 60, .5);
 }
 
-/* kartu melayang */
+.hero-card-cell {
+  flex: 1 1 45%;
+}
+
 .hero-card {
-  position: relative;
-  background: #fff;
-  border-radius: 26px;
-  padding: 30px;
-  box-shadow: 0 34px 70px rgba(0, 0, 0, .4);
-  border: 1px solid rgba(255, 255, 255, .7);
-}
-
-.hero-card::before,
-.hero-card::after {
-  position: absolute;
-  background: #fff;
-  color: var(--navy);
-  padding: 10px 16px;
-  border-radius: 14px;
-  font-size: 12px;
-  font-weight: 700;
-  box-shadow: 0 12px 28px rgba(10, 21, 53, .25);
-  white-space: nowrap;
-}
-
-.hero-card::before {
-  content: "📅 Webinar baru tiap pekan";
-  top: -20px;
-  right: -14px;
-}
-
-.hero-card::after {
-  content: "🟢 Komunitas aktif setiap hari";
-  bottom: -18px;
-  left: -14px;
+  background-color: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 4px 12px rgba(10, 21, 53, 0.08);
 }
 
 .hero-card-title {
-  font-size: 21px;
-  font-weight: 800;
-  line-height: 1.35;
-  letter-spacing: -.4px;
-  margin-bottom: 18px;
+  color: #10204A;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 14px;
 }
 
-.hero-card-list li {
-  position: relative;
-  margin-bottom: 10px;
-  padding: 12px 14px 12px 54px;
-  background: var(--bg-light);
-  border-radius: 14px;
-  color: var(--ink);
-  font-size: 14px;
-  font-weight: 600;
-}
-
-.hero-card-list li::before {
-  content: "\2713";
-  position: absolute;
-  left: 12px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 30px;
-  height: 30px;
-  border-radius: 9px;
-  background: var(--blue-soft);
-  color: var(--blue);
-  font-weight: 800;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.hero-card-img-wrap {
-  margin-top: 18px;
-}
-
-.hero-card-img {
-  width: 100%;
-  height: 190px;
-  object-fit: cover;
-  object-position: center 60%;
-  border-radius: 16px;
-  background: linear-gradient(135deg, #DDE7FF, #F1F5FF);
-}
-
-/* ------------------------------------------------------------
-   4. SECTION UMUM
-   ------------------------------------------------------------ */
+/* Section 1: Event Mendatang (Background Putih Bersih) */
 .section-white {
-  background: #fff;
+  background-color: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  padding: 40px 32px;
+  margin-bottom: 32px;
+  border-radius: 12px;
 }
 
+/* Section 2: Cara Belajar (Background Terang Pembeda) */
 .section-light {
-  background: var(--bg-light);
-}
-
-.section-table {
-  max-width: var(--wrap);
-  margin: 0 auto;
-}
-
-.section-table>tbody>tr>td {
-  padding: 88px 24px;
+  background-color: #F1F5FF;
+  border: 1px solid #D6E2FF;
+  padding: 40px 32px;
+  margin-bottom: 32px;
+  border-radius: 12px;
 }
 
 .section-title {
-  font-size: 36px;
-  font-weight: 800;
-  line-height: 1.2;
-  letter-spacing: -1px;
-  color: var(--navy);
-}
-
-.section-title::before {
-  /* pill kecil di atas judul, seperti referensi */
-  display: block;
-  width: fit-content;
-  margin: 0 0 14px;
-  padding: 6px 14px;
-  border-radius: 999px;
-  background: var(--blue-soft);
-  border: 1px solid #C9D6FF;
-  color: var(--blue);
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 1px;
-}
-
-#event .section-title::before {
-  content: "🗓️ EVENT ONLINE";
-}
-
-#cara-belajar .section-title::before {
-  content: "🎯 CARA BELAJAR";
-}
-
-#faq .section-title::before {
-  content: "❓ FAQ";
+  font-size: 26px;
+  font-weight: 700;
+  color: #10204A;
+  margin-bottom: 24px;
 }
 
 .section-title-center {
   text-align: center;
 }
 
-.section-title-center::before {
-  margin: 0 auto 14px;
-}
-
 .section-subtitle {
-  max-width: 620px;
-  margin: 14px auto 0;
   text-align: center;
-  color: var(--muted);
-  font-size: 17px;
+  max-width: 600px;
+  margin: -12px auto 28px auto;
+  font-size: 15px;
+  color: #475569;
 }
 
 .section-subtitle-title {
-  margin: 64px 0 26px;
-  text-align: center;
-  font-size: 24px;
-  font-weight: 800;
-  letter-spacing: -.5px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #10204A;
+  margin-top: 32px;
+  margin-bottom: 14px;
 }
 
 /* ------------------------------------------------------------
-   5. KARTU EVENT
+   6. LIST UL DAN OL (Spesifikasi 5.5)
+   Minimal: jarak antar item, padding, jenis marker, warna/ukuran teks
    ------------------------------------------------------------ */
-.event-grid,
-.event-grid>tbody {
-  display: block;
+ul {
+  list-style-type: disc;
+  padding-left: 24px;
+  margin-bottom: 16px;
 }
 
-.event-grid>tbody>tr {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 22px;
-  margin-top: 40px;
+ol {
+  list-style-type: decimal;
+  padding-left: 24px;
+  margin-bottom: 16px;
 }
 
-.event-grid>tbody>tr>td.event-card {
-  flex: 0 0 calc(25% - 17px);
-  min-width: 0;
-  background: #fff;
-  border: 1px solid var(--line);
-  border-radius: 20px;
-  box-shadow: var(--shadow-sm);
-  overflow: hidden;
-  transition: transform .25s, box-shadow .25s, border-color .25s;
+li {
+  font-size: 14px;
+  color: #475569;
+  line-height: 1.6;
+  margin-bottom: 8px;
+  padding-left: 4px;
 }
 
-.event-card:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--shadow-md);
-  border-color: #BFCCFF;
+/* Pengaturan list di kartu hero */
+.hero-card-list {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin-bottom: 16px;
 }
 
-.event-card-inner {
-  height: 100%;
+.hero-card-list li {
+  color: #334155;
+  font-size: 14px;
+  margin-bottom: 8px;
 }
 
-.event-card-inner>tbody>tr>td {
-  padding: 0 22px 22px;
-}
-
-.event-card-inner>tbody>tr:first-child>td {
-  padding: 0;
-}
-
-.event-badge {
-  /* pita warna di atas kartu */
-  padding: 14px 22px !important;
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 1.2px;
-}
-
-.event-badge::before {
-  content: "● ";
-}
-
-.event-badge-blue {
-  background: #E3EAFF;
-  color: var(--blue);
-}
-
-.event-badge-green {
-  background: #DCF5DA;
-  color: #1B8A14;
-}
-
-.event-title {
-  margin-top: 18px;
-  min-height: 74px;
-  font-size: 17px;
-  font-weight: 800;
-  line-height: 1.4;
-  letter-spacing: -.3px;
-}
-
-.event-date {
-  margin: 8px 0 16px;
-  color: var(--blue);
-  font-size: 13px;
-  font-weight: 700;
-}
-
-.event-date::before {
-  content: "📅 ";
-}
-
-.event-speaker-label {
-  color: var(--muted);
-  font-size: 10px;
-  font-weight: 800;
-  letter-spacing: 1.4px;
-}
-
-.event-speaker {
-  font-size: 15px;
-  font-weight: 800;
-}
-
-.event-speaker-role {
+/* Pengaturan list di kartu Cara Belajar */
+.how-list {
+  list-style-type: square;
+  padding-left: 20px;
   margin-bottom: 12px;
-  color: var(--muted);
-  font-size: 12px;
-}
-
-.event-count {
-  display: inline-block;
-  padding: 4px 12px;
-  border-radius: 999px;
-  background: var(--bg-light);
-  color: var(--blue);
-  font-size: 12px;
-  font-weight: 700;
-}
-
-.event-divider {
-  border: none;
-  border-top: 1px solid var(--line);
-  margin: 18px 0 14px;
-}
-
-.event-footer>tbody>tr>td {
-  vertical-align: middle;
-}
-
-.event-footer>tbody>tr>td:first-child {
-  padding-right: 12px;
-}
-
-.event-footer>tbody>tr>td:last-child {
-  text-align: right;
-}
-
-.event-price {
-  font-size: 15px;
-  font-weight: 800;
-  color: var(--navy);
-  white-space: nowrap;
-}
-
-.event-join {
-  display: inline-block;
-  padding: 8px 18px;
-  border-radius: 999px;
-  background: var(--blue);
-  color: #fff;
-  font-size: 13px;
-  font-weight: 700;
-  transition: background .2s, transform .2s;
-}
-
-.event-join::after {
-  content: " →";
-}
-
-.event-join:hover {
-  background: var(--blue-dark);
-  text-decoration: none;
-  transform: translateX(3px);
-}
-
-/* ------------------------------------------------------------
-   6. CARA BELAJAR
-   ------------------------------------------------------------ */
-.how-grid,
-.how-grid>tbody {
-  display: block;
-}
-
-.how-grid>tbody>tr {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 24px;
-  margin-top: 44px;
-}
-
-.how-grid>tbody>tr>td.how-card {
-  flex: 1 1 calc(50% - 12px);
-  min-width: 0;
-  background: #fff;
-  border: 1px solid #D5DFFF;
-  border-radius: 22px;
-  box-shadow: var(--shadow-sm);
-}
-
-.how-card-inner>tbody>tr>td {
-  padding: 32px;
-}
-
-.how-card-title {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 18px;
-  font-size: 21px;
-  font-weight: 800;
-  letter-spacing: -.4px;
-  color: var(--navy);
-}
-
-.how-card-title::before {
-  width: 44px;
-  height: 44px;
-  border-radius: 13px;
-  background: var(--blue-soft);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 20px;
-}
-
-.how-card:first-child .how-card-title::before {
-  content: "💡";
-}
-
-.how-card:last-child .how-card-title::before {
-  content: "🚀";
-}
-
-.how-list li {
-  position: relative;
-  padding: 10px 0 10px 36px;
-  color: var(--ink);
-  font-size: 15px;
-  font-weight: 500;
-}
-
-.how-list li::before {
-  content: "\2713";
-  position: absolute;
-  left: 0;
-  top: 10px;
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  background: #DCF5DA;
-  color: #1B8A14;
-  font-size: 12px;
-  font-weight: 800;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .how-list-ordered {
-  counter-reset: step;
+  list-style-type: decimal;
+  padding-left: 20px;
+  margin-bottom: 12px;
 }
 
+.how-list li,
 .how-list-ordered li {
-  counter-increment: step;
-}
-
-.how-list-ordered li::before {
-  content: counter(step);
-  background: var(--blue);
-  color: #fff;
-  box-shadow: 0 4px 10px rgba(31, 67, 230, .35);
-}
-
-/* tabel jalur belajar */
-.path-table {
-  border-collapse: separate;
-  border-spacing: 0;
-  background: #fff;
-  border-radius: 18px;
-  overflow: hidden;
-  box-shadow: var(--shadow-md);
-}
-
-.path-table th {
-  background: var(--navy);
-  color: #fff;
-  padding: 16px 24px;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: .5px;
-}
-
-.path-table td {
-  padding: 16px 24px;
-  font-size: 15px;
-  color: var(--muted);
-  border-bottom: 1px solid var(--line);
-  transition: background .2s;
-}
-
-.path-table td:first-child {
-  color: var(--ink);
-  font-weight: 700;
-}
-
-.path-table tr:last-child td {
-  border-bottom: none;
-}
-
-.path-table tr:hover td {
-  background: #EEF3FF;
+  font-size: 14px;
+  color: #475569;
+  margin-bottom: 8px;
 }
 
 /* ------------------------------------------------------------
-   7. FAQ
+   7. GAMBAR (Spesifikasi 5.6)
+   Minimal: width/max-width, height, border-radius, perataan gambar
+   Efek hover (opsional diterapkan)
    ------------------------------------------------------------ */
-.faq-list {
-  max-width: 800px;
-  margin: 44px auto 0;
-  border-collapse: separate;
-  border-spacing: 0;
-}
-
-.faq-question {
-  padding: 20px 26px;
-  background: #fff;
-  border: 1px solid var(--line);
-  border-bottom: none;
-  border-radius: 16px 16px 0 0;
-  box-shadow: var(--shadow-sm);
-  font-size: 16px;
-  font-weight: 800;
-  color: var(--navy);
-}
-
-.faq-question::before {
-  content: "❓ ";
-}
-
-.faq-question::after {
-  content: "+";
-  float: right;
-  color: var(--blue);
-  font-size: 22px;
-  line-height: 1;
-}
-
-.faq-question u {
-  text-decoration-color: var(--blue);
-  text-underline-offset: 4px;
-}
-
-.faq-answer {
-  padding: 4px 26px 22px;
-  background: #fff;
-  border: 1px solid var(--line);
-  border-top: none;
-  border-radius: 0 0 16px 16px;
-  box-shadow: var(--shadow-sm);
-  color: var(--muted);
-  font-size: 15px;
-  line-height: 1.75;
-}
-
-.faq-spacer {
-  height: 16px;
-}
-
-/* ------------------------------------------------------------
-   8. HALAMAN LOGIN
-   ------------------------------------------------------------ */
-.login-page {
-  background:
-    radial-gradient(520px 320px at 12% 8%, rgba(31, 67, 230, .16), transparent 70%),
-    radial-gradient(520px 320px at 92% 92%, rgba(111, 166, 255, .25), transparent 70%),
-    var(--bg-light);
-}
-
-.login-main-table>tbody>tr>td {
-  padding: 80px 24px;
-  text-align: center;
-}
-
-.login-card {
-  width: 440px;
+img {
   max-width: 100%;
-  margin: 0 auto;
-  border-collapse: separate;
-  border-spacing: 0;
-  background: #fff;
-  border-radius: 26px;
-  overflow: hidden;
-  box-shadow: 0 30px 70px rgba(16, 32, 74, .2);
-}
-
-.login-header {
-  height: 104px;
-  text-align: center;
-  vertical-align: middle;
-  background:
-    radial-gradient(240px 120px at 85% 0%, rgba(111, 166, 255, .55), transparent 70%),
-    linear-gradient(135deg, var(--navy), var(--blue));
-}
-
-.login-header::before {
-  content: "</>";
-  color: #fff;
-  font-size: 30px;
-  font-weight: 800;
-  letter-spacing: 2px;
-}
-
-.login-body {
-  padding: 36px 36px 44px;
-  text-align: left;
-}
-
-.login-inner>tbody>tr>td {
-  padding: 6px 0;
-}
-
-.login-title {
-  text-align: center;
-  font-size: 30px;
-  font-weight: 800;
-  letter-spacing: -.8px;
-  color: var(--navy);
-}
-
-.login-subtitle {
-  text-align: center;
-  margin: 6px 0 18px;
-  color: var(--muted);
-  font-size: 14px;
-}
-
-.form-group {
-  margin-bottom: 8px;
-}
-
-.form-label {
+  height: auto;
   display: block;
-  margin-bottom: 8px;
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--ink);
+  margin: 0 auto;
+  border-radius: 8px;
+  transition: transform 0.25s ease, opacity 0.25s ease;
 }
 
-.form-input {
+img:hover {
+  opacity: 0.95;
+  transform: scale(1.01);
+}
+
+.hero-card-img {
   width: 100%;
-  padding: 14px 16px;
-  font: inherit;
-  font-size: 14px;
-  color: var(--ink);
-  background: #F8FAFF;
-  border: 1.5px solid #D5DFFF;
-  border-radius: 12px;
-  transition: border-color .2s, box-shadow .2s, background .2s;
-}
-
-.form-input::placeholder {
-  color: #94A3C4;
-}
-
-.form-input:focus {
-  outline: none;
-  background: #fff;
-  border-color: var(--blue);
-  box-shadow: 0 0 0 4px rgba(31, 67, 230, .14);
-}
-
-.form-forgot {
-  text-align: right !important;
-}
-
-.form-forgot a {
-  font-size: 13px;
-  font-weight: 700;
-}
-
-.form-submit {
-  display: block;
-  width: 100%;
-  padding: 15px;
-  margin-top: 6px;
-  border-radius: 12px;
-  text-align: center;
-  background: linear-gradient(135deg, #2F55FF, var(--blue));
-  color: #fff;
-  font-size: 16px;
-  font-weight: 800;
-  box-shadow: 0 12px 26px rgba(31, 67, 230, .35);
-  transition: transform .2s, box-shadow .2s;
-}
-
-.form-submit:hover {
-  text-decoration: none;
-  transform: translateY(-2px);
-  box-shadow: 0 16px 32px rgba(31, 67, 230, .45);
-}
-
-.form-register {
-  padding-top: 20px !important;
-  text-align: center !important;
-  color: var(--muted);
-  font-size: 14px;
-}
-
-.form-register a {
-  font-weight: 700;
-}
-
-/* ------------------------------------------------------------
-   9. HALAMAN BLOG (tentang.html)
-   ------------------------------------------------------------ */
-.page-banner {
-  background:
-    radial-gradient(560px 220px at 50% 0%, rgba(76, 111, 255, .45), transparent 70%),
-    radial-gradient(rgba(255, 255, 255, .07) 1px, transparent 1px) 0 0 / 28px 28px,
-    linear-gradient(160deg, var(--navy), var(--navy-2));
-}
-
-.page-banner-table {
-  max-width: var(--wrap);
-  margin: 0 auto;
-}
-
-.page-banner-table>tbody>tr>td {
-  padding: 72px 24px;
-  text-align: center;
-}
-
-.page-banner-badge {
-  display: inline-block;
-  padding: 7px 16px;
-  margin-bottom: 14px;
-  border-radius: 999px;
-  background: rgba(157, 195, 255, .12);
-  border: 1px solid rgba(157, 195, 255, .35);
-  color: #B9D3FF;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: .8px;
-}
-
-.page-banner-title {
-  color: #fff;
-  font-size: 46px;
-  font-weight: 800;
-  letter-spacing: -1.5px;
-}
-
-.articles-table {
-  max-width: var(--wrap);
-  margin: 0 auto;
-}
-
-.articles-table>tbody>tr>td {
-  padding: 88px 24px;
-}
-
-.articles-grid,
-.articles-grid>tbody {
-  display: block;
-}
-
-.articles-grid>tbody>tr {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 24px;
-  margin-top: 40px;
-}
-
-.articles-grid>tbody>tr>td.article-card {
-  flex: 0 0 calc(33.333% - 16px);
-  min-width: 0;
-  background: #fff;
-  border: 1px solid var(--line);
-  border-radius: 20px;
-  box-shadow: var(--shadow-sm);
-  overflow: hidden;
-  transition: transform .25s, box-shadow .25s;
-}
-
-.article-card:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--shadow-md);
-}
-
-.article-card-inner {
-  height: 100%;
-}
-
-.article-card-inner>tbody>tr:first-child>td {
-  background: linear-gradient(135deg, #DDE7FF, #F1F5FF);
-}
-
-.article-card-inner>tbody>tr:last-child>td {
-  padding: 22px 24px 26px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid #E2E8F0;
 }
 
 .article-img {
   width: 100%;
   height: 190px;
   object-fit: cover;
-}
-
-.article-meta {
-  margin-bottom: 8px;
-  color: var(--blue);
-  font-size: 12px;
-  font-weight: 700;
-}
-
-.article-title {
-  margin-bottom: 8px;
-  font-size: 19px;
-  font-weight: 800;
-  line-height: 1.35;
-  letter-spacing: -.4px;
-}
-
-.article-title a {
-  color: var(--navy);
-}
-
-.article-title a:hover {
-  color: var(--blue);
-  text-decoration: none;
-}
-
-.article-excerpt {
-  color: var(--muted);
-  font-size: 14px;
-  line-height: 1.7;
+  border-radius: 8px 8px 0 0;
 }
 
 /* ------------------------------------------------------------
-   10. FOOTER
+   8. TABEL (Spesifikasi 5.7)
+   Minimal: border tabel, padding cell, warna header, perataan, warna baris
+   Selector wajib: table, th, td
    ------------------------------------------------------------ */
+/* Reset tabel layout umum dari Tugas 1 agar rapi */
+.section-table,
+.event-grid,
+.how-grid,
+.articles-grid,
+.footer-table,
+.login-main-table,
+.page-banner-table,
+.articles-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: none;
+}
+
+.section-table td,
+.event-grid td,
+.how-grid td,
+.articles-grid td,
+.footer-table td,
+.login-main-table td,
+.page-banner-table td,
+.articles-table td {
+  border: none;
+  padding: 0;
+  vertical-align: top;
+}
+
+/* Styling Tabel Data Sesuai Rubrik 5.7 */
+table.path-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #CBD5E1;
+  background-color: #FFFFFF;
+  margin: 16px 0 24px 0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+table.path-table th {
+  background-color: #1F43E6;
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: left;
+  padding: 12px 16px;
+  border: 1px solid #1533B8;
+  letter-spacing: 0.3px;
+}
+
+table.path-table td {
+  font-size: 14px;
+  color: #10204A;
+  text-align: left;
+  padding: 12px 16px;
+  border: 1px solid #E2E8F0;
+}
+
+table.path-table tr:nth-child(even) td {
+  background-color: #F8FAFC;
+}
+
+table.path-table tr:hover td {
+  background-color: #EEF2FF;
+}
+
+/* ------------------------------------------------------------
+   9. FOOTER (Spesifikasi 5.8)
+   Minimal: background, warna teks, text alignment, padding, ukuran teks
+   ------------------------------------------------------------ */
+footer,
 .site-footer {
-  background: linear-gradient(180deg, var(--navy) 0%, #071029 100%);
-  border-top: 4px solid var(--blue);
+  background-color: #0A1535;
+  color: #C9D8FF;
+  font-size: 14px;
+  text-align: left;
+  padding: 48px 24px 24px;
+  border-top: 1px solid #1E293B;
+  margin-top: 40px;
 }
 
 .footer-table {
-  max-width: var(--wrap);
+  max-width: 1140px;
   margin: 0 auto;
-}
-
-.footer-table,
-.footer-table>tbody {
-  display: block;
-}
-
-.footer-table>tbody>tr {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 32px;
-  padding: 64px 24px 44px;
 }
 
 .footer-brand {
-  flex: 1 1 300px;
-  max-width: 360px;
-}
-
-.footer-col {
-  flex: 1 1 150px;
-}
-
-.footer-col-last {
-  flex: 1 1 150px;
+  width: 40%;
+  padding-right: 32px;
 }
 
 .footer-brand-link {
-  display: inline-block;
-  margin-bottom: 14px;
-  color: #fff;
-  font-size: 22px;
-  font-weight: 800;
-  letter-spacing: -.4px;
-}
-
-.footer-brand-link:hover {
+  font-size: 20px;
+  font-weight: 700;
+  color: #FFFFFF;
   text-decoration: none;
+  display: inline-block;
+  margin-bottom: 12px;
 }
 
 .footer-desc {
-  margin-bottom: 14px;
-  color: #B4C4EE;
+  color: #94A3B8;
   font-size: 14px;
-  line-height: 1.75;
+  line-height: 1.6;
+  margin-bottom: 12px;
 }
 
 .footer-address {
-  margin-bottom: 18px;
-  color: #9DC3FF;
+  color: #CBD5E1;
   font-size: 13px;
+  margin-bottom: 14px;
 }
 
 .footer-social a {
-  display: inline-block;
-  margin: 0 8px 8px 0;
-  padding: 6px 15px;
-  border-radius: 999px;
-  border: 1px solid #27478F;
-  color: #C9D8FF;
+  color: #9DC3FF;
+  margin-right: 14px;
   font-size: 13px;
-  font-weight: 600;
-  transition: background .2s, border-color .2s;
+  font-weight: 500;
 }
 
 .footer-social a:hover {
-  background: var(--blue);
-  border-color: var(--blue);
-  color: #fff;
-  text-decoration: none;
+  color: #FFFFFF;
+  text-decoration: underline;
+}
+
+.footer-col,
+.footer-col-last {
+  width: 20%;
+  padding: 0 16px;
 }
 
 .footer-heading {
-  margin-bottom: 18px;
-  color: #fff;
-  font-size: 13px;
-  font-weight: 800;
-  letter-spacing: 1.2px;
-  text-transform: uppercase;
+  color: #FFFFFF;
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 14px;
 }
 
 .footer-links {
-  color: #B4C4EE;
+  color: #94A3B8;
   font-size: 14px;
-  line-height: 2.2;
+  line-height: 2;
 }
 
 .footer-links a {
-  color: #B4C4EE;
-  transition: color .2s;
-}
-
-.footer-links a:hover {
-  color: #fff;
+  color: #94A3B8;
   text-decoration: none;
 }
 
+.footer-links a:hover {
+  color: #FFFFFF;
+  text-decoration: underline;
+}
+
 .footer-divider {
-  max-width: calc(var(--wrap) - 48px);
-  margin: 0 auto;
   border: none;
-  border-top: 1px solid #1D3A80;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  margin: 32px auto 20px auto;
+  max-width: 1140px;
 }
 
 .footer-bottom {
-  padding: 24px 20px 34px;
   text-align: center;
-  line-height: 1.9;
+  font-size: 13px;
+  color: #64748B;
+  line-height: 1.7;
 }
 
 .footer-credit {
-  color: #fff;
-  font-size: 13px;
+  color: #94A3B8;
+}
+
+.footer-credit b {
+  color: #FFFFFF;
 }
 
 .footer-copy {
-  color: #9DC3FF;
-  font-size: 12px;
+  color: #64748B;
 }
 
 /* ------------------------------------------------------------
-   11. RESPONSIVE
+   10. KOMPONEN KARTU & HALAMAN LAIN (Box Model & Class/ID)
    ------------------------------------------------------------ */
-@media (max-width: 1100px) {
-  .event-grid>tbody>tr>td.event-card {
-    flex-basis: calc(50% - 11px);
-  }
-
-  .hero-title {
-    font-size: 48px;
-  }
+/* Event Cards */
+.event-grid {
+  border-spacing: 16px 0;
+  margin-top: 8px;
 }
 
-@media (max-width: 900px) {
-  .hero-container {
-    flex-direction: column;
-    align-items: stretch;
-    padding: 56px 24px 72px;
-    gap: 56px;
-  }
-
-  .articles-grid>tbody>tr>td.article-card {
-    flex-basis: calc(50% - 12px);
-  }
-
-  .how-grid>tbody>tr>td.how-card {
-    flex-basis: 100%;
-  }
+.event-card {
+  width: 25%;
+  background-color: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(16, 32, 74, 0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  vertical-align: top;
 }
 
-@media (max-width: 720px) {
+.event-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 18px rgba(16, 32, 74, 0.08);
+}
+
+.event-card-inner {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.event-card-inner td {
+  padding: 18px;
+}
+
+.event-badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 4px 10px;
+  border-radius: 4px;
+  margin-bottom: 12px;
+}
+
+.event-badge-blue {
+  background-color: #DDE7FF;
+  color: #1F43E6;
+}
+
+.event-badge-green {
+  background-color: #DCFCE7;
+  color: #15803D;
+}
+
+.event-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #10204A;
+  min-height: 42px;
+  margin-bottom: 8px;
+}
+
+.event-date {
+  font-size: 13px;
+  color: #64748B;
+  margin-bottom: 12px;
+}
+
+.event-speaker-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #94A3B8;
+  margin-bottom: 2px;
+}
+
+.event-speaker {
+  font-size: 14px;
+  font-weight: 600;
+  color: #10204A;
+  margin-bottom: 2px;
+}
+
+.event-speaker-role {
+  font-size: 12px;
+  color: #64748B;
+  margin-bottom: 10px;
+}
+
+.event-count {
+  font-size: 12px;
+  color: #64748B;
+  margin-bottom: 12px;
+}
+
+.event-divider {
+  border: none;
+  border-top: 1px solid #F1F5F9;
+  margin: 10px 0;
+}
+
+.event-footer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.event-price {
+  font-size: 14px;
+  font-weight: 700;
+  color: #10204A;
+}
+
+.event-join {
+  display: inline-block;
+  background-color: #1F43E6;
+  color: #FFFFFF;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.event-join:hover {
+  background-color: #1533B8;
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+/* How Cards */
+.how-grid {
+  border-spacing: 20px 0;
+  margin-bottom: 24px;
+}
+
+.how-card {
+  width: 50%;
+  background-color: #FFFFFF;
+  border: 1px solid #CBD5E1;
+  border-radius: 10px;
+  padding: 24px;
+  box-shadow: 0 2px 6px rgba(16, 32, 74, 0.04);
+}
+
+.how-card-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #10204A;
+  margin-bottom: 16px;
+}
+
+/* FAQ List */
+.faq-list {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq-question {
+  font-size: 16px;
+  font-weight: 700;
+  color: #10204A;
+  padding: 8px 0 4px;
+}
+
+.faq-answer {
+  font-size: 14px;
+  color: #475569;
+  line-height: 1.6;
+  padding-bottom: 16px;
+}
+
+.faq-spacer {
+  height: 12px;
+}
+
+/* Halaman Login (login.html) */
+.login-page {
+  background-color: #F8FAFC;
+}
+
+.login-main-table {
+  min-height: 60vh;
+  margin: 40px auto;
+}
+
+.login-card {
+  max-width: 440px;
+  margin: 0 auto;
+  background-color: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(16, 32, 74, 0.06);
+}
+
+.login-card td.login-body {
+  padding: 36px 32px;
+}
+
+.login-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #10204A;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.login-subtitle {
+  font-size: 14px;
+  color: #64748B;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #10204A;
+  margin-bottom: 6px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #CBD5E1;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #10204A;
+  box-sizing: border-box;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.form-input:focus {
+  border-color: #1F43E6;
+}
+
+.form-forgot {
+  text-align: right;
+  font-size: 13px;
+  padding-bottom: 16px;
+}
+
+.form-submit {
+  display: block;
+  width: 100%;
+  background-color: #1F43E6;
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 12px;
+  border-radius: 6px;
+  text-align: center;
+  text-decoration: none;
+  box-sizing: border-box;
+  transition: background-color 0.2s ease;
+}
+
+.form-submit:hover {
+  background-color: #1533B8;
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+.form-register {
+  text-align: center;
+  font-size: 13px;
+  color: #64748B;
+  padding-top: 20px;
+}
+
+/* Halaman Blog & Tentang (tentang.html) */
+.page-banner {
+  background-color: #0A1535;
+  color: #FFFFFF;
+  padding: 44px 24px;
+  text-align: center;
+  margin-bottom: 32px;
+  border-radius: 0;
+}
+
+.page-banner-badge {
+  color: #9DC3FF;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.page-banner-title {
+  color: #FFFFFF;
+  font-size: 32px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.articles-section {
+  background-color: transparent;
+  padding: 0;
+}
+
+.articles-grid {
+  border-spacing: 20px 0;
+}
+
+.article-card {
+  width: 33.333%;
+  background-color: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(16, 32, 74, 0.04);
+}
+
+.article-card-inner td:last-child {
+  padding: 18px;
+}
+
+.article-meta {
+  font-size: 12px;
+  color: #64748B;
+  margin-bottom: 8px;
+}
+
+.article-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #10204A;
+  margin-bottom: 8px;
+}
+
+.article-title a {
+  color: #10204A;
+  text-decoration: none;
+}
+
+.article-title a:hover {
+  color: #1F43E6;
+}
+
+.article-excerpt {
+  font-size: 13px;
+  color: #64748B;
+  line-height: 1.5;
+  margin-bottom: 0;
+}
+
+/* ------------------------------------------------------------
+   11. RESPONSIVE DESIGN (Media Query Layar Kecil)
+   ------------------------------------------------------------ */
+@media (max-width: 768px) {
   .header-container {
-    flex-wrap: wrap;
-    gap: 8px 12px;
-    padding: 10px 16px;
-  }
-
-  .header-nav {
-    order: 3;
-    width: 100%;
-    margin: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
   }
 
   .nav-menu {
     flex-wrap: wrap;
-    justify-content: center;
-    gap: 0;
+    padding: 6px;
   }
 
-  .nav-link {
-    padding: 6px 10px;
-    font-size: 13px;
-  }
-
-  .header-cta-cell {
-    margin-left: auto;
+  .hero-container {
+    flex-direction: column;
   }
 
   .hero-title {
-    font-size: 38px;
-    letter-spacing: -1.2px;
+    font-size: 30px;
   }
 
-  .hero-card::before {
-    right: 0;
+  .hero-card-cell,
+  .hero-content-cell {
+    width: 100%;
   }
 
-  .hero-card::after {
-    left: 0;
+  .event-grid,
+  .how-grid,
+  .articles-grid,
+  .footer-table {
+    display: block;
   }
 
-  .section-table>tbody>tr>td,
-  .articles-table>tbody>tr>td {
-    padding: 56px 20px;
+  .event-grid tr,
+  .how-grid tr,
+  .articles-grid tr,
+  .footer-table tr {
+    display: block;
   }
 
-  .section-title {
-    font-size: 28px;
+  .event-card,
+  .how-card,
+  .article-card,
+  .footer-brand,
+  .footer-col,
+  .footer-col-last {
+    display: block;
+    width: 100% !important;
+    box-sizing: border-box;
+    margin-bottom: 20px;
   }
 
-  .event-grid>tbody>tr>td.event-card,
-  .articles-grid>tbody>tr>td.article-card {
-    flex-basis: 100%;
-  }
-
-  .event-title {
-    min-height: 0;
-  }
-
-  .page-banner-title {
-    font-size: 34px;
-  }
-
-  .path-table th,
-  .path-table td {
-    padding: 12px 14px;
-    font-size: 13px;
-  }
-
-  .login-body {
-    padding: 28px 22px 34px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  * {
-    transition: none !important;
-    scroll-behavior: auto !important;
+  .footer-brand {
+    padding-right: 0;
   }
 }
