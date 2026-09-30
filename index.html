@@ -10,72 +10,67 @@
 
     <!-- ==================== HEADER ==================== -->
     <header class="site-header">
-        <table class="header-table">
-            <tr>
-                <td class="header-logo-cell">
-                    <div>
-                        <a href="index.html" class="header-logo">Belajar HTML</a>
-                    </div>
-                </td>
-                <td class="header-nav-cell">
-                    <nav class="header-nav">
-                        <a href="index.html" class="nav-link">Home</a>
-                        <a href="index.html" class="nav-link">Event</a>
-                        <a href="index.html" class="nav-link">Course</a>
-                        <a href="index.html" class="nav-link">Mentoring</a>
-                        <a href="tentang.html" class="nav-link">Blog</a>
-                    </nav>
-                </td>
-                <td class="header-cta-cell">
-                    <a href="login.html" class="header-cta">Masuk</a>
-                </td>
-            </tr>
-        </table>
-
-        <!-- ==================== HERO ==================== -->
-        <section class="hero">
-            <table class="hero-table">
-                <tr>
-                    <td class="hero-content-cell">
-                        <p class="hero-badge">EKOSISTEM BELAJAR TEKNOLOGI #1 INDONESIA</p>
-                        <h1 class="hero-title">Tempat Kamu<br>Belajar, <span class="highlight-yellow">Bertumbuh</span><br>
-                        <span class="highlight-blue">&amp; Berkontribusi</span></h1>
-                        <p class="hero-desc">
-                            Event, mentoring, dan course teknologi - dikelola bersama komunitas mentor berpengalaman.
-                            Satu ekosistem untuk semua perjalananmu di dunia IT.
-                        </p>
-                        <p>
-                            <a href="index.html" class="hero-cta">Mulai Belajar Gratis</a>
-                        </p>
-                    </td>
-                    <td class="hero-card-cell">
-                        <table class="hero-card">
-                            <tr>
-                                <td>
-                                    <h2 class="hero-card-title">Satu ekosistem untuk semua jalur belajarmu</h2>
-                                    <ul class="hero-card-list">
-                                        <li>Webinar mingguan dengan topik baru tiap pekan</li>
-                                        <li>Mentoring privat 1-on-1 sesuai kebutuhan</li>
-                                        <li>Course video yang bisa diakses selamanya</li>
-                                        <li>Komunitas Discord yang aktif setiap hari</li>
-                                    </ul>
-                                    <p class="hero-card-img-wrap">
-                                        <img src="assets/gambar-belajar.jpg" alt="Belajar coding" class="hero-card-img">
-                                    </p>
-                                </td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-            </table>
-        </section>
+        <div class="header-container">
+            <div class="header-left">
+                <a href="index.html" class="header-logo">Belajar HTML</a>
+            </div>
+            <nav class="header-nav">
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="#event" class="nav-link">Event</a></li>
+                    <li><a href="#cara-belajar" class="nav-link">Course</a></li>
+                    <li><a href="#cara-belajar" class="nav-link">Mentoring</a></li>
+                    <li><a href="tentang.html" class="nav-link">Blog</a></li>
+                </ul>
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                    <span class="hamburger"></span>
+                </button>
+            </nav>
+            <div class="header-cta-cell">
+                <a href="login.html" class="header-cta">Masuk</a>
+            </div>
+        </div>
     </header>
+
+    <!-- ==================== HERO ==================== -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content-cell">
+                <p class="hero-badge">EKOSISTEM BELAJAR TEKNOLOGI #1 INDONESIA</p>
+                <h1 class="hero-title">Tempat Kamu<br>Belajar, <span class="highlight-yellow">Bertumbuh</span><br>
+                <span class="highlight-blue">&amp; Berkontribusi</span></h1>
+                <p class="hero-desc">
+                    Event, mentoring, dan course teknologi - dikelola bersama komunitas mentor berpengalaman.
+                    Satu ekosistem untuk semua perjalananmu di dunia IT.
+                </p>
+                <p>
+                    <a href="index.html" class="hero-cta">Mulai Belajar Gratis</a>
+                </p>
+            </div>
+            <div class="hero-card-cell">
+                <div class="hero-card">
+                    <div class="hero-card-body">
+                        <h2 class="hero-card-title">Satu ekosistem untuk semua jalur belajarmu</h2>
+                        <ul class="hero-card-list">
+                            <li>Webinar mingguan dengan topik baru tiap pekan</li>
+                            <li>Mentoring privat 1-on-1 sesuai kebutuhan</li>
+                            <li>Course video yang bisa diakses selamanya</li>
+                            <li>Komunitas Discord yang aktif setiap hari</li>
+                        </ul>
+                        <p class="hero-card-img-wrap">
+                            <img src="assets/gambar-belajar.jpg" alt="Belajar coding" class="hero-card-img">
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- ==================== MAIN CONTENT ==================== -->
     <main>
 
     <!-- ==================== SECTION 1: EVENT MENDATANG ==================== -->
-    <section class="section-white">
+    <section class="section-white" id="event">
         <table class="section-table">
             <tr>
                 <td>
@@ -174,7 +169,7 @@
     </section>
 
     <!-- ==================== SECTION 2: CARA BELAJAR ==================== -->
-    <section class="section-light">
+    <section class="section-light" id="cara-belajar">
         <table class="section-table">
             <tr>
                 <td>
@@ -246,7 +241,7 @@
     </section>
 
     <!-- ==================== SECTION 3: FAQ ==================== -->
-    <section class="section-white">
+    <section class="section-white" id="faq">
         <table class="section-table">
             <tr>
                 <td>
