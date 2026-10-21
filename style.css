@@ -138,6 +138,20 @@ input {
   transform: translateY(-2px)
 }
 
+/* Fokus keyboard (aksesibilitas) */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+.filter-pill:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+  border-radius: 8px
+}
+
+.password-wrap button:focus-visible {
+  outline-offset: -2px
+}
+
 .btn-small {
   min-height: 37px;
   padding: 8px 14px;
@@ -798,7 +812,8 @@ input {
 
 .path-table {
   width: 100%;
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0;
   border: 1px solid var(--line);
   border-radius: 12px;
   overflow: hidden;
@@ -810,6 +825,23 @@ input {
   padding: 11px 14px;
   text-align: left;
   border-bottom: 1px solid var(--line)
+}
+
+/* Sudut tabel ter-clip konsisten di semua browser */
+.path-table thead tr:first-child th:first-child {
+  border-top-left-radius: 12px
+}
+
+.path-table thead tr:first-child th:last-child {
+  border-top-right-radius: 12px
+}
+
+.path-table tbody tr:last-child td:first-child {
+  border-bottom-left-radius: 12px
+}
+
+.path-table tbody tr:last-child td:last-child {
+  border-bottom-right-radius: 12px
 }
 
 .path-table th {
