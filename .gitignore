@@ -1,0 +1,31 @@
+# Environment & Secret Keys (PENTING!)
+.env
+.env.*
+*.env
+
+# Dependensi / Package Manager (jika nanti pakai Node.js/NPM)
+node_modules/
+.pnpm-store/
+
+# File Sistem Operasi (macOS & Windows)
+.DS_Store
+Thumbs.db
+ehthumbs.db
+
+# Folder Konfigurasi Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Output Build & Temporary Files (jika pakai Tailwind/Vite/Bundler)
+dist/
+build/
+*.log
+npm-debug.log*
+
+# Claude / AI Local Settings
+.claude/
+
+# VS Code Workspace Settings
+.vscode/
