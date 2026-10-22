@@ -1,0 +1,46 @@
+services:
+  web:
+    build: .
+    container_name: belajar_php_web
+    ports:
+      - "8090:80"
+    volumes:
+      - ./:/var/www/html
+    environment:
+      - DB_HOST=db
+      - DB_PORT=3306
+      - DB_NAME=db_belajar_php
+      - DB_USER=root
+      - DB_ROOT_PASSWORD=rahasia123
+    depends_on:
+      - db
+    restart: unless-stopped
+
+  db:
+    image: mysql:8.0
+    container_name: belajar_php_db
+    command: --default-authentication-plugin=mysql_native_password
+    restart: unless-stopped
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: rahasia123
+      MYSQL_DATABASE: db_belajar_php
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./database/schema.sql:/docker-entrypoint-initdb.d/init.sql:ro
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: belajar_php_pma
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+    depends_on:
+      - db
+
+volumes:
+  mysql_data:
