@@ -1862,6 +1862,18 @@ input:focus-visible,
   font-size: 12px
 }
 
+.static-login-form input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--blue);
+}
+
+.static-login-form label.checkbox-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
 .static-login-form .form-notice {
   margin-top: 18px
 }
