@@ -1,3 +1,13 @@
+<?php
+declare(strict_types=1);
+require_once __DIR__ . '/../../../app/bootstrap.php';
+$flash = \App\Flash::pull();
+$errors = is_array($flash['errors'] ?? null) ? $flash['errors'] : [];
+$old = is_array($flash['old'] ?? null) ? $flash['old'] : [];
+$success = $flash['success'] ?? null;
+$csrf = \App\Csrf::token();
+$user = \App\Auth::user();
+?>
 <!DOCTYPE html>
 <html lang="id">
 
@@ -10,20 +20,7 @@
 </head>
 
 <body>
-    <header class="site-header">
-        <div class="container nav-wrap">
-            <a class="brand" href="../../index.html"><span class="brand-mark">D</span><span>Belajar<span
-                        class="brand-accent">HTML</span></span></a>
-            <button class="nav-toggle" aria-label="Buka navigasi"><span></span><span></span><span></span></button>
-            <nav class="primary-nav" aria-label="Navigasi utama">
-                <a class="nav-link " href="../../index.html">Home</a><a class="nav-link " href="../event.html">Event</a><a
-                    class="nav-link " href="../course.html">Course</a><a class="nav-link "
-                    href="../mentoring.html">Mentoring</a><a class="nav-link " href="../blog.html">Blog</a>
-                <div class="nav-actions"><a class="btn btn-outline btn-small" href="login.html">Masuk</a><a
-                        class="btn btn-primary btn-small" href="../course.html">Mulai Belajar →</a></div>
-            </nav>
-        </div>
-    </header>
+    <?php $navActive = ''; $baseDepth = 2; require __DIR__ . '/../../../app/views/partials/header.php'; ?>
     <main>
         <section class="login-section">
             <div class="container login-layout">
@@ -40,56 +37,56 @@
                 <div class="login-card">
                     <h2>Daftar akun baru</h2>
                     <p class="muted">Isi data berikut untuk membuat akunmu.</p>
-                    <form class="static-login-form">
+                    <?php if (!empty($errors['_global'])): ?>
+                    <div class="form-notice form-error"><?= e($errors['_global']) ?></div>
+                    <?php endif; ?>
+                    <?php if ($success): ?>
+                    <div class="form-notice form-success"><?= e($success) ?></div>
+                    <?php endif; ?>
+                    <form method="post" action="<?= e(base_url('/api/auth/register.php')) ?>">
+                        <input type="hidden" name="_token" value="<?= e($csrf) ?>">
                         <label for="nama">Nama Lengkap</label>
                         <input type="text" id="nama" name="nama" placeholder="Masukkan nama lengkap"
-                            autocomplete="name" required>
+                            autocomplete="name" required value="<?= e($old['nama'] ?? '') ?>">
+                        <?php if (!empty($errors['nama'])): ?>
+                        <div class="form-notice form-error"><?= e($errors['nama']) ?></div>
+                        <?php endif; ?>
                         <label for="email">Email</label>
                         <input type="email" id="email" name="email" placeholder="nama@email.com"
-                            autocomplete="email" required>
+                            autocomplete="email" required value="<?= e($old['email'] ?? '') ?>">
+                        <?php if (!empty($errors['email'])): ?>
+                        <div class="form-notice form-error"><?= e($errors['email']) ?></div>
+                        <?php endif; ?>
                         <label for="password">Password</label>
                         <div class="password-wrap"><input type="password" id="password" name="password"
                                 placeholder="Buat password (min. 8 karakter)" minlength="8"
                                 autocomplete="new-password" required><button type="button"
                                 aria-label="Tampilkan password">Lihat</button></div>
+                        <?php if (!empty($errors['password'])): ?>
+                        <div class="form-notice form-error"><?= e($errors['password']) ?></div>
+                        <?php endif; ?>
                         <label for="confirm-password">Konfirmasi Password</label>
                         <div class="password-wrap"><input type="password" id="confirm-password"
                                 name="confirm-password" placeholder="Ulangi password" minlength="8"
                                 autocomplete="new-password" required><button type="button"
                                 aria-label="Tampilkan password">Lihat</button></div>
-                        <div class="form-row"><label class="checkbox-label"><input type="checkbox" name="syarat" required>
+                        <?php if (!empty($errors['confirm-password'])): ?>
+                        <div class="form-notice form-error"><?= e($errors['confirm-password']) ?></div>
+                        <?php endif; ?>
+                        <div class="form-row"><label class="checkbox-label"><input type="checkbox" name="syarat" required <?= isset($_POST['syarat']) ? 'checked' : '' ?>>
                                 Saya setuju dengan <a href="#" class="text-link">syarat &amp; ketentuan</a></label>
                         </div>
+                        <?php if (!empty($errors['syarat'])): ?>
+                        <div class="form-notice form-error"><?= e($errors['syarat']) ?></div>
+                        <?php endif; ?>
                         <button class="btn btn-primary btn-full" type="submit">Daftar</button>
                     </form>
-                    <div class="login-foot">Sudah punya akun? <a href="login.html">Masuk di sini</a></div>
+                    <div class="login-foot">Sudah punya akun? <a href="login.php">Masuk di sini</a></div>
                 </div>
             </div>
         </section>
     </main>
-    <footer class="site-footer">
-        <div class="container footer-main">
-            <div class="footer-brand-block"><a class="brand brand-footer" href="../../index.html"><span
-                        class="brand-mark">D</span><span>Belajar<span class="brand-accent">HTML</span></span></a>
-                <p>Ekosistem belajar teknologi berbasis komunitas, tempat bertumbuh, berbagi, dan membangun keterampilan
-                    digital.</p>
-            </div>
-            <div class="footer-col">
-                <h4>Cara Belajar</h4><a href="../event.html">Event &amp; Webinar</a><a href="../course.html">Video
-                    Course</a><a href="../mentoring.html">Private Mentoring</a>
-            </div>
-            <div class="footer-col">
-                <h4>Komunitas</h4><a href="../mentoring.html">Jadi Mentor</a><a href="../blog.html">Blog &amp; Artikel</a><a
-                    href="../tentang.html">Tentang Kami</a>
-            </div>
-            <div class="footer-col">
-                <h4>Informasi</h4><a href="login.html">Masuk</a><a href="register.html">Daftar</a><a
-                    href="../tentang.html#kontak">Kontak</a>
-            </div>
-        </div>
-        <div class="container footer-bottom"><span>© 2026 Belajar HTML. Proyek pembelajaran.</span><span>Dibuat oleh
-                Masrul Hadi · 240705068</span></div>
-    </footer>
+    <?php require __DIR__ . '/../../../app/views/partials/footer.php'; ?>
 </body>
 
 </html>

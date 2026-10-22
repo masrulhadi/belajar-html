@@ -42,27 +42,45 @@ Ringkasan temuan:
 
 ```
 belajar-html/
-├── assets/
-│   ├── gambar1.jpg
-│   ├── gambar2.jpg
-│   ├── gambar3.jpg
-│   ├── gambar4.jpg
-│   ├── gambar-belajar.jpg
-│   └── gambar_orang_belajar.jpeg
-├── css/
-│   └── style.css
-├── pages/
-│   ├── auth/
-│   │   ├── login.html
-│   │   └── register.html
-│   ├── artikel-detail.html
-│   ├── blog.html
-│   ├── course.html
-│   ├── event.html
-│   ├── mentoring.html
-│   └── tentang.html
+├── app/                              # logika PHP (di luar web root)
+│   ├── bootstrap.php
+│   ├── migrate.php
+│   ├── config/
+│   │   ├── app.php
+│   │   └── database.php
+│   └── src/
+│       ├── Auth.php, Database.php, Session.php, Csrf.php,
+│       ├── Env.php, Flash.php, Validator.php, RateLimiter.php,
+│       ├── Redirect.php, helpers.php
+├── database/
+│   ├── README.md
+│   └── migrations/
+│       ├── 001_create_users.sql
+│       ├── 002_create_login_attempts.sql
+│       └── 003_create_schema_migrations.sql
+├── docker/
+│   ├── mysql/init/001_schema.sql
+│   └── web/
+│       ├── Dockerfile
+│       └── apache-vhost.conf
+├── public/                           # document root Apache
+│   ├── api/
+│   │   ├── health.php
+│   │   └── auth/
+│   │       ├── login.php, register.php, logout.php
+│   ├── assets/
+│   ├── css/style.css
+│   ├── index.html
+│   └── pages/
+│       ├── auth/
+│       │   ├── login.php
+│       │   ├── register.php
+│       │   └── dashboard.php
+│       ├── artikel-detail.html, blog.html, course.html,
+│       ├── event.html, mentoring.html, tentang.html
+├── .env.example
 ├── .gitignore
-├── index.html
+├── docker-compose.yml
 └── README.md
 ```
 
@@ -70,15 +88,16 @@ belajar-html/
 
 | Berkas | Fungsi |
 |--------|--------|
-| `index.html` | Halaman utama, hero, ringkasan kursus, testimonial, CTA |
-| `pages/course.html` | Katalog kursus, filter, daftar kursus |
-| `pages/event.html` | Daftar event dan webinar |
-| `pages/mentoring.html` | Program mentoring dan mentor |
-| `pages/blog.html` | Daftar artikel blog |
-| `pages/artikel-detail.html` | Detail artikel (statis, satu templat) |
-| `pages/tentang.html` | Tentang platform, nilai, kontak |
-| `pages/auth/login.html` | Form masuk |
-| `pages/auth/register.html` | Form daftar |
+| `public/index.html` | Halaman utama, hero, ringkasan kursus, testimonial, CTA |
+| `public/pages/course.html` | Katalog kursus, filter, daftar kursus |
+| `public/pages/event.html` | Daftar event dan webinar |
+| `public/pages/mentoring.html` | Program mentoring dan mentor |
+| `public/pages/blog.html` | Daftar artikel blog |
+| `public/pages/artikel-detail.html` | Detail artikel (statis, satu templat) |
+| `public/pages/tentang.html` | Tentang platform, nilai, kontak |
+| `public/pages/auth/login.php` | Form masuk (terhubung MySQL) |
+| `public/pages/auth/register.php` | Form daftar (terhubung MySQL) |
+| `public/pages/auth/dashboard.php` | Halaman setelah login |
 
 ## 5. Stack Teknologi
 
@@ -89,6 +108,86 @@ belajar-html/
 - Tanpa bundler / package manager
 - Gambar JPEG statis
 - Font sistem (Inter dideklarasikan tetapi tidak dimuat dari sumber eksternal)
+- PHP 8.2 (Apache) untuk autentikasi
+- MySQL 8.0 untuk penyimpanan akun
+- Docker Compose untuk lingkungan pengembangan
+
+## 5.1 Integrasi PHP & MySQL
+
+### Arsitektur
+
+| Bagian | Lokasi | Keterangan |
+|--------|---------|------------|
+| Document root | `public/` | Satu-satunya folder yang dapat diakses lewat HTTP |
+| Logika aplikasi | `app/` | Di luar document root, tidak bisa diunduh |
+| Migrasi SQL | `database/migrations/` | Idempotent, dijalankan lewat `app/migrate.php` |
+| Infrastruktur | `docker/` | Dockerfile Apache + init script MySQL |
+
+Endpoint di `public/api/` sengaja dibuat tipis: isinya hanya memanggil kelas di
+`app/src/`, tanpa logika maupun kredensial.
+
+### Skema Database
+
+Tabel `users`:
+
+| Kolom | Tipe | Keterangan |
+|-------|------|------------|
+| `id` | INT UNSIGNED AI | Primary key |
+| `name` | VARCHAR(100) | Nama pengguna |
+| `email` | VARCHAR(191) | Unik, pencarian case-insensitive |
+| `password_hash` | VARCHAR(255) | Hash bcrypt, bukan password mentah |
+| `role` | ENUM('user','admin') | Peran pengguna |
+| `is_active` | TINYINT(1) | Nonaktifkan akun tanpa menghapus |
+| `remember_token` | CHAR(64) | SHA-256 dari selector+validator |
+| `remember_token_expires` | DATETIME | Masa berlaku token "ingat saya" |
+| `last_login_at` | DATETIME | Waktu login terakhir |
+| `created_at` / `updated_at` | TIMESTAMP | Otomatis oleh MySQL |
+
+Tabel `login_attempts` mencatat percobaan login (email, IP, sukses/tidak,
+waktu) untuk rate limiting. Tabel `schema_migrations` melacak migrasi yang
+sudah diterapkan.
+
+### Endpoint
+
+| Method | Endpoint | Keterangan |
+|--------|----------|------------|
+| POST | `/api/auth/register.php` | Validasi, cek duplikat email, simpan akun, auto-login |
+| POST | `/api/auth/login.php` | Rate limit, verifikasi password, buat session |
+| POST | `/api/auth/logout.php` | Hapus session dan cookie "ingat saya" |
+| GET | `/api/health.php` | Status aplikasi dan koneksi database |
+
+### Keamanan yang Diterapkan
+
+- Password di-hash dengan `password_hash()` dan diverifikasi dengan
+  `password_verify()`; `password_needs_rehash()` ditangani saat login.
+- Seluruh query memakai prepared statement PDO dengan
+  `ATTR_EMULATE_PREPARES = false`.
+- Token CSRF per-sesi, diverifikasi dengan `hash_equals()`, dirotasi setiap
+  kali login atau logout.
+- Cookie session memakai flag `httponly`, `samesite=Lax`, `secure` saat
+  HTTPS, `use_strict_mode`, dan `use_only_cookies`.
+- `session_regenerate_id(true)` dijalankan saat login dan logout untuk
+  mencegah session fixation.
+- Login dibatasi 5 percobaan per 15 menit per kombinasi email dan IP.
+- Output yang berasal dari input pengguna selalu di-escape dengan
+  `htmlspecialchars()` melalui helper `e()`.
+- Header `X-Content-Type-Options`, `X-Frame-Options`, dan `Referrer-Policy`
+  dikirim pada setiap respons.
+- Folder `app/`, `database/`, dan `docker/` berada di luar document root dan
+  mengembalikan 404 bila diakses lewat HTTP.
+- Kredensial hanya berada di `.env` yang tidak dilacak Git; `.env.example`
+  disediakan sebagai acuan.
+
+### Catatan Operasional
+
+- Port default yang dipakai: `8090` (situs), `8091` (phpMyAdmin), `3307`
+  (MySQL pada host). Nilai `8080`/`8081`/`3306` sering sudah dipakai XAMPP
+  atau FlyEnv di komputer lokal.
+- Image `php:8.2-apache` resmi belum membawa ekstensi `pdo_mysql`, sehingga
+  `docker/web/Dockerfile` wajib melakukan `docker-php-ext-install pdo_mysql`.
+- Compose hanya meng-*interpolate* variabel `${...}`; agar container web
+  benar-benar menerima kredensial database, diperlukan `env_file: .env`
+  sekaligus blok `environment:`.
 
 ## 6. Metodologi Analisis
 
