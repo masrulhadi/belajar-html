@@ -1,2 +1,2 @@
-# Nama  : Masrul Hadi
-# NIM   : 240705068
+# Nama : Masrul Hadi
+# Nim  : 240705068
