@@ -27,15 +27,15 @@ $flash = get_flash_message();
                 <span class="brand-mark">D</span>
                 <span>Belajar<span class="brand-accent">HTML</span></span>
             </a>
-            <button class="nav-toggle" aria-label="Buka navigasi">
+            <button class="nav-toggle" type="button" aria-label="Buka navigasi">
                 <span></span><span></span><span></span>
             </button>
             <nav class="primary-nav" aria-label="Navigasi utama">
                 <a class="nav-link <?= $current_page === 'home' ? 'active' : '' ?>" href="<?= $base_url ?>index.php">Home</a>
-                <a class="nav-link <?= $current_page === 'event' ? 'active' : '' ?>" href="<?= $base_url ?>pages/event.html">Event</a>
-                <a class="nav-link <?= $current_page === 'course' ? 'active' : '' ?>" href="<?= $base_url ?>pages/course.html">Course</a>
-                <a class="nav-link <?= $current_page === 'mentoring' ? 'active' : '' ?>" href="<?= $base_url ?>pages/mentoring.html">Mentoring</a>
-                <a class="nav-link <?= $current_page === 'blog' ? 'active' : '' ?>" href="<?= $base_url ?>pages/blog.html">Blog</a>
+                <a class="nav-link <?= $current_page === 'event' ? 'active' : '' ?>" href="<?= $base_url ?>pages/event.php">Event</a>
+                <a class="nav-link <?= $current_page === 'course' ? 'active' : '' ?>" href="<?= $base_url ?>pages/course.php">Course</a>
+                <a class="nav-link <?= $current_page === 'mentoring' ? 'active' : '' ?>" href="<?= $base_url ?>pages/mentoring.php">Mentoring</a>
+                <a class="nav-link <?= $current_page === 'blog' ? 'active' : '' ?>" href="<?= $base_url ?>pages/blog.php">Blog</a>
                 
                 <div class="nav-actions">
                     <?php if ($logged_in && $user_data): ?>

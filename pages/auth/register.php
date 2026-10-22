@@ -92,9 +92,9 @@ require_once APP_ROOT . '/includes/header.php';
                 <span class="eyebrow"><span class="eyebrow-dot"></span> BUAT AKUN BARU</span>
                 <h1>Mulai perjalanan <span class="text-yellow">belajarmu.</span></h1>
                 <p>Daftar akun gratis untuk mengelola target belajar dan progres kursusmu.</p>
-                <div class="login-benefit">✓ Akses semua materi dan course</div>
-                <div class="login-benefit">✓ Kelola target &amp; roadmap belajarmu</div>
-                <div class="login-benefit">✓ Data tersimpan aman di database MySQL</div>
+                <div class="login-benefit">Akses semua materi dan course</div>
+                <div class="login-benefit">Kelola target &amp; roadmap belajarmu</div>
+                <div class="login-benefit">Data tersimpan aman di database MySQL</div>
             </div>
 
             <div class="login-card">

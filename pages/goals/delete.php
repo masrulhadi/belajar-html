@@ -1,9 +1,9 @@
 <?php
-define('APP_ROOT', dirname(__DIR__));
+define('APP_ROOT', dirname(__DIR__, 2));
 require_once APP_ROOT . '/config/db.php';
 
 // Wajib login
-require_login('auth/login.php');
+require_login('../auth/login.php');
 
 $user = get_current_user_data();
 $goal_id = isset($_GET['id']) ? (int)$_GET['id'] : (isset($_POST['id']) ? (int)$_POST['id'] : 0);
@@ -17,7 +17,7 @@ $goal = $stmt->fetch();
 
 if (!$goal) {
     set_flash_message('danger', 'Data target belajar tidak ditemukan atau Anda tidak memiliki akses.');
-    header('Location: profile.php');
+    header('Location: ../profile.php');
     exit;
 }
 
@@ -27,20 +27,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmtDelete->execute([$goal_id, $user['id']]);
 
     set_flash_message('success', 'Target belajar "' . $goal['judul'] . '" berhasil dihapus.');
-    header('Location: profile.php');
+    header('Location: ../profile.php');
     exit;
 }
 
 $page_title = 'Hapus Target Belajar';
 $current_page = 'profile';
-$base_url = '../';
+$base_url = '../../';
 require_once APP_ROOT . '/includes/header.php';
 ?>
 
 <main style="padding: 40px 0 80px;">
     <div class="container" style="max-width: 540px;">
         <div style="margin-bottom: 24px;">
-            <a href="profile.php" class="text-link" style="font-weight: 700; font-size: 13px;">← Kembali ke Profil</a>
+            <a href="../profile.php" class="text-link" style="font-weight: 700; font-size: 13px;">← Kembali ke Profil</a>
         </div>
 
         <div class="login-card" style="box-shadow: var(--shadow); border-top: 4px solid #e02424;">
@@ -61,13 +61,13 @@ require_once APP_ROOT . '/includes/header.php';
             </div>
 
             <!-- Form Penghapusan Data (POST) Tanpa JavaScript -->
-            <form action="goal-delete.php?id=<?= $goal_id ?>" method="POST">
+            <form action="delete.php?id=<?= $goal_id ?>" method="POST">
                 <input type="hidden" name="id" value="<?= $goal_id ?>">
                 <div style="display: flex; gap: 12px;">
                     <button type="submit" class="btn btn-danger" style="flex: 1;">
                         🗑️ Ya, Hapus Sekarang
                     </button>
-                    <a href="profile.php" class="btn btn-outline" style="text-align: center;">
+                    <a href="../profile.php" class="btn btn-outline" style="text-align: center;">
                         Batal
                     </a>
                 </div>

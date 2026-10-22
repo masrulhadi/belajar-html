@@ -12,21 +12,21 @@ $base_url = $base_url ?? '../';
             </div>
             <div class="footer-col">
                 <h4>Cara Belajar</h4>
-                <a href="<?= $base_url ?>pages/event.html">Event &amp; Webinar</a>
-                <a href="<?= $base_url ?>pages/course.html">Video Course</a>
-                <a href="<?= $base_url ?>pages/mentoring.html">Private Mentoring</a>
+                <a href="<?= $base_url ?>pages/event.php">Event &amp; Webinar</a>
+                <a href="<?= $base_url ?>pages/course.php">Video Course</a>
+                <a href="<?= $base_url ?>pages/mentoring.php">Private Mentoring</a>
             </div>
             <div class="footer-col">
                 <h4>Komunitas</h4>
-                <a href="<?= $base_url ?>pages/mentoring.html">Jadi Mentor</a>
-                <a href="<?= $base_url ?>pages/blog.html">Blog &amp; Artikel</a>
-                <a href="<?= $base_url ?>pages/tentang.html">Tentang Kami</a>
+                <a href="<?= $base_url ?>pages/mentoring.php">Jadi Mentor</a>
+                <a href="<?= $base_url ?>pages/blog.php">Blog &amp; Artikel</a>
+                <a href="<?= $base_url ?>pages/tentang.php">Tentang Kami</a>
             </div>
             <div class="footer-col">
                 <h4>Informasi</h4>
                 <a href="<?= $base_url ?>pages/auth/login.php">Masuk</a>
                 <a href="<?= $base_url ?>pages/auth/register.php">Daftar</a>
-                <a href="<?= $base_url ?>pages/tentang.html#kontak">Kontak</a>
+                <a href="<?= $base_url ?>pages/tentang.php#kontak">Kontak</a>
             </div>
         </div>
         <div class="container footer-bottom">

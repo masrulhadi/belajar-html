@@ -54,11 +54,11 @@ Database sudah otomatis diinisialisasi melalui berkas [`database/schema.sql`](da
 3. **Dashboard Profil & Read Data (`pages/profile.php`):**
    - **Read User:** Menampilkan profil akun, nama, email, nomor kontak, dan biodata.
    - **Read Target:** Menampilkan tabel daftar target pembelajaran milik pengguna aktif.
-4. **Create Target Belajar (`pages/goal-add.php`):**
+4. **Create Target Belajar (`pages/goals/add.php`):**
    - Formulir penambahan materi atau target belajar baru ke tabel `learning_goals`.
-5. **Update Profil & Target (`pages/profile-edit.php` & `pages/goal-edit.php`):**
+5. **Update Profil & Target (`pages/profile-edit.php` & `pages/goals/edit.php`):**
    - Mengubah biodata profil dan rincian status target pembelajaran.
-6. **Delete Target & Akun (`pages/goal-delete.php` & `pages/account-delete.php`):**
+6. **Delete Target & Akun (`pages/goals/delete.php` & `pages/account-delete.php`):**
    - Konfirmasi penghapusan data via metode HTTP POST yang aman (tanpa JS alert/confirm).
    - Relasi Foreign Key `ON DELETE CASCADE` memastikan data terhapus secara bersih jika akun dihapus.
 7. **Keluar / Logout (`pages/auth/logout.php`):**

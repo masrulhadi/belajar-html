@@ -54,21 +54,13 @@ require_once APP_ROOT . '/includes/header.php';
                 <span class="eyebrow"><span class="eyebrow-dot"></span> SELAMAT DATANG KEMBALI</span>
                 <h1>Teruskan perjalanan <span class="text-yellow">belajarmu.</span></h1>
                 <p>Masuk untuk mengelola target belajar, riwayat materi, dan profil akunmu.</p>
-                <div class="login-benefit">✓ Akses materi dan program belajar</div>
-                <div class="login-benefit">✓ Kelola progres belajar (CRUD)</div>
-                <div class="login-benefit">✓ Sesi aman dengan enkripsi kata sandi</div>
+                <div class="login-benefit">Akses materi dan program belajar</div>
+                <div class="login-benefit">Kelola progres belajar (CRUD)</div>
+                <div class="login-benefit">Sesi aman dengan enkripsi kata sandi</div>
             </div>
 
             <div class="login-card">
                 <h2>Masuk ke akun</h2>
-                <p class="muted">Masukkan informasi akunmu di bawah ini.</p>
-
-                <!-- Informasi Akun Demo untuk Dosen / Penguji -->
-                <div class="form-notice" style="margin-top: 14px; margin-bottom: 14px;">
-                    <strong>💡 Info Demo Dosen:</strong><br>
-                    Email: <code>masrul@example.com</code><br>
-                    Password: <code>admin123</code>
-                </div>
 
                 <?php if (!empty($error)): ?>
                     <div class="alert alert-danger" style="margin-top: 12px;">
