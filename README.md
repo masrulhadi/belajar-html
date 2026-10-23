@@ -9,7 +9,7 @@
 ## 📌 Deskripsi Proyek
 Proyek ini merupakan aplikasi web bertema platform pembelajaran teknologi yang dibangun menggunakan **HTML5, CSS3, PHP, dan MySQL**.
 
-Aplikasi ini mengintegrasikan alur autentikasi dan fitur **CRUD lengkap (Create, Read, Update, Delete)** di halaman profil pengguna dengan pola **Post/Redirect/Get (PRG)** serta keamanan berbasis **MySQLi Prepared Statements** dan **BCRYPT Password Hashing**.
+Aplikasi ini mengintegrasikan alur autentikasi dan fitur **CRUD lengkap (Create, Read, Update, Delete)** di halaman profil pengguna dengan pola **Post/Redirect/Get (PRG)** serta keamanan berbasis **PDO Prepared Statements** dan **BCRYPT Password Hashing**.
 
 ---
 

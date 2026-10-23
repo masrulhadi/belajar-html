@@ -18,13 +18,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (empty($email) || empty($password)) {
         $error = 'Email dan password wajib diisi.';
     } else {
-        $koneksi = get_db();
-        $stmt = mysqli_prepare($koneksi, "SELECT id, nama, email, password FROM users WHERE email = ? LIMIT 1");
-        mysqli_stmt_bind_param($stmt, 's', $email);
-        mysqli_stmt_execute($stmt);
-        $result = mysqli_stmt_get_result($stmt);
-        $user = mysqli_fetch_assoc($result);
-        mysqli_stmt_close($stmt);
+        $db = get_db();
+        $stmt = $db->prepare("SELECT id, nama, email, password FROM users WHERE email = ? LIMIT 1");
+        $stmt->execute([$email]);
+        $user = $stmt->fetch();
 
         if ($user && password_verify($password, $user['password'])) {
             // Password cocok! Buat sesi login
@@ -51,7 +48,7 @@ require_once APP_ROOT . '/includes/header.php';
         <div class="container login-layout">
             <div class="login-intro">
                 <a class="brand brand-login" href="../../index.php">
-                    <span class="brand-mark">D</span>
+                    <span class="brand-mark">B</span>
                     <span>Belajar<span class="brand-accent">HTML</span></span>
                 </a>
                 <span class="eyebrow"><span class="eyebrow-dot"></span> SELAMAT DATANG KEMBALI</span>

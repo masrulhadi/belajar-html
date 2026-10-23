@@ -27,12 +27,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if (empty($errors)) {
-        $koneksi = get_db();
+        $db = get_db();
         // Update data pengguna (Update - CRUD)
-        $stmt = mysqli_prepare($koneksi, "UPDATE users SET nama = ?, telepon = ?, bio = ? WHERE id = ?");
-        mysqli_stmt_bind_param($stmt, 'sssi', $nama, $telepon, $bio, $user['id']);
-        mysqli_stmt_execute($stmt);
-        mysqli_stmt_close($stmt);
+        $stmt = $db->prepare("UPDATE users SET nama = ?, telepon = ?, bio = ? WHERE id = ?");
+        $stmt->execute([$nama, $telepon, $bio, $user['id']]);
 
         set_flash_message('success', 'Data profil berhasil diperbarui.');
         header('Location: index.php');

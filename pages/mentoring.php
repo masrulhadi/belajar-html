@@ -21,15 +21,7 @@ require_once APP_ROOT . '/includes/header.php';
                 </div>
             </div>
             <div class="page-illustration">
-                <div class="mentor-visual">
-                    <div class="mentor-avatar">👩🏻‍💻</div>
-                    <span class="mentor-tag tag-one">Frontend Development</span>
-                    <span class="mentor-tag tag-two">1-on-1 Session</span>
-                    <div class="mentor-visual-bottom">
-                        <b>Mentoring yang terarah</b>
-                        <span>Belajar · Praktik · Evaluasi</span>
-                    </div>
-                </div>
+                <img src="../assets/images/gambar_4.webp" alt="Ilustrasi mentoring" style="width: 100%; max-width: 420px; border-radius: 20px; box-shadow: 0 20px 45px rgba(0,0,0,0.25); border: 1px solid rgba(255,255,255,0.2);">
             </div>
         </div>
     </section>

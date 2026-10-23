@@ -19,22 +19,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (empty($password)) {
         $error = 'Masukkan kata sandi Anda untuk mengonfirmasi penghapusan akun.';
     } else {
-        $koneksi = get_db();
+        $db = get_db();
         // Ambil password hash untuk verifikasi
-        $stmt = mysqli_prepare($koneksi, "SELECT password FROM users WHERE id = ? LIMIT 1");
-        mysqli_stmt_bind_param($stmt, 'i', $user['id']);
-        mysqli_stmt_execute($stmt);
-        $result = mysqli_stmt_get_result($stmt);
-        $row = mysqli_fetch_assoc($result);
-        mysqli_stmt_close($stmt);
+        $stmt = $db->prepare("SELECT password FROM users WHERE id = ? LIMIT 1");
+        $stmt->execute([$user['id']]);
+        $row = $stmt->fetch();
 
         if ($row && password_verify($password, $row['password'])) {
             // Hapus pengguna (Delete Akun)
             // Relasi foreign key ON DELETE CASCADE akan otomatis menghapus semua target belajar pengguna ini
-            $stmtDel = mysqli_prepare($koneksi, "DELETE FROM users WHERE id = ?");
-            mysqli_stmt_bind_param($stmtDel, 'i', $user['id']);
-            mysqli_stmt_execute($stmtDel);
-            mysqli_stmt_close($stmtDel);
+            $stmtDel = $db->prepare("DELETE FROM users WHERE id = ?");
+            $stmtDel->execute([$user['id']]);
 
             // Bersihkan sesi login
             $_SESSION = [];

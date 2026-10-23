@@ -12,15 +12,12 @@ if (!$user) {
 }
 $goal_id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 
-$koneksi = get_db();
+$db = get_db();
 
 // Ambil data target yang akan diedit dan pastikan milik user yang sedang login
-$stmt = mysqli_prepare($koneksi, "SELECT * FROM learning_goals WHERE id = ? AND user_id = ? LIMIT 1");
-mysqli_stmt_bind_param($stmt, 'ii', $goal_id, $user['id']);
-mysqli_stmt_execute($stmt);
-$result = mysqli_stmt_get_result($stmt);
-$goal = mysqli_fetch_assoc($result);
-mysqli_stmt_close($stmt);
+$stmt = $db->prepare("SELECT * FROM learning_goals WHERE id = ? AND user_id = ? LIMIT 1");
+$stmt->execute([$goal_id, $user['id']]);
+$goal = $stmt->fetch();
 
 if (!$goal) {
     set_flash_message('danger', 'Data target belajar tidak ditemukan atau Anda tidak memiliki akses.');
@@ -57,10 +54,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (empty($errors)) {
         // Update data target belajar (Update - CRUD)
-        $stmtUpdate = mysqli_prepare($koneksi, "UPDATE learning_goals SET judul = ?, kategori = ?, status = ?, catatan = ? WHERE id = ? AND user_id = ?");
-        mysqli_stmt_bind_param($stmtUpdate, 'ssssii', $judul, $kategori, $status, $catatan, $goal_id, $user['id']);
-        mysqli_stmt_execute($stmtUpdate);
-        mysqli_stmt_close($stmtUpdate);
+        $stmtUpdate = $db->prepare("UPDATE learning_goals SET judul = ?, kategori = ?, status = ?, catatan = ? WHERE id = ? AND user_id = ?");
+        $stmtUpdate->execute([$judul, $kategori, $status, $catatan, $goal_id, $user['id']]);
 
         set_flash_message('success', 'Target belajar berhasil diperbarui!');
         header('Location: ../profile/index.php');

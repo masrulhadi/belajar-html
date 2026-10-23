@@ -38,12 +38,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if (empty($errors)) {
-        $koneksi = get_db();
+        $db = get_db();
         // Insert data baru (Create - CRUD)
-        $stmt = mysqli_prepare($koneksi, "INSERT INTO learning_goals (user_id, judul, kategori, status, catatan) VALUES (?, ?, ?, ?, ?)");
-        mysqli_stmt_bind_param($stmt, 'issss', $user['id'], $judul, $kategori, $status, $catatan);
-        mysqli_stmt_execute($stmt);
-        mysqli_stmt_close($stmt);
+        $stmt = $db->prepare("INSERT INTO learning_goals (user_id, judul, kategori, status, catatan) VALUES (?, ?, ?, ?, ?)");
+        $stmt->execute([$user['id'], $judul, $kategori, $status, $catatan]);
 
         set_flash_message('success', 'Target belajar baru berhasil ditambahkan!');
         header('Location: ../profile/index.php');

@@ -1,11 +1,11 @@
 <?php
 
-// Start Session
+// Mulai session jika belum aktif
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-// Baca file .env
+// Muat variabel dari berkas .env (jika ada)
 $envFile = dirname(__DIR__) . '/.env';
 if (is_readable($envFile)) {
     foreach (file($envFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES) as $line) {
@@ -25,14 +25,14 @@ if (is_readable($envFile)) {
     }
 }
 
-// Konfigurasi koneksi MySQL
-$host = getenv('DB_HOST');
-$port = getenv('DB_PORT');
-$db   = getenv('DB_NAME');
-$user = getenv('DB_USER');
+// Konfigurasi koneksi MySQL (PDO)
+$host = getenv('DB_HOST') ?: '127.0.0.1';
+$port = getenv('DB_PORT') ?: '3306';
+$db   = getenv('DB_NAME') ?: 'db_belajar_php';
+$user = getenv('DB_USER') ?: 'root';
 $pass = getenv('DB_ROOT_PASSWORD');
 
-if (!$host || !$port || !$db || !$user || !$pass) {
+if ($pass === false || $pass === '') {
     die('Konfigurasi database tidak lengkap. Salin .env.example menjadi .env lalu isi nilainya.');
 }
 
@@ -61,9 +61,9 @@ function get_current_user_data() {
     if (!is_logged_in()) {
         return null;
     }
-    
+
     $db = get_db();
-    $stmt = $db->prepare("SELECT id, nama, email, bio, telepon, created_at FROM users WHERE id = ?");
+    $stmt = $db->prepare("SELECT id, nama, email, bio, telepon, created_at FROM users WHERE id = ? LIMIT 1");
     $stmt->execute([$_SESSION['user_id']]);
     return $stmt->fetch() ?: null;
 }

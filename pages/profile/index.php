@@ -11,15 +11,12 @@ if (!$user) {
     exit;
 }
 
-$koneksi = get_db();
+$db = get_db();
 
 // Ambil daftar target belajar milik pengguna (Read - CRUD)
-$stmt = mysqli_prepare($koneksi, "SELECT * FROM learning_goals WHERE user_id = ? ORDER BY id DESC");
-mysqli_stmt_bind_param($stmt, 'i', $user['id']);
-mysqli_stmt_execute($stmt);
-$result = mysqli_stmt_get_result($stmt);
-$goals = mysqli_fetch_all($result, MYSQLI_ASSOC);
-mysqli_stmt_close($stmt);
+$stmt = $db->prepare("SELECT * FROM learning_goals WHERE user_id = ? ORDER BY id DESC");
+$stmt->execute([$user['id']]);
+$goals = $stmt->fetchAll();
 
 // Inisial avatar
 $initial = strtoupper(substr(trim($user['nama']), 0, 1));

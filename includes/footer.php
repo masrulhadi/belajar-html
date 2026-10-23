@@ -5,7 +5,7 @@ $base_url = $base_url ?? '../';
         <div class="container footer-main">
             <div class="footer-brand-block">
                 <a class="brand brand-footer" href="<?= $base_url ?>index.php">
-                    <span class="brand-mark">D</span>
+                    <span class="brand-mark">B</span>
                     <span>Belajar<span class="brand-accent">HTML</span></span>
                 </a>
                 <p>Ekosistem belajar teknologi berbasis komunitas, tempat bertumbuh, berbagi, dan membangun keterampilan digital.</p>

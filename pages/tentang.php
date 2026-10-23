@@ -15,12 +15,12 @@ require_once APP_ROOT . '/includes/header.php';
                 <span class="eyebrow"><span class="eyebrow-dot"></span> TENTANG BELAJAR HTML</span>
                 <h1>Tempat bertumbuh<br><span class="text-yellow">bersama komunitas.</span></h1>
                 <p>Belajar HTML adalah konsep platform pembelajaran teknologi yang menghubungkan materi, event, dan mentoring dalam satu pengalaman belajar.</p>
-                <a class="btn btn-yellow" href="course.php">Mulai belajar →</a>
+                <a class="btn btn-yellow" href="course.php">Mulai belajar</a>
             </div>
             <div class="page-illustration">
                 <div class="about-orbit">
                     <span>HTML</span><span>CSS</span><span>PHP</span><span>SQL</span>
-                    <div class="about-center">D</div>
+                    <div class="about-center">B</div>
                 </div>
             </div>
         </div>
@@ -71,7 +71,7 @@ require_once APP_ROOT . '/includes/header.php';
                 <h2>Punya pertanyaan atau ide?</h2>
                 <p>Halaman kontak ini dapat digunakan untuk mengirim pesan atau saran terkait pembelajaran.</p>
             </div>
-            <a class="btn btn-primary" href="mailto:masrul.hadi.id@gmail.com">Hubungi kami →</a>
+            <a class="btn btn-primary" href="mailto:masrul.hadi.id@gmail.com">Hubungi kami</a>
         </div>
     </section>
 </main>

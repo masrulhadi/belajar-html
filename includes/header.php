@@ -18,13 +18,14 @@ $flash = get_flash_message();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Platform belajar web modern dan fundamental.">
     <title><?= e($page_title) ?> | Belajar HTML</title>
+    <link rel="icon" type="image/svg+xml" href="<?= $base_url ?>assets/favicon.svg?v=2">
     <link rel="stylesheet" href="<?= $base_url ?>css/style.css">
 </head>
 <body>
     <header class="site-header">
         <div class="container nav-wrap">
             <a class="brand" href="<?= $base_url ?>index.php">
-                <span class="brand-mark">D</span>
+                <span class="brand-mark">B</span>
                 <span>Belajar<span class="brand-accent">HTML</span></span>
             </a>
             <button class="nav-toggle" type="button" aria-label="Buka navigasi">

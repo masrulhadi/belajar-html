@@ -12,15 +12,12 @@ if (!$user) {
 }
 $goal_id = isset($_GET['id']) ? (int)$_GET['id'] : (isset($_POST['id']) ? (int)$_POST['id'] : 0);
 
-$koneksi = get_db();
+$db = get_db();
 
 // Ambil data target dan pastikan milik user yang sedang login
-$stmt = mysqli_prepare($koneksi, "SELECT * FROM learning_goals WHERE id = ? AND user_id = ? LIMIT 1");
-mysqli_stmt_bind_param($stmt, 'ii', $goal_id, $user['id']);
-mysqli_stmt_execute($stmt);
-$result = mysqli_stmt_get_result($stmt);
-$goal = mysqli_fetch_assoc($result);
-mysqli_stmt_close($stmt);
+$stmt = $db->prepare("SELECT * FROM learning_goals WHERE id = ? AND user_id = ? LIMIT 1");
+$stmt->execute([$goal_id, $user['id']]);
+$goal = $stmt->fetch();
 
 if (!$goal) {
     set_flash_message('danger', 'Data target belajar tidak ditemukan atau Anda tidak memiliki akses.');
@@ -30,10 +27,8 @@ if (!$goal) {
 
 // Proses Hapus saat formulir dikirim via POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $stmtDelete = mysqli_prepare($koneksi, "DELETE FROM learning_goals WHERE id = ? AND user_id = ?");
-    mysqli_stmt_bind_param($stmtDelete, 'ii', $goal_id, $user['id']);
-    mysqli_stmt_execute($stmtDelete);
-    mysqli_stmt_close($stmtDelete);
+    $stmtDelete = $db->prepare("DELETE FROM learning_goals WHERE id = ? AND user_id = ?");
+    $stmtDelete->execute([$goal_id, $user['id']]);
 
     set_flash_message('success', 'Target belajar "' . $goal['judul'] . '" berhasil dihapus.');
     header('Location: ../profile/index.php');
