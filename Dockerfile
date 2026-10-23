@@ -1,13 +1,13 @@
 FROM php:8.2-apache
 
-# Install ekstensi MySQLi untuk koneksi database (cara dasar)
+# Install ekstensi MySQLi 
 RUN docker-php-ext-install mysqli
 
-# Aktifkan modul rewrite Apache (opsional, berguna untuk routing jika dibutuhkan)
+# Aktifkan modul rewrite Apache
 RUN a2enmod rewrite
 
-# Atur working directory di root dokumen Apache
+# Set working directory
 WORKDIR /var/www/html
 
-# Berikan izin yang tepat untuk direktori web
+# Berikan izin
 RUN chown -R www-data:www-data /var/www/html
