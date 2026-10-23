@@ -41,14 +41,6 @@ Pastikan Docker & Docker Compose sudah terpasang di komputer Anda.
 
 ---
 
-## 🔑 Akun Demo Dosen / Penguji
-
-Database sudah otomatis diinisialisasi melalui berkas [`database/schema.sql`](database/schema.sql) dengan data awal:
-- **Email:** `masrul@example.com`
-- **Kata Sandi:** `admin123`
-
----
-
 ## 🛠️ Arsitektur Fitur CRUD & Alur Sistem
 
 1. **Registrasi (`pages/auth/register.php`):**
