@@ -39,7 +39,7 @@ $flash = get_flash_message();
                 
                 <div class="nav-actions">
                     <?php if ($logged_in && $user_data): ?>
-                        <a class="btn btn-outline btn-small <?= $current_page === 'profile' ? 'active' : '' ?>" href="<?= $base_url ?>pages/profile.php">
+                        <a class="btn btn-outline btn-small <?= $current_page === 'profile' ? 'active' : '' ?>" href="<?= $base_url ?>pages/profile/index.php">
                             👤 <?= e(explode(' ', $user_data['nama'])[0]) ?>
                         </a>
                         <a class="btn btn-primary btn-small" href="<?= $base_url ?>pages/auth/logout.php">Keluar</a>

@@ -4,7 +4,7 @@ require_once APP_ROOT . '/config/db.php';
 
 // Jika sudah login, langsung arahkan ke profile
 if (is_logged_in()) {
-    header('Location: ../profile.php');
+    header('Location: ../profile/index.php');
     exit;
 }
 
@@ -37,39 +37,46 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if (empty($errors)) {
-        $db = get_db();
+        $koneksi = get_db();
 
         // Cek apakah email sudah terdaftar
-        $stmtCheck = $db->prepare("SELECT id FROM users WHERE email = ? LIMIT 1");
-        $stmtCheck->execute([$email]);
-        if ($stmtCheck->fetch()) {
+        $stmtCheck = mysqli_prepare($koneksi, "SELECT id FROM users WHERE email = ? LIMIT 1");
+        mysqli_stmt_bind_param($stmtCheck, 's', $email);
+        mysqli_stmt_execute($stmtCheck);
+        $resultCheck = mysqli_stmt_get_result($stmtCheck);
+        if (mysqli_fetch_assoc($resultCheck)) {
             $errors[] = 'Email sudah digunakan. Silakan gunakan email lain atau masuk.';
+            mysqli_stmt_close($stmtCheck);
         } else {
+            mysqli_stmt_close($stmtCheck);
+
             // Hash password secara aman dengan BCRYPT
             $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
 
             // Simpan pengguna baru ke database (Create)
-            $stmtInsert = $db->prepare("INSERT INTO users (nama, email, password) VALUES (?, ?, ?)");
-            $stmtInsert->execute([$nama, $email, $hashedPassword]);
+            $stmtInsert = mysqli_prepare($koneksi, "INSERT INTO users (nama, email, password) VALUES (?, ?, ?)");
+            mysqli_stmt_bind_param($stmtInsert, 'sss', $nama, $email, $hashedPassword);
+            mysqli_stmt_execute($stmtInsert);
 
-            $newUserId = (int)$db->lastInsertId();
+            $newUserId = mysqli_insert_id($koneksi);
+            mysqli_stmt_close($stmtInsert);
 
             // Berikan 1 contoh target belajar awal agar halaman profil langsung memiliki data
-            $stmtGoal = $db->prepare("INSERT INTO learning_goals (user_id, judul, kategori, status, catatan) VALUES (?, ?, ?, ?, ?)");
-            $stmtGoal->execute([
-                $newUserId,
-                'Mempelajari Dasar Web (HTML, CSS, PHP)',
-                'PHP',
-                'Sedang Belajar',
-                'Target awal setelah berhasil mendaftar akun baru.'
-            ]);
+            $stmtGoal = mysqli_prepare($koneksi, "INSERT INTO learning_goals (user_id, judul, kategori, status, catatan) VALUES (?, ?, ?, ?, ?)");
+            $judulAwal = 'Mempelajari Dasar Web (HTML, CSS, PHP)';
+            $kategoriAwal = 'PHP';
+            $statusAwal = 'Sedang Belajar';
+            $catatanAwal = 'Target awal setelah berhasil mendaftar akun baru.';
+            mysqli_stmt_bind_param($stmtGoal, 'issss', $newUserId, $judulAwal, $kategoriAwal, $statusAwal, $catatanAwal);
+            mysqli_stmt_execute($stmtGoal);
+            mysqli_stmt_close($stmtGoal);
 
             // Set sesi login
             $_SESSION['user_id'] = $newUserId;
             set_flash_message('success', 'Akun berhasil dibuat! Selamat datang di profil belajarmu.');
 
             // Pola Post/Redirect/Get
-            header('Location: ../profile.php');
+            header('Location: ../profile/index.php');
             exit;
         }
     }

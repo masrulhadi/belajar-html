@@ -18,7 +18,7 @@ require_once APP_ROOT . '/includes/header.php';
                 <a class="btn btn-yellow" href="#katalog">Jelajahi kursus</a>
             </div>
             <div class="page-illustration">
-                <img src="../assets/gambar_6.webp" alt="Ilustrasi Kursus Belajar" style="width: 100%; max-width: 420px; border-radius: 20px; box-shadow: 0 20px 45px rgba(0,0,0,0.25); border: 1px solid rgba(255,255,255,0.2);">
+                <img src="../assets/images/gambar_6.webp" alt="Ilustrasi Kursus Belajar" style="width: 100%; max-width: 420px; border-radius: 20px; box-shadow: 0 20px 45px rgba(0,0,0,0.25); border: 1px solid rgba(255,255,255,0.2);">
             </div>
         </div>
     </section>
@@ -50,7 +50,7 @@ require_once APP_ROOT . '/includes/header.php';
                         <div class="course-meta"><span>8 Materi</span><span>Pemula</span></div>
                         <div class="course-card-bottom">
                             <strong>Gratis</strong>
-                            <a href="<?= is_logged_in() ? 'profile.php' : 'auth/login.php' ?>">Lihat detail</a>
+                            <a href="<?= is_logged_in() ? 'profile/index.php' : 'auth/login.php' ?>">Lihat detail</a>
                         </div>
                     </div>
                 </article>
@@ -66,7 +66,7 @@ require_once APP_ROOT . '/includes/header.php';
                         <div class="course-meta"><span>12 Materi</span><span>Pemula</span></div>
                         <div class="course-card-bottom">
                             <strong>Rp75.000</strong>
-                            <a href="<?= is_logged_in() ? 'profile.php' : 'auth/login.php' ?>">Lihat detail</a>
+                            <a href="<?= is_logged_in() ? 'profile/index.php' : 'auth/login.php' ?>">Lihat detail</a>
                         </div>
                     </div>
                 </article>
@@ -82,7 +82,7 @@ require_once APP_ROOT . '/includes/header.php';
                         <div class="course-meta"><span>10 Materi</span><span>Pemula</span></div>
                         <div class="course-card-bottom">
                             <strong>Rp90.000</strong>
-                            <a href="<?= is_logged_in() ? 'profile.php' : 'auth/login.php' ?>">Lihat detail</a>
+                            <a href="<?= is_logged_in() ? 'profile/index.php' : 'auth/login.php' ?>">Lihat detail</a>
                         </div>
                     </div>
                 </article>
@@ -98,7 +98,7 @@ require_once APP_ROOT . '/includes/header.php';
                         <div class="course-meta"><span>14 Materi</span><span>Pemula</span></div>
                         <div class="course-card-bottom">
                             <strong>Rp100.000</strong>
-                            <a href="<?= is_logged_in() ? 'profile.php' : 'auth/login.php' ?>">Lihat detail</a>
+                            <a href="<?= is_logged_in() ? 'profile/index.php' : 'auth/login.php' ?>">Lihat detail</a>
                         </div>
                     </div>
                 </article>
@@ -114,7 +114,7 @@ require_once APP_ROOT . '/includes/header.php';
                         <div class="course-meta"><span>6 Materi</span><span>Pemula</span></div>
                         <div class="course-card-bottom">
                             <strong>Gratis</strong>
-                            <a href="<?= is_logged_in() ? 'profile.php' : 'auth/login.php' ?>">Lihat detail</a>
+                            <a href="<?= is_logged_in() ? 'profile/index.php' : 'auth/login.php' ?>">Lihat detail</a>
                         </div>
                     </div>
                 </article>
@@ -130,7 +130,7 @@ require_once APP_ROOT . '/includes/header.php';
                         <div class="course-meta"><span>9 Materi</span><span>Pemula</span></div>
                         <div class="course-card-bottom">
                             <strong>Rp85.000</strong>
-                            <a href="<?= is_logged_in() ? 'profile.php' : 'auth/login.php' ?>">Lihat detail</a>
+                            <a href="<?= is_logged_in() ? 'profile/index.php' : 'auth/login.php' ?>">Lihat detail</a>
                         </div>
                     </div>
                 </article>

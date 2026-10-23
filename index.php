@@ -18,7 +18,7 @@ require_once APP_ROOT . '/includes/header.php';
                 
                 <div class="hero-actions">
                     <?php if (is_logged_in()): ?>
-                        <a class="btn btn-yellow" href="pages/profile.php">Buka Profil Belajarmu →</a>
+                        <a class="btn btn-yellow" href="pages/profile/index.php">Buka Profil Belajarmu →</a>
                         <a class="btn btn-glass" href="pages/course.php">Jelajahi Kursus</a>
                     <?php else: ?>
                         <a class="btn btn-yellow" href="pages/auth/register.php">Mulai Daftar Gratis</a>
@@ -53,7 +53,7 @@ require_once APP_ROOT . '/includes/header.php';
                             <span class="progress-track"><i style="width:100%"></i></span>
                         </div>
                         <?php if (is_logged_in()): ?>
-                            <a class="mock-button" href="pages/profile.php">Kelola Target Belajar →</a>
+                            <a class="mock-button" href="pages/profile/index.php">Kelola Target Belajar →</a>
                         <?php else: ?>
                             <a class="mock-button" href="pages/auth/login.php">Masuk untuk Memulai →</a>
                         <?php endif; ?>
@@ -167,7 +167,7 @@ require_once APP_ROOT . '/includes/header.php';
                 <h2>Kelola target belajarmu<br>sekarang juga.</h2>
                 <p>Daftar akun dan catat progres pembelajaranmu di dashboard profil.</p>
             </div>
-            <a class="btn btn-yellow" href="<?= is_logged_in() ? 'pages/profile.php' : 'pages/auth/register.php' ?>">
+            <a class="btn btn-yellow" href="<?= is_logged_in() ? 'pages/profile/index.php' : 'pages/auth/register.php' ?>">
                 <?= is_logged_in() ? 'Buka Profil Saya' : 'Daftar Akun Baru' ?>
             </a>
         </div>

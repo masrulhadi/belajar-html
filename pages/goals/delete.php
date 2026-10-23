@@ -6,28 +6,37 @@ require_once APP_ROOT . '/config/db.php';
 require_login('../auth/login.php');
 
 $user = get_current_user_data();
+if (!$user) {
+    header('Location: ../auth/logout.php');
+    exit;
+}
 $goal_id = isset($_GET['id']) ? (int)$_GET['id'] : (isset($_POST['id']) ? (int)$_POST['id'] : 0);
 
-$db = get_db();
+$koneksi = get_db();
 
 // Ambil data target dan pastikan milik user yang sedang login
-$stmt = $db->prepare("SELECT * FROM learning_goals WHERE id = ? AND user_id = ? LIMIT 1");
-$stmt->execute([$goal_id, $user['id']]);
-$goal = $stmt->fetch();
+$stmt = mysqli_prepare($koneksi, "SELECT * FROM learning_goals WHERE id = ? AND user_id = ? LIMIT 1");
+mysqli_stmt_bind_param($stmt, 'ii', $goal_id, $user['id']);
+mysqli_stmt_execute($stmt);
+$result = mysqli_stmt_get_result($stmt);
+$goal = mysqli_fetch_assoc($result);
+mysqli_stmt_close($stmt);
 
 if (!$goal) {
     set_flash_message('danger', 'Data target belajar tidak ditemukan atau Anda tidak memiliki akses.');
-    header('Location: ../profile.php');
+    header('Location: ../profile/index.php');
     exit;
 }
 
 // Proses Hapus saat formulir dikirim via POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $stmtDelete = $db->prepare("DELETE FROM learning_goals WHERE id = ? AND user_id = ?");
-    $stmtDelete->execute([$goal_id, $user['id']]);
+    $stmtDelete = mysqli_prepare($koneksi, "DELETE FROM learning_goals WHERE id = ? AND user_id = ?");
+    mysqli_stmt_bind_param($stmtDelete, 'ii', $goal_id, $user['id']);
+    mysqli_stmt_execute($stmtDelete);
+    mysqli_stmt_close($stmtDelete);
 
     set_flash_message('success', 'Target belajar "' . $goal['judul'] . '" berhasil dihapus.');
-    header('Location: ../profile.php');
+    header('Location: ../profile/index.php');
     exit;
 }
 
@@ -40,7 +49,7 @@ require_once APP_ROOT . '/includes/header.php';
 <main style="padding: 40px 0 80px;">
     <div class="container" style="max-width: 540px;">
         <div style="margin-bottom: 24px;">
-            <a href="../profile.php" class="text-link" style="font-weight: 700; font-size: 13px;">← Kembali ke Profil</a>
+            <a href="../profile/index.php" class="text-link" style="font-weight: 700; font-size: 13px;">← Kembali ke Profil</a>
         </div>
 
         <div class="login-card" style="box-shadow: var(--shadow); border-top: 4px solid #e02424;">
@@ -67,7 +76,7 @@ require_once APP_ROOT . '/includes/header.php';
                     <button type="submit" class="btn btn-danger" style="flex: 1;">
                         🗑️ Ya, Hapus Sekarang
                     </button>
-                    <a href="../profile.php" class="btn btn-outline" style="text-align: center;">
+                    <a href="../profile/index.php" class="btn btn-outline" style="text-align: center;">
                         Batal
                     </a>
                 </div>

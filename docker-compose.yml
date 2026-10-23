@@ -11,7 +11,7 @@ services:
       - DB_PORT=3306
       - DB_NAME=db_belajar_php
       - DB_USER=root
-      - DB_ROOT_PASSWORD=rahasia123
+      - DB_ROOT_PASSWORD=${DB_ROOT_PASSWORD}
     depends_on:
       - db
     restart: unless-stopped
@@ -24,7 +24,7 @@ services:
     ports:
       - "3306:3306"
     environment:
-      MYSQL_ROOT_PASSWORD: rahasia123
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
       MYSQL_DATABASE: db_belajar_php
     volumes:
       - mysql_data:/var/lib/mysql

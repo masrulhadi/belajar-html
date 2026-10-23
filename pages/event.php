@@ -56,7 +56,7 @@ require_once APP_ROOT . '/includes/header.php';
                     <div class="event-card-bottom">
                         <span>19.30 WIB</span>
                         <span>Gratis</span>
-                        <a href="<?= is_logged_in() ? 'profile.php' : 'auth/login.php' ?>">Lihat detail</a>
+                        <a href="<?= is_logged_in() ? 'profile/index.php' : 'auth/login.php' ?>">Lihat detail</a>
                     </div>
                 </article>
 
@@ -70,7 +70,7 @@ require_once APP_ROOT . '/includes/header.php';
                     <div class="event-card-bottom">
                         <span>19.30 WIB</span>
                         <span>Gratis</span>
-                        <a href="<?= is_logged_in() ? 'profile.php' : 'auth/login.php' ?>">Lihat detail</a>
+                        <a href="<?= is_logged_in() ? 'profile/index.php' : 'auth/login.php' ?>">Lihat detail</a>
                     </div>
                 </article>
 
@@ -84,7 +84,7 @@ require_once APP_ROOT . '/includes/header.php';
                     <div class="event-card-bottom">
                         <span>14.00 WIB</span>
                         <span>Rp25.000</span>
-                        <a href="<?= is_logged_in() ? 'profile.php' : 'auth/login.php' ?>">Lihat detail</a>
+                        <a href="<?= is_logged_in() ? 'profile/index.php' : 'auth/login.php' ?>">Lihat detail</a>
                     </div>
                 </article>
             </div>

@@ -1,13 +1,13 @@
 <?php
-define('APP_ROOT', dirname(__DIR__));
+define('APP_ROOT', dirname(__DIR__, 2));
 require_once APP_ROOT . '/config/db.php';
 
 // Wajib login
-require_login('auth/login.php');
+require_login('../auth/login.php');
 
 $user = get_current_user_data();
 if (!$user) {
-    header('Location: auth/logout.php');
+    header('Location: ../auth/logout.php');
     exit;
 }
 
@@ -27,27 +27,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if (empty($errors)) {
-        $db = get_db();
+        $koneksi = get_db();
         // Update data pengguna (Update - CRUD)
-        $stmt = $db->prepare("UPDATE users SET nama = ?, telepon = ?, bio = ? WHERE id = ?");
-        $stmt->execute([$nama, $telepon, $bio, $user['id']]);
+        $stmt = mysqli_prepare($koneksi, "UPDATE users SET nama = ?, telepon = ?, bio = ? WHERE id = ?");
+        mysqli_stmt_bind_param($stmt, 'sssi', $nama, $telepon, $bio, $user['id']);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_close($stmt);
 
         set_flash_message('success', 'Data profil berhasil diperbarui.');
-        header('Location: profile.php');
+        header('Location: index.php');
         exit;
     }
 }
 
 $page_title = 'Edit Profil';
 $current_page = 'profile';
-$base_url = '../';
+$base_url = '../../';
 require_once APP_ROOT . '/includes/header.php';
 ?>
 
 <main style="padding: 40px 0 80px;">
     <div class="container" style="max-width: 640px;">
         <div style="margin-bottom: 24px;">
-            <a href="profile.php" class="text-link" style="font-weight: 700; font-size: 13px;">← Kembali ke Profil</a>
+            <a href="index.php" class="text-link" style="font-weight: 700; font-size: 13px;">← Kembali ke Profil</a>
             <h1 style="margin: 12px 0 4px; font-size: 26px;">Edit Informasi Profil</h1>
             <p class="muted" style="margin: 0;">Perbarui data diri yang akan ditampilkan pada akunmu.</p>
         </div>
@@ -61,7 +63,7 @@ require_once APP_ROOT . '/includes/header.php';
                 </div>
             <?php endif; ?>
 
-            <form action="profile-edit.php" method="POST">
+            <form action="edit.php" method="POST">
                 <label for="email_static">Alamat Email (Tidak dapat diubah)</label>
                 <input type="email" id="email_static" value="<?= e($user['email']) ?>" disabled 
                     style="background: #f3f4f6; color: #6b7280; cursor: not-allowed;">
@@ -80,7 +82,7 @@ require_once APP_ROOT . '/includes/header.php';
 
                 <div style="display: flex; gap: 12px; margin-top: 24px;">
                     <button type="submit" class="btn btn-primary" style="flex: 1;">Simpan Perubahan</button>
-                    <a href="profile.php" class="btn btn-outline" style="text-align: center;">Batal</a>
+                    <a href="index.php" class="btn btn-outline" style="text-align: center;">Batal</a>
                 </div>
             </form>
         </div>

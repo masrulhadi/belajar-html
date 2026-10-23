@@ -1,16 +1,40 @@
 <?php
 
-// Mulai session jika belum aktif
+// Start Session
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
+// Baca file .env
+$envFile = dirname(__DIR__) . '/.env';
+if (is_readable($envFile)) {
+    foreach (file($envFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES) as $line) {
+        $line = trim($line);
+        if ($line === '' || $line[0] === '#') {
+            continue;
+        }
+        $pos = strpos($line, '=');
+        if ($pos === false) {
+            continue;
+        }
+        $key = trim(substr($line, 0, $pos));
+        $value = trim(substr($line, $pos + 1));
+        if ($key !== '' && getenv($key) === false) {
+            putenv($key . '=' . $value);
+        }
+    }
+}
+
 // Konfigurasi koneksi MySQL
-$host = getenv('DB_HOST') ?: '127.0.0.1';
-$port = getenv('DB_PORT') ?: '3306';
-$db   = getenv('DB_NAME') ?: 'db_belajar_php';
-$user = getenv('DB_USER') ?: 'root';
-$pass = getenv('DB_ROOT_PASSWORD') ?: 'rahasia123';
+$host = getenv('DB_HOST');
+$port = getenv('DB_PORT');
+$db   = getenv('DB_NAME');
+$user = getenv('DB_USER');
+$pass = getenv('DB_ROOT_PASSWORD');
+
+if (!$host || !$port || !$db || !$user || !$pass) {
+    die('Konfigurasi database tidak lengkap. Salin .env.example menjadi .env lalu isi nilainya.');
+}
 
 try {
     $pdo = new PDO("mysql:host={$host};port={$port};dbname={$db};charset=utf8mb4", $user, $pass, [

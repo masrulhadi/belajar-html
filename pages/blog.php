@@ -39,7 +39,7 @@ require_once APP_ROOT . '/includes/header.php';
             </div>
             <div class="card-grid three-col">
                 <article class="article-card">
-                    <img src="../assets/gambar_1.webp" alt="Ilustrasi aktivitas belajar" onerror="this.style.display='none'">
+                    <img src="../assets/images/gambar_1.webp" alt="Ilustrasi aktivitas belajar" onerror="this.style.display='none'">
                     <div class="article-card-content">
                         <p class="article-meta">20 Okt 2026 · Tips Belajar</p>
                         <h3>
@@ -51,7 +51,7 @@ require_once APP_ROOT . '/includes/header.php';
                 </article>
 
                 <article class="article-card">
-                    <img src="../assets/gambar_2.webp" alt="Ilustrasi produktivitas" onerror="this.style.display='none'">
+                    <img src="../assets/images/gambar_2.webp" alt="Ilustrasi produktivitas" onerror="this.style.display='none'">
                     <div class="article-card-content">
                         <p class="article-meta">15 Okt 2026 · Produktivitas</p>
                         <h3>
@@ -63,7 +63,7 @@ require_once APP_ROOT . '/includes/header.php';
                 </article>
 
                 <article class="article-card">
-                    <img src="../assets/gambar_3.webp" alt="Ilustrasi kolaborasi" onerror="this.style.display='none'">
+                    <img src="../assets/images/gambar_3.webp" alt="Ilustrasi kolaborasi" onerror="this.style.display='none'">
                     <div class="article-card-content">
                         <p class="article-meta">10 Okt 2026 · Karier</p>
                         <h3>

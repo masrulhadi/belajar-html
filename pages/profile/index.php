@@ -1,29 +1,32 @@
 <?php
-define('APP_ROOT', dirname(__DIR__));
+define('APP_ROOT', dirname(__DIR__, 2));
 require_once APP_ROOT . '/config/db.php';
 
 // Wajib login
-require_login('auth/login.php');
+require_login('../auth/login.php');
 
 $user = get_current_user_data();
 if (!$user) {
-    header('Location: auth/logout.php');
+    header('Location: ../auth/logout.php');
     exit;
 }
 
-$db = get_db();
+$koneksi = get_db();
 
 // Ambil daftar target belajar milik pengguna (Read - CRUD)
-$stmt = $db->prepare("SELECT * FROM learning_goals WHERE user_id = ? ORDER BY id DESC");
-$stmt->execute([$user['id']]);
-$goals = $stmt->fetchAll();
+$stmt = mysqli_prepare($koneksi, "SELECT * FROM learning_goals WHERE user_id = ? ORDER BY id DESC");
+mysqli_stmt_bind_param($stmt, 'i', $user['id']);
+mysqli_stmt_execute($stmt);
+$result = mysqli_stmt_get_result($stmt);
+$goals = mysqli_fetch_all($result, MYSQLI_ASSOC);
+mysqli_stmt_close($stmt);
 
 // Inisial avatar
 $initial = strtoupper(substr(trim($user['nama']), 0, 1));
 
 $page_title = 'Profil Saya';
 $current_page = 'profile';
-$base_url = '../';
+$base_url = '../../';
 require_once APP_ROOT . '/includes/header.php';
 ?>
 
@@ -37,7 +40,7 @@ require_once APP_ROOT . '/includes/header.php';
                 <p class="muted" style="margin: 4px 0 0;">Kelola data profil dan pantau target belajarmu di sini.</p>
             </div>
             <div>
-                <a href="goals/add.php" class="btn btn-primary btn-small">+ Tambah Target Belajar</a>
+                <a href="../goals/add.php" class="btn btn-primary btn-small">+ Tambah Target Belajar</a>
             </div>
         </div>
 
@@ -75,10 +78,10 @@ require_once APP_ROOT . '/includes/header.php';
 
                     <!-- Tombol Aksi Profil -->
                     <div style="display: flex; flex-direction: column; gap: 10px;">
-                        <a href="profile-edit.php" class="btn btn-outline btn-small" style="text-align: center; justify-content: center;">
+                        <a href="edit.php" class="btn btn-outline btn-small" style="text-align: center; justify-content: center;">
                             ✏️ Edit Profil
                         </a>
-                        <a href="account-delete.php" class="btn btn-small" style="background:#fff1f1; color:#c81e1e; border:1px solid #f8b4b4; text-align:center; justify-content:center;">
+                        <a href="delete.php" class="btn btn-small" style="background:#fff1f1; color:#c81e1e; border:1px solid #f8b4b4; text-align:center; justify-content:center;">
                             🗑️ Hapus Akun
                         </a>
                     </div>
@@ -93,7 +96,7 @@ require_once APP_ROOT . '/includes/header.php';
                             <h2 style="font-size: 20px; margin: 0;">Target &amp; Progres Belajar (CRUD)</h2>
                             <p class="muted" style="margin: 3px 0 0;">Total data: <?= count($goals) ?> target pembelajaran</p>
                         </div>
-                        <a href="goals/add.php" class="btn btn-outline btn-small">+ Buat Baru</a>
+                        <a href="../goals/add.php" class="btn btn-outline btn-small">+ Buat Baru</a>
                     </div>
 
                     <?php if (empty($goals)): ?>
@@ -101,7 +104,7 @@ require_once APP_ROOT . '/includes/header.php';
                             <div style="font-size: 36px; margin-bottom: 10px;">🎯</div>
                             <h3 style="margin: 0 0 6px; font-size: 16px;">Belum Ada Target Belajar</h3>
                             <p class="muted" style="margin: 0 0 16px;">Mulai buat rencana belajar pertamamu untuk melacak progres kursus dan materi.</p>
-                            <a href="goals/add.php" class="btn btn-primary btn-small">+ Tambah Sekarang</a>
+                            <a href="../goals/add.php" class="btn btn-primary btn-small">+ Tambah Sekarang</a>
                         </div>
                     <?php else: ?>
                         <div class="table-wrap">
@@ -142,9 +145,9 @@ require_once APP_ROOT . '/includes/header.php';
                                             </td>
                                             <td style="text-align: center;">
                                                 <div class="table-actions" style="justify-content: center;">
-                                                    <a href="goals/edit.php?id=<?= $g['id'] ?>" class="action-btn-edit" title="Edit Data">Edit</a>
+                                                    <a href="../goals/edit.php?id=<?= $g['id'] ?>" class="action-btn-edit" title="Edit Data">Edit</a>
                                                     <span style="color: #d1d5db;">|</span>
-                                                    <a href="goals/delete.php?id=<?= $g['id'] ?>" class="action-btn-del" title="Hapus Data">Hapus</a>
+                                                    <a href="../goals/delete.php?id=<?= $g['id'] ?>" class="action-btn-del" title="Hapus Data">Hapus</a>
                                                 </div>
                                             </td>
                                         </tr>

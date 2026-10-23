@@ -1,7 +1,7 @@
 FROM php:8.2-apache
 
-# Install ekstensi PDO MySQL untuk koneksi database
-RUN docker-php-ext-install pdo pdo_mysql
+# Install ekstensi MySQLi untuk koneksi database (cara dasar)
+RUN docker-php-ext-install mysqli
 
 # Aktifkan modul rewrite Apache (opsional, berguna untuk routing jika dibutuhkan)
 RUN a2enmod rewrite

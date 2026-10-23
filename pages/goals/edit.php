@@ -6,18 +6,25 @@ require_once APP_ROOT . '/config/db.php';
 require_login('../auth/login.php');
 
 $user = get_current_user_data();
+if (!$user) {
+    header('Location: ../auth/logout.php');
+    exit;
+}
 $goal_id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 
-$db = get_db();
+$koneksi = get_db();
 
 // Ambil data target yang akan diedit dan pastikan milik user yang sedang login
-$stmt = $db->prepare("SELECT * FROM learning_goals WHERE id = ? AND user_id = ? LIMIT 1");
-$stmt->execute([$goal_id, $user['id']]);
-$goal = $stmt->fetch();
+$stmt = mysqli_prepare($koneksi, "SELECT * FROM learning_goals WHERE id = ? AND user_id = ? LIMIT 1");
+mysqli_stmt_bind_param($stmt, 'ii', $goal_id, $user['id']);
+mysqli_stmt_execute($stmt);
+$result = mysqli_stmt_get_result($stmt);
+$goal = mysqli_fetch_assoc($result);
+mysqli_stmt_close($stmt);
 
 if (!$goal) {
     set_flash_message('danger', 'Data target belajar tidak ditemukan atau Anda tidak memiliki akses.');
-    header('Location: ../profile.php');
+    header('Location: ../profile/index.php');
     exit;
 }
 
@@ -50,11 +57,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (empty($errors)) {
         // Update data target belajar (Update - CRUD)
-        $stmtUpdate = $db->prepare("UPDATE learning_goals SET judul = ?, kategori = ?, status = ?, catatan = ? WHERE id = ? AND user_id = ?");
-        $stmtUpdate->execute([$judul, $kategori, $status, $catatan, $goal_id, $user['id']]);
+        $stmtUpdate = mysqli_prepare($koneksi, "UPDATE learning_goals SET judul = ?, kategori = ?, status = ?, catatan = ? WHERE id = ? AND user_id = ?");
+        mysqli_stmt_bind_param($stmtUpdate, 'ssssii', $judul, $kategori, $status, $catatan, $goal_id, $user['id']);
+        mysqli_stmt_execute($stmtUpdate);
+        mysqli_stmt_close($stmtUpdate);
 
         set_flash_message('success', 'Target belajar berhasil diperbarui!');
-        header('Location: ../profile.php');
+        header('Location: ../profile/index.php');
         exit;
     }
 }
@@ -68,7 +77,7 @@ require_once APP_ROOT . '/includes/header.php';
 <main style="padding: 40px 0 80px;">
     <div class="container" style="max-width: 640px;">
         <div style="margin-bottom: 24px;">
-            <a href="../profile.php" class="text-link" style="font-weight: 700; font-size: 13px;">← Kembali ke Profil</a>
+            <a href="../profile/index.php" class="text-link" style="font-weight: 700; font-size: 13px;">← Kembali ke Profil</a>
             <h1 style="margin: 12px 0 4px; font-size: 26px;">Edit Target Belajar</h1>
             <p class="muted" style="margin: 0;">Perbarui progres atau rincian materi yang sedang kamu pelajari.</p>
         </div>
@@ -115,7 +124,7 @@ require_once APP_ROOT . '/includes/header.php';
 
                 <div style="display: flex; gap: 12px; margin-top: 24px;">
                     <button type="submit" class="btn btn-primary" style="flex: 1;">Simpan Perubahan</button>
-                    <a href="../profile.php" class="btn btn-outline" style="text-align: center;">Batal</a>
+                    <a href="../profile/index.php" class="btn btn-outline" style="text-align: center;">Batal</a>
                 </div>
             </form>
         </div>

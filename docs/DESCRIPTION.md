@@ -1,14 +1,14 @@
 # Laporan Analisis Proyek: Belajar HTML
 
-Dokumen ini berisi laporan analisis teknis terhadap proyek situs statis
+Dokumen ini berisi laporan analisis teknis terhadap proyek aplikasi web
 "Belajar HTML". Tujuannya adalah mendokumentasikan kondisi proyek, temuan
 masalah, serta rekomendasi perbaikan agar proyek lebih rapi, aksesibel,
 cepat, aman, dan mudah dipelihara.
 
 ## 1. Ringkasan Eksekutif
 
-Proyek ini adalah situs statis berbasis HTML5 dan CSS3 murni tanpa
-JavaScript, framework, maupun proses build. Situs berfungsi sebagai
+Proyek ini adalah aplikasi web berbasis PHP, MySQL, HTML5, dan CSS3
+tanpa framework maupun proses build. Situs berfungsi sebagai
 landing page dan katalog untuk platform pembelajaran (kursus, event,
 mentoring, blog). Struktur berkas sudah dirapikan ke dalam folder
 `pages/` dan `pages/auth/`.

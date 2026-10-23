@@ -6,6 +6,10 @@ require_once APP_ROOT . '/config/db.php';
 require_login('../auth/login.php');
 
 $user = get_current_user_data();
+if (!$user) {
+    header('Location: ../auth/logout.php');
+    exit;
+}
 $errors = [];
 $judul = '';
 $kategori = 'HTML';
@@ -34,13 +38,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if (empty($errors)) {
-        $db = get_db();
+        $koneksi = get_db();
         // Insert data baru (Create - CRUD)
-        $stmt = $db->prepare("INSERT INTO learning_goals (user_id, judul, kategori, status, catatan) VALUES (?, ?, ?, ?, ?)");
-        $stmt->execute([$user['id'], $judul, $kategori, $status, $catatan]);
+        $stmt = mysqli_prepare($koneksi, "INSERT INTO learning_goals (user_id, judul, kategori, status, catatan) VALUES (?, ?, ?, ?, ?)");
+        mysqli_stmt_bind_param($stmt, 'issss', $user['id'], $judul, $kategori, $status, $catatan);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_close($stmt);
 
         set_flash_message('success', 'Target belajar baru berhasil ditambahkan!');
-        header('Location: ../profile.php');
+        header('Location: ../profile/index.php');
         exit;
     }
 }
@@ -54,7 +60,7 @@ require_once APP_ROOT . '/includes/header.php';
 <main style="padding: 40px 0 80px;">
     <div class="container" style="max-width: 640px;">
         <div style="margin-bottom: 24px;">
-            <a href="../profile.php" class="text-link" style="font-weight: 700; font-size: 13px;">← Kembali ke Profil</a>
+            <a href="../profile/index.php" class="text-link" style="font-weight: 700; font-size: 13px;">← Kembali ke Profil</a>
             <h1 style="margin: 12px 0 4px; font-size: 26px;">Tambah Target Belajar Baru</h1>
             <p class="muted" style="margin: 0;">Buat target materi atau keterampilan baru yang ingin kamu pelajari.</p>
         </div>
@@ -101,7 +107,7 @@ require_once APP_ROOT . '/includes/header.php';
 
                 <div style="display: flex; gap: 12px; margin-top: 24px;">
                     <button type="submit" class="btn btn-primary" style="flex: 1;">+ Simpan Target Belajar</button>
-                    <a href="../profile.php" class="btn btn-outline" style="text-align: center;">Batal</a>
+                    <a href="../profile/index.php" class="btn btn-outline" style="text-align: center;">Batal</a>
                 </div>
             </form>
         </div>

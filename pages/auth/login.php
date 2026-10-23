@@ -4,7 +4,7 @@ require_once APP_ROOT . '/config/db.php';
 
 // Jika sudah login, langsung arahkan ke profile
 if (is_logged_in()) {
-    header('Location: ../profile.php');
+    header('Location: ../profile/index.php');
     exit;
 }
 
@@ -18,10 +18,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (empty($email) || empty($password)) {
         $error = 'Email dan password wajib diisi.';
     } else {
-        $db = get_db();
-        $stmt = $db->prepare("SELECT id, nama, email, password FROM users WHERE email = ? LIMIT 1");
-        $stmt->execute([$email]);
-        $user = $stmt->fetch();
+        $koneksi = get_db();
+        $stmt = mysqli_prepare($koneksi, "SELECT id, nama, email, password FROM users WHERE email = ? LIMIT 1");
+        mysqli_stmt_bind_param($stmt, 's', $email);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+        $user = mysqli_fetch_assoc($result);
+        mysqli_stmt_close($stmt);
 
         if ($user && password_verify($password, $user['password'])) {
             // Password cocok! Buat sesi login
@@ -29,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             set_flash_message('success', 'Selamat datang kembali, ' . $user['nama'] . '!');
 
             // Pola Post/Redirect/Get ke halaman profile
-            header('Location: ../profile.php');
+            header('Location: ../profile/index.php');
             exit;
         } else {
             $error = 'Email atau password yang Anda masukkan tidak sesuai.';

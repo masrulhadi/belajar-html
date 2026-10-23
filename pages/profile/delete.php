@@ -1,13 +1,13 @@
 <?php
-define('APP_ROOT', dirname(__DIR__));
+define('APP_ROOT', dirname(__DIR__, 2));
 require_once APP_ROOT . '/config/db.php';
 
 // Wajib login
-require_login('auth/login.php');
+require_login('../auth/login.php');
 
 $user = get_current_user_data();
 if (!$user) {
-    header('Location: auth/logout.php');
+    header('Location: ../auth/logout.php');
     exit;
 }
 
@@ -19,17 +19,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (empty($password)) {
         $error = 'Masukkan kata sandi Anda untuk mengonfirmasi penghapusan akun.';
     } else {
-        $db = get_db();
+        $koneksi = get_db();
         // Ambil password hash untuk verifikasi
-        $stmt = $db->prepare("SELECT password FROM users WHERE id = ? LIMIT 1");
-        $stmt->execute([$user['id']]);
-        $row = $stmt->fetch();
+        $stmt = mysqli_prepare($koneksi, "SELECT password FROM users WHERE id = ? LIMIT 1");
+        mysqli_stmt_bind_param($stmt, 'i', $user['id']);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+        $row = mysqli_fetch_assoc($result);
+        mysqli_stmt_close($stmt);
 
         if ($row && password_verify($password, $row['password'])) {
             // Hapus pengguna (Delete Akun)
             // Relasi foreign key ON DELETE CASCADE akan otomatis menghapus semua target belajar pengguna ini
-            $stmtDel = $db->prepare("DELETE FROM users WHERE id = ?");
-            $stmtDel->execute([$user['id']]);
+            $stmtDel = mysqli_prepare($koneksi, "DELETE FROM users WHERE id = ?");
+            mysqli_stmt_bind_param($stmtDel, 'i', $user['id']);
+            mysqli_stmt_execute($stmtDel);
+            mysqli_stmt_close($stmtDel);
 
             // Bersihkan sesi login
             $_SESSION = [];
@@ -37,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             session_start();
             set_flash_message('info', 'Akun dan seluruh data Anda telah berhasil dihapus secara permanen.');
-            header('Location: auth/register.php');
+            header('Location: ../auth/register.php');
             exit;
         } else {
             $error = 'Kata sandi yang Anda masukkan salah. Penghapusan akun dibatalkan.';
@@ -47,14 +52,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 $page_title = 'Hapus Akun';
 $current_page = 'profile';
-$base_url = '../';
+$base_url = '../../';
 require_once APP_ROOT . '/includes/header.php';
 ?>
 
 <main style="padding: 40px 0 80px;">
     <div class="container" style="max-width: 540px;">
         <div style="margin-bottom: 24px;">
-            <a href="profile.php" class="text-link" style="font-weight: 700; font-size: 13px;">← Kembali ke Profil</a>
+            <a href="index.php" class="text-link" style="font-weight: 700; font-size: 13px;">← Kembali ke Profil</a>
         </div>
 
         <div class="login-card" style="box-shadow: var(--shadow); border-top: 4px solid #e02424;">
@@ -70,7 +75,7 @@ require_once APP_ROOT . '/includes/header.php';
                 </div>
             <?php endif; ?>
 
-            <form action="account-delete.php" method="POST">
+            <form action="delete.php" method="POST">
                 <label for="password">Konfirmasi Kata Sandi Anda *</label>
                 <input type="password" id="password" name="password" placeholder="Masukkan password untuk verifikasi" required
                     style="width: 100%; min-height: 45px; padding: 11px 12px; border: 1px solid #dce2ef; border-radius: 10px; background: #fbfcff; font-size: 13px;">
@@ -79,7 +84,7 @@ require_once APP_ROOT . '/includes/header.php';
                     <button type="submit" class="btn btn-danger" style="flex: 1;">
                         Hapus Akun Saya
                     </button>
-                    <a href="profile.php" class="btn btn-outline" style="text-align: center;">
+                    <a href="index.php" class="btn btn-outline" style="text-align: center;">
                         Batal
                     </a>
                 </div>

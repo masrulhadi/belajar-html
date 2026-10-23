@@ -59,7 +59,7 @@ require_once APP_ROOT . '/includes/header.php';
                         </ul>
                         <div class="course-card-bottom">
                             <strong>Mulai Rp150.000</strong>
-                            <a href="<?= is_logged_in() ? 'profile.php' : 'auth/login.php' ?>">Detail</a>
+                            <a href="<?= is_logged_in() ? 'profile/index.php' : 'auth/login.php' ?>">Detail</a>
                         </div>
                     </div>
                 </article>
@@ -79,7 +79,7 @@ require_once APP_ROOT . '/includes/header.php';
                         </ul>
                         <div class="course-card-bottom">
                             <strong>Mulai Rp150.000</strong>
-                            <a href="<?= is_logged_in() ? 'profile.php' : 'auth/login.php' ?>">Detail</a>
+                            <a href="<?= is_logged_in() ? 'profile/index.php' : 'auth/login.php' ?>">Detail</a>
                         </div>
                     </div>
                 </article>
@@ -99,7 +99,7 @@ require_once APP_ROOT . '/includes/header.php';
                         </ul>
                         <div class="course-card-bottom">
                             <strong>Mulai Rp150.000</strong>
-                            <a href="<?= is_logged_in() ? 'profile.php' : 'auth/login.php' ?>">Detail</a>
+                            <a href="<?= is_logged_in() ? 'profile/index.php' : 'auth/login.php' ?>">Detail</a>
                         </div>
                     </div>
                 </article>
