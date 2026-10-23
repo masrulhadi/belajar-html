@@ -1,8 +1,4 @@
 <?php
-/**
- * Konfigurasi Database & Helper
- * Belajar HTML & CRUD PHP (Zero JS)
- */
 
 // Mulai session jika belum aktif
 if (session_status() === PHP_SESSION_NONE) {

@@ -1,4 +1,4 @@
-# Belajar HTML & CRUD PHP (Zero JS)
+# Belajar HTML & CRUD PHP
 
 - **Nama:** Masrul Hadi
 - **NIM:** 240705068
@@ -7,7 +7,7 @@
 ---
 
 ## 📌 Deskripsi Proyek
-Proyek ini merupakan aplikasi web bertema platform pembelajaran teknologi yang dibangun secara murni menggunakan **HTML5, CSS3, PHP, dan MySQL tanpa JavaScript (Zero JS)**.
+Proyek ini merupakan aplikasi web bertema platform pembelajaran teknologi yang dibangun menggunakan **HTML5, CSS3, PHP, dan MySQL**.
 
 Aplikasi ini mengintegrasikan alur autentikasi dan fitur **CRUD lengkap (Create, Read, Update, Delete)** di halaman profil pengguna dengan pola **Post/Redirect/Get (PRG)** serta keamanan berbasis **PDO Prepared Statements** dan **BCRYPT Password Hashing**.
 
